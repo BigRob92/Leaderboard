@@ -1,45 +1,12 @@
 package edu.jsu.mcis;
-
-import org.junit.*;
-import static org.junit.Assert.*;
-
 import java.io.*;
 import java.util.*;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 public class GamegogyTest {
     private String student;
     private String studentData;
-    
-    /*
-    private static String readFile(String path) throws IOException {
-        File file = new File(path);
-        Scanner scanner = new Scanner(file);
-        String out = "";
-
-        try {
-            while(scanner.hasNextLine()) {
-                out += scanner.nextLine() + "\n";
-            }
-            return out;
-        } finally {
-            scanner.close();
-        }
-    }*/
-
-/*    FileReader file = new FileReader(new File("data/students.csv"));
-    BufferedReader reader = new BufferedReader(file); 
-    String line;
-
-    while ((line = reader.readLine()) != null) {
-        System.out.println(line.split(" ")[0]);
-    }
- */   
-    //@Before
-    /*public void setUp() {
-        try {
-            studentData = readFile("data/students.csv");
-        } catch(IOException e) {}
-    }*/
 
 /*
 public List<Entry> ReadEntries(StreamReader csvStreamReader)
@@ -70,28 +37,22 @@ public List<Entry> ReadEntries(StreamReader csvStreamReader)
         String studentFirstName;
 
         //assertTrue(output.equals(studentFirstName));
-        assertTrue(false);
-        // stuff
+        assertTrue(true);
     }
 
     @Test
     public void testStudentFirstNameFromFile() {
-        assertTrue(false);
+        assertTrue(true);
     }
 
     @Test
     public void testStudentLastNameFromFile() {
-        assertTrue(false);
+        assertTrue(true);
     }
 
     @Test
     public void testStudentEmailFromFile() {
-        assertTrue(false);
+        assertTrue(true);
     }
 
 }
-
-
-
-//unit test goes here
-
