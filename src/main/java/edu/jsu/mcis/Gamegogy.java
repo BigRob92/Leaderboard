@@ -1,6 +1,8 @@
 //package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
+import au.com.bytecode.opencsv.*;
+
 
 public class Gamegogy {
     String type;
@@ -23,10 +25,22 @@ public class Gamegogy {
 
 
     public static void main(String[] args) throws Exception {
+        ClassLoader loader = ClassLoader.getSystemClassLoader();
+        StringBuffer csvContents = new StringBuffer();
+        
+        
+        
         for (String s: args) {
             if (s.equals("studentids")) {
                 // THE BELOW NEEDS FULL PATH TO FILE. MUST FIX THIS TO TAKE RELATIVE PATH.
-                FileReader file = new FileReader(new File("/home/ben/Development/cs310/Leaderboard/data/students.csv"));
+                FileReader file = new FileReader(new File("students.csv"));
+                
+                /*CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/data/students.csv"));
+                String [] nextLine;
+                while ((nextLine = reader.readNext()) != null) {
+                    System.out.println(nextLine[0] + nextLine[1]);
+                }
+                */
                 BufferedReader reader = new BufferedReader(file);
                 String line;
                 while ((line = reader.readLine()) != null) {
@@ -36,6 +50,14 @@ public class Gamegogy {
             else if (s.equals("courseids")) {
                 // THE BELOW NEEDS FULL PATH TO FILE. MUST FIX THIS TO TAKE RELATIVE PATH.
                 FileReader file = new FileReader(new File("/home/ben/Development/cs310/Leaderboard/data/courses.csv"));
+                
+                /*
+                CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/data/courses.csv"));
+                String [] nextLine;
+                while ((nextLine = reader.readNext()) != null) {
+                    System.out.println(nextLine[0] + nextLine[1]);
+                }
+                */
                 BufferedReader reader = new BufferedReader(file);
                 String line;
                 while ((line = reader.readLine()) != null) {
