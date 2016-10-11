@@ -1,11 +1,12 @@
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
+import au.com.bytecode.opencsv.*;
 
 public class Student {
 
-    //FileReader student_file = new FileReader(new File("students.csv"));
-    //List <T> studentData = new ArrayList(student_file);
+    FileReader student_file = new FileReader(new File("students.csv"));
+    List <T> studentData = new ArrayList(student_file);
 
     String studentId;
     String studentFirstName;
