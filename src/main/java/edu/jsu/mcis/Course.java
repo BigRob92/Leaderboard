@@ -8,7 +8,6 @@ public class Course {
     String courseYear;
     String courseSize;
 
-
     public String getCourseId() {
         courseId = "99000";
         return courseId;

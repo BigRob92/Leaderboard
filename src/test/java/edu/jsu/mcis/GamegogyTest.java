@@ -20,7 +20,7 @@ public class GamegogyTest {
     
     @Before
     public void setup() throws Exception {
-        DataSource d = new DataSource();
+        //DataSource d = new DataSource();
         Student s = new Student();
         Course c = new Course();
         //Student s = d.getStudent("111111");

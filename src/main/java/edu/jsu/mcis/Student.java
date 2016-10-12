@@ -1,17 +1,13 @@
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
+import au.com.bytecode.opencsv.*;
 
 public class Student {
     String studentId;
     String studentFirstName;
     String studentLastName;
     String studentEmail;
-
-    public String getStudentId() {
-        studentId = "111111";
-        return studentId;
-    }
 
     public String getStudentFirstName() {
         studentFirstName = "Jerrod";

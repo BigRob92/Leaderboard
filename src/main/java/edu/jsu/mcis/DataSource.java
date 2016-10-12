@@ -3,6 +3,11 @@ import java.io.*;
 import java.util.*;
 
 public class DataSource {
+    private String studentData = "";
+    private String courseData = "";
+    private DataSource d;
+    private Student s;
+    private Course c;
 
     public DataSource() throws Exception {
         Scanner s_scan = new Scanner(new File("/home/ben/Development/cs310/Leaderboard/data/students.csv"));
@@ -12,7 +17,7 @@ public class DataSource {
             studentData.add(s_scan.nextLine());
         }
         s_scan.close();
-
+        
         Scanner c_scan = new Scanner(new File("/home/ben/Development/cs310/Leaderboard/data/course.csv")); 
         c_scan.useDelimiter(",");
         List<String> courseData = new ArrayList<String>();
@@ -22,10 +27,21 @@ public class DataSource {
         c_scan.close();
     }
 
+    public String getAllStudents() throws Exception {
+        d = new DataSource();
+        return d.studentData;
+
+    }
+
+    public String getallCourses() throws Exception {
+        d = new DataSource();
+        return d.courseData;
+    }
+
     public String getStudent(String studentId) {
         //return "";
         //String studentId = s.getStudentId();
-        Student s = new Student();
+        s = new Student();
         String studentFirstName = s.getStudentFirstName();
         String studentLastName = s.getStudentLastName();
         String studentEmail = s.getStudentEmail();
@@ -35,7 +51,7 @@ public class DataSource {
     }
 
     public String getCourse(String courseId) {
-        Course c = new Course();
+        c = new Course();
         //String courseId = c.getCourseId();
         String courseTerm = c.getCourseTerm();
         String courseYear = c.getCourseYear();
@@ -45,3 +61,4 @@ public class DataSource {
         return courseData;
     }
 }
+
