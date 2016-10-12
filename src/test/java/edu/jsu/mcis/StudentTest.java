@@ -14,11 +14,7 @@ public class StudentTest {
 
     @Before
     public void setup() {
-    s = new Student();
-    studentId = "111111";
-    studentFirstName = "Jerrod";
-    studentLastName = "Shields";
-    studentEmail = "jshields@stu.jsu.edu";
+        s = new Student();
     }
 
     @Test

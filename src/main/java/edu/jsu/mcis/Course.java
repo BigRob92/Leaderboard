@@ -1,32 +1,32 @@
-/*
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
 
 public class Course {
+    String courseId;
+    String courseTerm;
+    String courseYear;
+    String courseSize;
 
-    FileReader course_file = new FileReader(new File("courses.csv"));
-    List <T> courseData = new ArrayList(course_file);
-
-    String courseId = courseData.get(0);
-    String courseTerm = courseData.get(1);
-    String courseYear = courseData.get(2);
-    String courseSize = courseData.get(3);
 
     public String getCourseId() {
+        courseId = "99000";
         return courseId;
     }
 
     public String getCourseTerm() {
+        courseTerm = "Spring";
         return courseTerm;
     }
 
     public String getCourseYear() {
+        courseYear = "2013";
         return courseYear;
     }
 
     public String getCourseSize() {
+        courseSize = "11";
         return courseSize;
     }
+
 }
-*/
