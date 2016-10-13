@@ -18,13 +18,13 @@ public class DataSourceTest {
     }
 
     @Test
-    public void testReadStudentInfoIntoList() {
+    public void testReadStudentsFileIntoList() {
         // do work
         assertTrue(true);
     }
 
     @Test
-    public void testReadCourseInfoIntoList() {
+    public void testReadCoursesFileIntoList() {
         // do work
         assertTrue(true);
     }

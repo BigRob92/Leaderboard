@@ -3,28 +3,42 @@ import java.io.*;
 import java.util.*;
 
 public class Course {
-    String courseId;
-    String courseTerm;
-    String courseYear;
-    String courseSize;
+    String courseId = "";
+    String courseTerm = "";
+    String courseYear = "";
+    String courseSize = "";
+
+    public Course(String courseId, String courseTerm, String courseYear, String courseSize) {
+
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
 
     public String getCourseId() {
-        courseId = "99000";
         return courseId;
     }
 
+    public void setCourseTerm(String courseTerm) {
+        this.courseTerm = courseTerm;
+    }
     public String getCourseTerm() {
-        courseTerm = "Spring";
         return courseTerm;
     }
 
+    public void setCourseYear(String courseYear) {
+        this.courseYear = courseYear;
+    }
+
     public String getCourseYear() {
-        courseYear = "2013";
         return courseYear;
     }
 
+    public void setCourseSize(String courseSize) {
+        this.courseSize = courseSize;
+    }
     public String getCourseSize() {
-        courseSize = "11";
         return courseSize;
     }
 

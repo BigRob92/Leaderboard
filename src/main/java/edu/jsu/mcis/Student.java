@@ -1,7 +1,6 @@
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
-import au.com.bytecode.opencsv.*;
 
 public class Student {
     String studentId;
@@ -9,18 +8,37 @@ public class Student {
     String studentLastName;
     String studentEmail;
 
+    public Student(String studentId, String studentFirstName, String studentLastName, String studentEmail) {
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+    
+    public void setStudentFirstName(String studentFirstName) {
+        this.studentFirstName = studentFirstName;
+    }
+
     public String getStudentFirstName() {
-        studentFirstName = "Jerrod";
         return studentFirstName;
     }
 
+    public void setStudentLastName(String studentLastName) {
+        this.studentLastName = studentLastName;
+    }
     public String getStudentLastName() {
-        studentLastName = "Shields";
         return studentLastName;
     }
 
+    public void setStudentEmail(String studentEmail) {
+        this.studentEmail = studentEmail;
+    }
+    
     public String getStudentEmail() {
-        studentEmail = "jshields@stu.jsu.edu";
         return studentEmail;
     }
 }
