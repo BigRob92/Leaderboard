@@ -3,10 +3,10 @@ import java.io.*;
 import java.util.*;
 
 public class Course {
-    String courseId = "";
-    String courseTerm = "";
-    String courseYear = "";
-    String courseSize = "";
+    public String courseId = "";
+    public String courseTerm = "";
+    public String courseYear = "";
+    public String courseSize = "";
 
     public Course(String courseId, String courseTerm, String courseYear, String courseSize) {
 
@@ -41,6 +41,15 @@ public class Course {
     }
     public String getCourseSize() {
         return courseSize;
+    }
+
+    public String toString(){
+        String output = "";
+        output += "[" + courseId + "] ";
+        output += courseTerm + " ";
+        output += courseYear + " ";
+        output += "(" + courseSize + " students)";
+        return output;
     }
 
 }

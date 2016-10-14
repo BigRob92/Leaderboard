@@ -3,10 +3,10 @@ import java.io.*;
 import java.util.*;
 
 public class Student {
-    String studentId;
-    String studentFirstName;
-    String studentLastName;
-    String studentEmail;
+    public String studentId;
+    public String studentFirstName;
+    public String studentLastName;
+    public String studentEmail;
 
     public Student(String studentId, String studentFirstName, String studentLastName, String studentEmail) {
     }
@@ -41,5 +41,14 @@ public class Student {
     
     public String getStudentEmail() {
         return studentEmail;
+    }
+
+    public String toString() {
+        String output = "";
+        output += "[" + studentId + "] ";
+        output += studentFirstName + " ";
+        output += studentLastName + " ";
+        output += studentEmail + "@stu.jsu.edu";
+        return output;
     }
 }

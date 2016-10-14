@@ -5,7 +5,7 @@ import au.com.bytecode.opencsv.*;
 
 public class Gamegogy {
     public Gamegogy() {
-        DataSource d = new DataSource();
+        //DataSource d = new DataSource();
     }
 
     public static void main(String[] args) throws Exception {
