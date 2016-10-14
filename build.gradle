@@ -2,7 +2,8 @@ buildscript {
     dependencies {
         classpath files(mkdir('build/classes/main'))
         classpath files(mkdir('build/resources/main'))
-        classpath 'net.sf.opencsv:opencsv:2.3'
+        classpath files('/home/ben/Development/frameworks')
+	classpath 'net.sf.opencsv:opencsv:2.3'
 	classpath 'com.opencsv:opencsv:3.8'
     }
 }
