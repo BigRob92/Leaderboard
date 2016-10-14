@@ -8,9 +8,9 @@ public class GamegogyTest {
     private String student;
     private String studentData;
     //private DataSource d;
-    private Student s;
-    private Course c;
-    int counter = 0;
+    //private Student s;
+    //private Course c;
+    //int counter = 0;
     
 
 // Dr. Garrett's advice

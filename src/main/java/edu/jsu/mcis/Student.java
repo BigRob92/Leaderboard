@@ -1,3 +1,4 @@
+/*
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
@@ -50,4 +51,6 @@ public class Student {
         output += studentEmail + "@stu.jsu.edu";
         return output;
     }
+
 }
+*/

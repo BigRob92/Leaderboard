@@ -4,14 +4,14 @@ import java.util.*;
 import au.com.bytecode.opencsv.*;
 
 public class Gamegogy {
-    public Gamegogy() {
+   // public Gamegogy() {
         //DataSource d = new DataSource();
-    }
+    //}
 
     public static void main(String[] args) throws Exception {
         CSVParser parser = new CSVParser();
-        Student s = new Student("","","","");
-        Course c = new Course("","","","");
+        //Student s = new Student("","","","");
+        //Course c = new Course("","","","");
         String studentId = "";
         String courseId = "";
 

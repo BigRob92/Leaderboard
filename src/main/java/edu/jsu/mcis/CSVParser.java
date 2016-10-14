@@ -4,8 +4,8 @@ import java.lang.*;
 import au.com.bytecode.opencsv.*;
 
 public class CSVParser {
-    Student s = new Student("", "", "", "");
-    Course c = new Course("", "", "", "");
+    //Student s = new Student("", "", "", "");
+    //Course c = new Course("", "", "", "");
 
     public void studentParser() throws Exception {
         CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\'', 1);

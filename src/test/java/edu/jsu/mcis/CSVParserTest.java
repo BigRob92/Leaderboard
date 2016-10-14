@@ -1,7 +1,5 @@
 package edu.jsu.mcis;
 import java.io.*;
-import java.lang.*;
-import java.util.*;
 import au.com.bytecode.opencsv.*;
 import org.junit.*;
 import static org.junit.Assert.*;
