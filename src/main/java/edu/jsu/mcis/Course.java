@@ -3,10 +3,10 @@ import java.io.*;
 import java.util.*;
 
 public class Course {
-    public String courseId = "";
-    public String courseTerm = "";
-    public String courseYear = "";
-    public String courseSize = "";
+    public String courseId;// = "";
+    public String courseTerm;// = "";
+    public String courseYear;// = "";
+    public String courseSize;// = "";
 
     public Course(String courseId, String courseTerm, String courseYear, String courseSize) {
 
