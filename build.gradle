@@ -33,6 +33,7 @@ task uberjar(type: Jar) {
     }
     with jar
 }
+sourceSets { main { resources { srcDir 'src/main/resources' } } }
 
 repositories {
     mavenCentral()

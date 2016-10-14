@@ -8,7 +8,7 @@ public class CSVParser {
     //Course c = new Course("", "", "", "");
 
     public void studentParser() throws Exception {
-        CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\'', 1);
+        CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/resources/students.csv"), ',', '\'', 1);
         String [] nextLine;
         while ((nextLine = reader.readNext()) != null) {
             System.out.println(nextLine[0].replaceAll("\"", ""));
@@ -16,7 +16,7 @@ public class CSVParser {
     }
 
     public void courseParser() throws Exception {
-        CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses.csv"), ',', '\'', 1);
+        CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/resources/courses.csv"), ',', '\'', 1);
         String [] nextLine;
         while ((nextLine = reader.readNext()) != null) {
             System.out.println(nextLine[0].replaceAll("\"", ""));
@@ -24,7 +24,7 @@ public class CSVParser {
     }
 
     public void studentLine(String studentId) throws Exception {
-        CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\'', 1);
+        CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/resources/students.csv"), ',', '\'', 1);
         String [] nextLine;
         while ((nextLine = reader.readNext()) != null) {
             if (nextLine[0].equals('"'+studentId+'"')) {
@@ -40,7 +40,7 @@ public class CSVParser {
     }
 
     public void courseLine(String courseId) throws Exception {
-        CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses.csv"), ',', '\'', 1);
+        CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/resources/courses.csv"), ',', '\'', 1);
         String [] nextLine;
         while ((nextLine = reader.readNext()) != null) {
             if (nextLine[0].equals('"'+courseId+'"')) {
@@ -49,7 +49,9 @@ public class CSVParser {
                 +" "+nextLine[2].replaceAll("\"", "")
                 +" "+"("+nextLine[3].replaceAll("\"", "")+" students)");
             }
+            else {}
             //else {System.out.println("Course not found.");}
         }
+        System.exit(0);
     }
 }
