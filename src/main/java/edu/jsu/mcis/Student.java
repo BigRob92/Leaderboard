@@ -11,9 +11,8 @@ public class Student {
     public Student(String studentId, String studentFirstName, String studentLastName, String studentEmail) {
     }
 
-    public String setStudentId(String studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
-        return studentId;
     }
 
     public String getStudentId() {

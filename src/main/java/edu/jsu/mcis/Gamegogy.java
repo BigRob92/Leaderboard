@@ -24,11 +24,14 @@ public class Gamegogy {
                 parser.courseParser();
             }
             else if (arg.equals("student")) {
-                args[1] = studentId;
+                
+                studentId = args[1];
+                s.setStudentId(studentId);
+                //System.out.println(studentId);
                 parser.studentLine(studentId);
             }
             else if (arg.equals("course")) {
-                args[1] = courseId;
+                courseId = args[1];
                 parser.courseLine(courseId);
             }
             else {System.exit(0);}
