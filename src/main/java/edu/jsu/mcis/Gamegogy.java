@@ -14,7 +14,6 @@ public class Gamegogy {
         Course c = new Course("","","","");
         String studentId = "";
         String courseId = "";
-        //String bar = "";
 
         for (String arg : args) {
             if (arg.equals("studentids")) {
@@ -26,8 +25,6 @@ public class Gamegogy {
             else if (arg.equals("student")) {
                 
                 studentId = args[1];
-                s.setStudentId(studentId);
-                //System.out.println(studentId);
                 parser.studentLine(studentId);
             }
             else if (arg.equals("course")) {

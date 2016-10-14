@@ -44,7 +44,10 @@ public class CSVParser {
         String [] nextLine;
         while ((nextLine = reader.readNext()) != null) {
             if (nextLine[0].equals('"'+courseId+'"')) {
-                System.out.println(nextLine[0] + nextLine[1] + nextLine[2] + nextLine[3]);
+                System.out.println("["+nextLine[0].replaceAll("\"", "")+"]"
+                +" "+nextLine[1].replaceAll("\"", "")
+                +" "+nextLine[2].replaceAll("\"", "")
+                +" "+"("+nextLine[3].replaceAll("\"", "")+" students)");
             }
             //else {System.out.println("Course not found.");}
         }
