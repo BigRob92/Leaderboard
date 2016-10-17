@@ -2,7 +2,7 @@ package edu.jsu.mcis;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
-import au.com.bytecode.opencsv.*;s
+import au.com.bytecode.opencsv.*;
 
 public class CSVParser {
     //Student s = new Student("", "", "", "");
@@ -18,18 +18,17 @@ public class CSVParser {
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
-				students.add();
+				students.add(s);
 			}
 		}
 		catch(FileNotFoundException e) {}
 		catch(IOException e) {}
-		
 		try {
 			CSVReader reader = new CSVReader(new FileReader("C:/Users/cody/Desktop/Leaderboard-development/src/main/resources/courses.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Course c = new Course(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
-				courses.add();
+				courses.add(c);
 			}
 		}
 		catch(FileNotFoundException e) {}
@@ -60,21 +59,11 @@ public class CSVParser {
 		return null;
     }
 	
-    public String courseLine(String courseId) throws Exception {
-        CSVReader reader = new CSVReader(new FileReader("C:/Users/cody/Desktop/Leaderboard-development/src/main/resources/courses.csv"), ',', '\'', 1);
-        String [] nextLine;
-		String courseInfo = "";
-        while ((nextLine = reader.readNext()) != null) {
-            if (nextLine[0].equals('"'+courseId+'"')) {
-               courseInfo =  "["+nextLine[0].replaceAll("\"", "")+"]"
-                +" "+nextLine[1].replaceAll("\"", "")
-                +" "+nextLine[2].replaceAll("\"", "")
-                +" "+"("+nextLine[3].replaceAll("\"", "")+" students)";
-				return courseInfo;
-            }
-            else {}
-            //else {System.out.println("Course not found.");}
-        }
-		return "";
+    public Course getCourse(String courseId) {
+		for(int i = 0; i < courses.size(); i++){
+			Course c = courses.get(i);
+			if(courseId.equals(c.getId())) return c;
+		}
+		return null;
     }
 }
