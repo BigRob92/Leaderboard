@@ -2,6 +2,7 @@ package edu.jsu.mcis;
 
 public class Student {
     private String id;
+	private String ids;
     private String firstName;
     private String lastName;
     private String email;
@@ -16,7 +17,6 @@ public class Student {
     public String getId() {
         return id;
     }
-    
 
     public String getFirstName() {
         return firstName;

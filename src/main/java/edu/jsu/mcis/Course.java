@@ -5,6 +5,7 @@ public class Course {
     private String term;
     private String year;
     private String size;
+	private String ids;
 
     public Course(String id, String term, String year, String size) {
 		this.id = id;

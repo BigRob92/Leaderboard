@@ -14,7 +14,6 @@ public class CSVParserTest {
 
     @Test
     public void testParserReadsStudentInfo(){
-		
         Student s = new Student("111111", "Jerrod", "Shields", "jshields");
 		Student t = p.getStudent("111111");
         assertEquals(s, t);

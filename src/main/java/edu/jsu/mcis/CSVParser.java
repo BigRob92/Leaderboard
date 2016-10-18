@@ -9,10 +9,13 @@ public class CSVParser {
     //Course c = new Course("", "", "", "");
 	private List<Student> students;
 	private List<Course> courses;
+	private List<Course> courseIds;
+	private List<Student> studentIds;
 	
 	public CSVParser() {
 		students = new ArrayList<>();
 		courses = new ArrayList<>();
+		
 		try {
 			CSVReader reader = new CSVReader(new FileReader("C:/Users/cody/Desktop/Leaderboard-development/src/main/resources/students.csv"), ',', '\"', 1);
 			String[] nextLine;
@@ -20,6 +23,8 @@ public class CSVParser {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
 				students.add(s);
 			}
+			
+			
 		}
 		catch(FileNotFoundException e) {}
 		catch(IOException e) {}
