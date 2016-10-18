@@ -13,6 +13,10 @@ public class Student {
 		this.lastName = lastName;
 		this.email = email;
     }
+	
+	public Student(String id){
+		this.id = id;
+	}
 
     public String getId() {
         return id;
@@ -39,7 +43,7 @@ public class Student {
 	public boolean equals(Object o) {
 		if(o instanceof Student) {
 			Student s = (Student)o;
-			return id.equals(s.id) && firstName.equals(s.firstName) && lastName.equals(s.lastName) && email.equals(s.email); 
+			return id.equals(s.getId()) && firstName.equals(s.getFirstName()) && lastName.equals(s.getLastName()) && email.equals(s.getEmail()); 
 		}
 		else return false;
 	}

@@ -38,7 +38,7 @@ public class Course {
 	public boolean equals(Object o) {
 		if(o instanceof Course) {
 			Course c = (Course)o;
-			return id.equals(c.id) && term.equals(c.term) && year.equals(c.year) && size.equals(c.size); 
+			return id.equals(c.getId()) && term.equals(c.getTerm()) && year.equals(c.getYear()) && size.equals(c.getSize()); 
 		}
 		else return false;
 	}

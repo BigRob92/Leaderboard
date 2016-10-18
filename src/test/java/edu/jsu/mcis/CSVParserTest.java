@@ -11,6 +11,18 @@ public class CSVParserTest {
     public void setup() {
         p = new CSVParser();
     }
+	
+	@Test
+	public void testThatCourseIdsAreLoaded(){
+		
+		
+	}
+	
+	@Test
+	public void testThatStudentIdsAreLoaded(){
+		
+		
+	}
 
     @Test
     public void testParserReadsStudentInfo(){

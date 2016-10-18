@@ -14,6 +14,7 @@ public class CSVParser {
 	
 	public CSVParser() {
 		students = new ArrayList<>();
+		studentIds = new ArrayList<>();
 		courses = new ArrayList<>();
 		
 		try {
@@ -21,7 +22,9 @@ public class CSVParser {
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
+				Student stud = new Student (nextLine[0]);
 				students.add(s);
+				studentIds.add(stud);
 			}
 			
 			
@@ -40,12 +43,12 @@ public class CSVParser {
 		catch(IOException e) {}
 	}
 	
-    public void studentParser() throws Exception{
-        CSVReader reader = new CSVReader(new FileReader("C:/Users/cody/Desktop/Leaderboard-development/src/main/resources/students.csv"), ',', '\'', 1);
-        String [] nextLine;
-        while ((nextLine = reader.readNext()) != null) {
-            System.out.println(nextLine[0].replaceAll("\"", ""));
-        }
+    public Student getStudentIds(){
+		for(int i = 0; i < studentIds.size(); i++){
+			Student stud = studentIds.get(i);
+			return stud;
+		}
+		return null;
     }
 
     public void courseParser() throws Exception {
