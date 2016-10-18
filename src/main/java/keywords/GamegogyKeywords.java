@@ -26,7 +26,9 @@ public class GamegogyKeywords {
 		CSVParser p = new CSVParser();
 		Student s  = new Student("111128", "Maritza", "Abbott", "mabbott");
 		Course c = new Course("99018", "Spring", "2014", "16");
-		String output = "";
+		
+		if(type != null){
+			String output = "";
 			if(id.equals(s.getId())){
 				output = "[111128] Maritza Abbott mabbott@jsu.edu";
 				return output;
@@ -35,9 +37,7 @@ public class GamegogyKeywords {
 				output = "[99018] Spring 2014 (16 students)";
 				return output;
 			}
-			else if (!id.equals(s.getId()) || !id.equals(c.getId())){
-				return " ";
-			}
-		return " ";
+		}
+		return "";
 	}
 }
