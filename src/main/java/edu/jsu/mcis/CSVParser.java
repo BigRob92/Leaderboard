@@ -40,6 +40,7 @@ public class CSVParser {
 		}
 		catch(FileNotFoundException e) {}
 		catch(IOException e) {}
+	}
 
 		public String getStudentIds() {
 			List<String> output = new ArrayList<String>(studentIds);
