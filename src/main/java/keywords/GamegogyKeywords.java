@@ -58,19 +58,5 @@ public class GamegogyKeywords {
 		}
 		return "";
 
-		/*
-		if(type != null){
-			String output = "";
-			if(id.equals(s.getId())){
-				output = "[111128] Maritza Abbott mabbott@jsu.edu";
-				return output;
-			}
-			else if(id.equals(c.getId())){
-				output = "[99018] Spring 2014 (16 students)";
-				return output;
-			}
-		}
-		return "";
-		*/
 	}
 }
