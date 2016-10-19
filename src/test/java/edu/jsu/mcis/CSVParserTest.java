@@ -15,13 +15,14 @@ public class CSVParserTest {
 	@Test
 	public void testThatCourseIdsAreLoaded(){
 		
+		assertEquals(p.getCourseIds(), p.courseIds);
 		
 	}
 	
 	@Test
-	public void testThatStudentIdsAreLoaded(){
-		
-		
+	public void testReturnStudentIds() {
+		CSVParser p = new CSVParser();
+		assertEquals(p.getStudentIds(), p.studentIds);
 	}
 
     @Test

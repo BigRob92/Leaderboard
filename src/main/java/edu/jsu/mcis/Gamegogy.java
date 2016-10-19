@@ -13,10 +13,10 @@ public class Gamegogy {
 
         for (String arg : args) {
             if (arg.equals("studentids")) {
-                parser.getStudentIds();
+                System.out.println(parser.getStudentIds());
             }
             else if (arg.equals("courseids")) {
-                parser.courseParser();
+                System.out.println(parser.getCourseIds());
             }
             else if (arg.equals("student")) {
                 studentId = args[1];

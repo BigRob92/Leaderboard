@@ -9,16 +9,17 @@ public class CSVParser {
     //Course c = new Course("", "", "", "");
 	private List<Student> students;
 	private List<Course> courses;
-	private List<Course> courseIds;
-	private List<Student> studentIds;
+	public List<Course> courseIds;
+	public List<Student> studentIds;
 	
 	public CSVParser() {
 		students = new ArrayList<>();
 		studentIds = new ArrayList<>();
 		courses = new ArrayList<>();
+		courseIds = new ArrayList<>();
 		
 		try {
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/cody/Desktop/Leaderboard-development/src/main/resources/students.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -32,31 +33,25 @@ public class CSVParser {
 		catch(FileNotFoundException e) {}
 		catch(IOException e) {}
 		try {
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/cody/Desktop/Leaderboard-development/src/main/resources/courses.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Course c = new Course(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
+				Course cour = new Course(nextLine[0]);
 				courses.add(c);
+				courseIds.add(cour);
 			}
 		}
 		catch(FileNotFoundException e) {}
 		catch(IOException e) {}
 	}
 	
-    public Student getStudentIds(){
-		for(int i = 0; i < studentIds.size(); i++){
-			Student stud = studentIds.get(i);
-			return stud;
-		}
-		return null;
+    public List <Student> getStudentIds(){
+		return studentIds;
     }
 
-    public void courseParser() throws Exception {
-        CSVReader reader = new CSVReader(new FileReader("C:/Users/cody/Desktop/Leaderboard-development/src/main/resources/courses.csv"), ',', '\'', 1);
-        String [] nextLine;
-        while ((nextLine = reader.readNext()) != null) {
-            System.out.println(nextLine[0].replaceAll("\"", ""));
-        }
+    public List <Course> getCourseIds() {
+		return courseIds;
     }
 
     public Student getStudent(String studentId) {
