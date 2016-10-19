@@ -17,16 +17,9 @@ public class StudentTest {
 		assertEquals(s, t);
 	}
 
-
+	@Test
+	public void testGetCourseIds() {
+		
+	}
 		
 }
-	
-	/*@Test
-	public void testReturnStudentIds{
-		for(int i = 0; i < studentIds.size(); i++) {
-			Student s = new Student(s.getId())
-
-		}
-	}
-	*/
-//}

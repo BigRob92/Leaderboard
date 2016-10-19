@@ -13,16 +13,13 @@ public class CSVParserTest {
     }
 	
 	@Test
-	public void testThatCourseIdsAreLoaded(){
-		
-		assertEquals(p.getCourseIds(), p.courseIds);
-		
+	public void testThatCourseIdsAreLoaded() {		
+		assertEquals("["+p.getCourseIds().toString()+"]", p.courseIds.toString());
 	}
 	
 	@Test
 	public void testReturnStudentIds() {
-		CSVParser p = new CSVParser();
-		assertEquals(p.getStudentIds(), p.studentIds);
+		assertEquals("["+p.getStudentIds().toString()+"]", p.studentIds.toString());
 	}
 
     @Test
