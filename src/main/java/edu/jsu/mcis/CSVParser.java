@@ -8,8 +8,8 @@ public class CSVParser {
 
 	private List<Student> students;
 	private List<Course> courses;
-	protected List<String> studentIds;
-	protected List<String> courseIds;
+	public List<String> studentIds;
+	public List<String> courseIds;
 
 	public CSVParser() {
 		students = new ArrayList<>();

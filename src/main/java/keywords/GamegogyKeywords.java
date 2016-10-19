@@ -48,11 +48,11 @@ public class GamegogyKeywords {
 				}
 			} else if(type.equals("studentids")) {
 				String output = "";
-				output = p.getStudentIds();
+				output = String.join("\n",p.studentIds);
 				return output;
 			} else if(type.equals("courseids")) {
 				String output = "";
-				output = p.getCourseIds();
+				output = String.join("\n",p.courseIds);
 				return output;
 			}
 		}

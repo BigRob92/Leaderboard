@@ -19,7 +19,7 @@ public class CSVParserTest {
 	
 	@Test
 	public void testReturnStudentIds() {
-		assertEquals("["+p.getStudentIds().toString()+"]", p.studentIds.toString());
+		assertEquals("["+p.getStudentIds()+"]", p.studentIds.toString());
 	}
 
     @Test
