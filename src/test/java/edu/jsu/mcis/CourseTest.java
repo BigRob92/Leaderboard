@@ -2,6 +2,7 @@ package edu.jsu.mcis;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+
 public class CourseTest {
     @Test
     public void testToString() {
@@ -15,4 +16,5 @@ public class CourseTest {
 		Course d = new Course("99018", "Spring", "2014", "16");
         assertEquals(c, d);
     }
+
 }

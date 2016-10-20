@@ -1,8 +1,9 @@
 package edu.jsu.mcis;
 
+
 public class Student {
+
     private String id;
-	private String ids;
     private String firstName;
     private String lastName;
     private String email;
@@ -13,10 +14,6 @@ public class Student {
 		this.lastName = lastName;
 		this.email = email;
     }
-	
-	public Student(String id){
-		this.id = id;
-	}
 
     public String getId() {
         return id;
@@ -47,10 +44,5 @@ public class Student {
 		}
 		else return false;
 	}
+
 }
-
-
-
-
-
-

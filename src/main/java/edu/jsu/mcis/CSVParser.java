@@ -1,8 +1,8 @@
 package edu.jsu.mcis;
 import java.io.*;
-import java.lang.*;
 import java.util.*;
 import au.com.bytecode.opencsv.*;
+
 
 public class CSVParser {
 
@@ -16,9 +16,9 @@ public class CSVParser {
 		studentIds = new ArrayList<>();
 		courses = new ArrayList<>();
 		courseIds = new ArrayList<>();
-		
+
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("./resources/students.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -30,7 +30,7 @@ public class CSVParser {
 		catch(IOException e) {}
 
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("./resources/courses.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Course c = new Course(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -69,4 +69,5 @@ public class CSVParser {
 		}
 		return null;
     }
+
 }

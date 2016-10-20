@@ -1,13 +1,13 @@
-
 package edu.jsu.mcis;
-
 import org.junit.*;
 import static org.junit.Assert.*;
+
 
 public class CSVParserTest {
 	
 	private CSVParser p;
-    @Before
+    
+	@Before
     public void setup() {
         p = new CSVParser();
     }
@@ -35,5 +35,5 @@ public class CSVParserTest {
 		Course t = p.getCourse("99018");
 		assertEquals(c, t);
 	}
+	
 }
-

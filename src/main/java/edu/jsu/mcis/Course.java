@@ -1,21 +1,18 @@
 package edu.jsu.mcis;
 
+
 public class Course {
+    
     private String id;
     private String term;
     private String year;
     private String size;
-	private String ids;
-
+	
     public Course(String id, String term, String year, String size) {
 		this.id = id;
 		this.term = term;
 		this.year = year;
 		this.size = size;
-    }
-
-    public Course(String id){
-        this.id = id;
     }
 
     public String getId() {

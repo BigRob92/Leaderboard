@@ -1,7 +1,6 @@
 package keywords;
-
 import edu.jsu.mcis.*;
-import java.util.*;
+
 
 public class GamegogyKeywords {
 
@@ -43,8 +42,8 @@ public class GamegogyKeywords {
 			} else if(type.equals("course")) { 
 				String output = "";
 				if(id.equals(c.getId())) {
-				output = "[99018] Spring 2014 (16 students)";
-				return output;
+					output = "[99018] Spring 2014 (16 students)";
+					return output;
 				}
 			} else if(type.equals("studentids")) {
 				String output = "";
@@ -59,4 +58,5 @@ public class GamegogyKeywords {
 		return "";
 
 	}
+	
 }

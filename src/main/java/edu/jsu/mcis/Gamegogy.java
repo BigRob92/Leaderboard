@@ -1,7 +1,5 @@
 package edu.jsu.mcis;
-import java.io.*;
-import java.util.*;
-import au.com.bytecode.opencsv.*;
+
 
 public class Gamegogy {
 
@@ -9,7 +7,6 @@ public class Gamegogy {
         CSVParser parser = new CSVParser();
         String studentId = "";
         String courseId = "";
-        String output = "";
 
         for (String arg : args) {
             if (arg.equals("studentids")) {
@@ -29,4 +26,5 @@ public class Gamegogy {
             else {System.exit(0);}
         }
     }
+    
 }
