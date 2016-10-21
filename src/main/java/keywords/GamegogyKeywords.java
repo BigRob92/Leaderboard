@@ -31,6 +31,7 @@ public class GamegogyKeywords {
 		if(type != null) {
 			if(type.equals("student")) {
 				return p.getStudent("111128").toString();
+			
 			} else if(type.equals("course")) { 
 				return p.getCourse("99018").toString();
 			
