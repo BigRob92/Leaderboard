@@ -1,8 +1,7 @@
 buildscript {
     dependencies {
         classpath files(mkdir('build/classes/main'))
-        classpath files(mkdir('build/resources/main'))
-	classpath files('src/main/resources')
+	classpath files(mkdir('build/resources/main'))
 	classpath 'net.sf.opencsv:opencsv:2.3'
     }
 }
@@ -10,8 +9,10 @@ plugins {
   id 'org.roboscratch.robot' version '0.1.1'
 }
 apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: 'jacoco'
 
+mainClassName = "edu.jsu.mcis.Gamegogy"
 version = '1.0'
 jar {
     manifest {
@@ -33,7 +34,6 @@ task uberjar(type: Jar) {
     }
     with jar
 }
-sourceSets { main { resources { srcDir 'src/main/resources' } } }
 
 repositories {
     mavenCentral()
