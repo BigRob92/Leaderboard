@@ -15,13 +15,11 @@ public class CSVParserTest {
 	@Test
 	public void testThatCourseIdsAreLoaded() {		
 		assertNotNull(p.getStudentIds());
-		//assertEquals("["+p.getCourseIds().toString()+"]", p.courseIds.toString());
 	}
 	
 	@Test
 	public void testThatStudentIdsAreLoaded() {
 		assertNotNull(p.getCourseIds());
-		//assertEquals("["+p.getStudentIds()+"]", p.studentIds.toString());
 	}
 
     @Test
