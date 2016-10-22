@@ -10,15 +10,19 @@ public class CSVParser {
 	private List<Course> courses;
 	private List<String> studentIds;
 	private List<String> courseIds;
+	private File f;
+	private List<File> files;
 
 	public CSVParser() {
 		students = new ArrayList<>();
 		studentIds = new ArrayList<>();
 		courses = new ArrayList<>();
 		courseIds = new ArrayList<>();
-
+		f = new File("C:/Users/Cody/Desktop/Leaderboard/src/main/resources/courses");
+		files = new ArrayList<File>(Arrays.asList(f.listFiles()));
+		
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/Cody/Desktop/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -30,7 +34,7 @@ public class CSVParser {
 		catch(IOException e) {}
 
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/Cody/Desktop/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Course c = new Course(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -65,5 +69,27 @@ public class CSVParser {
 		}
 		return null;
     }
+	//this returns each file directory in an array list as a string
+	public List <File> getCourses(){
+		return files;
+	}
+	//was thinking that we could call the index that we wanted to load by passing it in and storing it in an arraylist. this function does not currently work
+	public List <String> loadACourse(int index){
+		List <Stirng> loadedCourse = new ArrayList<>();
+		try{
+			CSVReader reader = new CSVReader(new FileReader(getCourses.get(index), ',', '\"', 1));
+			String[]nextLine;
+			while((nextLine = reader.readNext()) != null){
+				for(int i = 0; i < nextLine; i++){
+					loadedCourse.add(nextLine[i]);
+				}
+				return loadedCourse;
 
+			}
+		}
+		catch(FileNotFoundException e) {}
+		catch(IOException e) {}
+	
+		return null;
+	}
 }
