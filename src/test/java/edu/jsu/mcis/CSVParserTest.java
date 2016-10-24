@@ -47,9 +47,11 @@ public class CSVParserTest {
 		assertEquals(c, t);
 	}
 	
-	@Test
+	/*@Test
 	public void testThatCoursesAreLoaded(){
 		assertNotNull(p.getCourses());
-	}
+	}*/
+	
+
 	
 }
