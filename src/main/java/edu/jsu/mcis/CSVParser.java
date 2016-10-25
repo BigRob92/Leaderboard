@@ -46,15 +46,15 @@ public class CSVParser {
 		catch(IOException e) {}
 	}
 
-		public String getStudentIds() {
-			return String.join("\n", studentIds);
-		}
+	public String getStudentIds() {
+		return String.join("\n", studentIds);
+	}
 
-		public String getCourseIds() {
-			return String.join("\n", courseIds);
-		}
+	public String getCourseIds() {
+		return String.join("\n", courseIds);
+	}
 
-    public Student getStudent(String studentId) {
+	public Student getStudent(String studentId) {
 		for(int i = 0; i < students.size(); i++) {
 			Student s = students.get(i);
 			if(studentId.equals(s.getId())) return s;

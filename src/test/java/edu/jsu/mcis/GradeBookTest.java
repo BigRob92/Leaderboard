@@ -1,14 +1,15 @@
+/*
 package edu.jsu.mcis;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-public class gradeBookTest{
+public class GradeBookTest{
 	
-	private gradeBook gb;
+	private GradeBook gb;
 	
 	@Before
 	public void setUp(){
-		gb = new gradeBook();
+		gb = new GradeBook();
 	}
 	
 	@Test
@@ -30,3 +31,4 @@ public class gradeBookTest{
 	
 
 }
+*/

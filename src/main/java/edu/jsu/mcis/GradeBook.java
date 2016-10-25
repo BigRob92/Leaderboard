@@ -1,10 +1,10 @@
+/*
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
 import au.com.bytecode.opencsv.*;
 
-public class gradeBook{
-
+public class GradeBook{
 
 	private String term;
 	
@@ -48,3 +48,4 @@ public class gradeBook{
 
 
 }
+*/
