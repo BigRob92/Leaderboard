@@ -1,4 +1,3 @@
-/*
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
@@ -39,7 +38,7 @@ public class GradeBook{
 			while((nextLine = reader.readNext()) != null){
 				studentsEnrolled.add(nextLine[0]);
 			}
-			return studentEnrolled;
+			return studentsEnrolled;
 		}
 		catch(IOException e){}
 		//catch(FileNotFoundException fnfe){}
@@ -48,4 +47,3 @@ public class GradeBook{
 
 
 }
-*/

@@ -10,19 +10,20 @@ public class CSVParser {
 	private List<Course> courses;
 	private List<String> studentIds;
 	private List<String> courseIds;
-	//private File f;
-	//public List<File> files;
+	private Object[] courseIdsArray;
+	private File f;
+	public List<File> files;
 
 	public CSVParser() {
 		students = new ArrayList<>();
 		studentIds = new ArrayList<>();
 		courses = new ArrayList<>();
 		courseIds = new ArrayList<>();
-		//f = new File("C:/Users/Cody/Desktop/Leaderboard/src/main/resources/courses");
-		//files = new ArrayList<File>(Arrays.asList(f.listFiles()));
+		f = new File("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses");
+		files = new ArrayList<File>(Arrays.asList(f.listFiles()));
 		
 		try {
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/Cody/Desktop/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -34,7 +35,7 @@ public class CSVParser {
 		catch(IOException e) {}
 
 		try {
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/Cody/Desktop/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Course c = new Course(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -50,6 +51,9 @@ public class CSVParser {
 		return String.join("\n", studentIds);
 	}
 
+	public Object[] getCourseIdsAsArray() {
+		return courseIds.toArray();
+	}
 	public String getCourseIds() {
 		return String.join("\n", courseIds);
 	}

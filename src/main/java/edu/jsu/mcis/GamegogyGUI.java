@@ -3,6 +3,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 
+
 public class GamegogyGUI extends JFrame {
 
     private JLabel courseLabel;
@@ -13,7 +14,7 @@ public class GamegogyGUI extends JFrame {
     private JLabel nameLabel;
     private JLabel emailLabel;
     private JLabel scoreLabel;
-    private JComboBox<String> courseComboBox;
+    private JComboBox courseComboBox;
     private JComboBox<String> columnComboBox;
     private JTextField termField;
     private JTextField enrollmentField;
@@ -22,7 +23,9 @@ public class GamegogyGUI extends JFrame {
     private JTextField emailField;
     private JTextField scoreField;
     private JSeparator jSeparator;
+    
     private CSVParser p;
+    private Object[] courseIds;
 
     public GamegogyGUI() {
         initComponents();
@@ -32,9 +35,13 @@ public class GamegogyGUI extends JFrame {
     private void initComponents() {
 
         p = new CSVParser();
+        courseIds = p.getCourseIdsAsArray();
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gamegogy");
 
         courseLabel = new JLabel();
-        courseComboBox = new JComboBox<>();
+        courseComboBox = new JComboBox(courseIds);
 
         columnLabel = new JLabel();
         columnComboBox = new JComboBox<>();
@@ -59,12 +66,10 @@ public class GamegogyGUI extends JFrame {
         scoreLabel = new JLabel();
         scoreField = new JTextField();
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gamegogy");
-
         courseLabel.setText("Course");
-        courseComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Course 1", "Course 2", "Course 3" }));
-        
+        //courseComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Course 1", "Course 2", "Course 3" }));
+        //courseComboBox.setModel(new DefaultComboBoxModel<>(courseIds));
+
         columnLabel.setText("Column");
         columnComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Assignment 1", "Assignment 2", "Assignment 3" }));
 
@@ -109,8 +114,8 @@ public class GamegogyGUI extends JFrame {
                 .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addComponent(courseLabel)
-                .addComponent(columnLabel))
+                    .addComponent(courseLabel)
+                    .addComponent(columnLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(termField)
@@ -124,25 +129,25 @@ public class GamegogyGUI extends JFrame {
                     .addComponent(enrollmentField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(columnComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel)
-                    .addComponent(emailLabel)
-                    .addComponent(scoreLabel)
-                    .addComponent(idLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(emailField)
-                    .addComponent(scoreField, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                    .addComponent(emailField)
-                    .addComponent(scoreField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(nameLabel)
+                        .addComponent(emailLabel)
+                        .addComponent(scoreLabel)
+                        .addComponent(idLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(emailField)
+                        .addComponent(scoreField, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                        .addComponent(emailField)
+                        .addComponent(scoreField))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jSeparator))
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -177,12 +182,12 @@ public class GamegogyGUI extends JFrame {
                             .addComponent(scoreLabel)
                             .addComponent(scoreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
-        );
+            );
 
-        courseComboBox.getAccessibleContext().setAccessibleName("");
-        columnComboBox.getAccessibleContext().setAccessibleDescription("");
+            courseComboBox.getAccessibleContext().setAccessibleName("");
+            columnComboBox.getAccessibleContext().setAccessibleDescription("");
 
-        pack();
+            pack();
     }
 
     //private void termFieldActionPerformed(ActionEvent evt) {}
