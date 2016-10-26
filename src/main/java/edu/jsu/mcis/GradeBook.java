@@ -4,16 +4,24 @@ import java.util.*;
 import au.com.bytecode.opencsv.*;
 
 public class GradeBook{
+	private List<String> ids;
+	private List<String> columnHeaders;
+	private List<List<Float>> grades;
+	
+	public GradeBook(String filePath) {
+		ids = new ArrayList<>();
+		columnHeaders = new ArrayList<>();
+		grades = new ArrayList<>();
+		// load the CSV file for processing
+		// read the first row and put everything but ID in the column headers
+		// while there is more to read
+		//    add the ID to the ids list
+		//    make a new List<Float> to hold the grades for this row
+		//    add each grade in the row to that list
+		//    add that list to the grades list (of lists)
 
-	private String term;
-	
-	public void setTerm(){
-		term = "Fall 2016";
 	}
-	public String getTerm(){
-		return term;
-	}
-	
+
 	public int numberOfEnrolledStudents(String filePath){
 		List <String> studentsEnrolled = new ArrayList<>();
 		int enrollment;

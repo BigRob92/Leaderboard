@@ -51,8 +51,8 @@ public class CSVParser {
 		return String.join("\n", studentIds);
 	}
 
-	public Object[] getCourseIdsAsArray() {
-		return courseIds.toArray();
+	public List<String> getCourseIdsAsList() {
+		return courseIds;
 	}
 	public String getCourseIds() {
 		return String.join("\n", courseIds);
