@@ -8,8 +8,6 @@ public class GradeBook{
 	private List<String> columnHeaders;
 	private List<List<Float>> grades;
 	
-	
-	//probably wont like this since we have to call this constructor every time we want to add grades to the list.
 	public GradeBook(String filePath) {
 		ids = new ArrayList<>();
 		columnHeaders = new ArrayList<>();

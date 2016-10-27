@@ -1,4 +1,4 @@
-/*package edu.jsu.mcis;
+package edu.jsu.mcis;
 import java.util.*;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -14,7 +14,9 @@ public class GamegogyGUITest {
     }
 
     @Test
-    public void testCourseComboBoxHasCorrectValues() {}
+    public void testCourseComboBoxHasCorrectValues() {
+        assertTrue(false);
+    }
 
     @Test
     public void testGradeDataisLoaded() {
@@ -32,4 +34,3 @@ public class GamegogyGUITest {
     }
     
 }
-*/

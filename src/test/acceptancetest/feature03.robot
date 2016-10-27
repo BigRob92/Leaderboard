@@ -1,7 +1,7 @@
 | *Setting* | *Value*                   |
 | Library   | SwingLibrary              |
 | *Test Case*                      | *Action*                          | *Argument*                       | *Argument*          |
-| Test Gamegogy Default Values     | Start Application                 | edu.jsu.mcis.gamegogy.Gamegogy   |                     |
+| Test Gamegogy Default Values     | Start Application                 | edu.jsu.mcis.Gamegogy            |                     |
 |                                  | Select Window                     | Gamegogy                         |                     |
 |                                  | ${courseId}=                      | Get Selected Item From Combo Box | courseComboBox      |
 |                                  | Should Be Equal                   | 99000                            | ${courseId}         |
@@ -14,7 +14,7 @@
 |                                  | Label Text Should Be              | studentEmail                     | cguzman@jsu.edu     |
 |                                  | Label Text Should Be              | studentScore                     | 925.0               |
 |                                  | Close Window                      | Gamegogy                         |                     |
-| Test Gamegogy Course Select      | Start Application                 | edu.jsu.mcis.gamegogy.Gamegogy   |                     |
+| Test Gamegogy Course Select      | Start Application                 | edu.jsu.mcis.Gamegogy            |                     |
 |                                  | Select Window                     | Gamegogy                         |                     |
 |                                  | Select From Combo Box             | courseComboBox                   | 7                   |
 |                                  | ${columnName}=                    | Get Selected Item From Combo Box | columnComboBox      |
@@ -26,7 +26,7 @@
 |                                  | Label Text Should Be              | studentEmail                     | mharrington@jsu.edu |
 |                                  | Label Text Should Be              | studentScore                     | 803.0               |
 |                                  | Close Window                      | Gamegogy                         |                     |
-| Test Gamegogy Column Select      | Start Application                 | edu.jsu.mcis.gamegogy.Gamegogy   |                     |
+| Test Gamegogy Column Select      | Start Application                 | edu.jsu.mcis.Gamegogy            |                     |
 |                                  | Select Window                     | Gamegogy                         |                     |
 |                                  | Select From Combo Box             | courseComboBox                   | 9                   |
 |                                  | Select From Combo Box             | columnComboBox                   | Assignment 7        |
