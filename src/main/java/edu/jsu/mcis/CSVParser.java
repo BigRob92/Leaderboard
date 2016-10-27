@@ -12,6 +12,7 @@ public class CSVParser {
 	private List<String> courseIds;
 	private List<String> courseTerms;
 	private File f;
+	private String courseYear;
 	public List<File> files;
 
 	public CSVParser() {
@@ -40,12 +41,19 @@ public class CSVParser {
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Course c = new Course(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
+				String term = nextLine[1].toString();
+				String year = nextLine[2].toString();
+				courseYear = term + " " + year;
 				courses.add(c);
 				courseIds.add(nextLine[0]);
 			}
 		}
 		catch(FileNotFoundException e) {}
 		catch(IOException e) {}
+	}
+
+	public String getCourseYear(){
+		return courseYear;
 	}
 
 	public String getStudentIds() {
@@ -75,9 +83,18 @@ public class CSVParser {
 		return null;
     }
 
-	public String getCourseTerm(String courseId) {
-		return null;
+	/*public String getCourseTerm(String courseId) {
+		for(int i = 0; i < courses.size(); i++) {
+			Course c = courses.get(i);
+			if(courseId.equals(c.getId())) {
+				String term = nextLine[1].toString();
+				String year = nextLine[2].toString();
+				String courseTerm = term+" "+year;
+			}
+		}
 	}
+*/
+
 	//this returns each file directory in an array list as a string
 	/*public List <File> getCourses(){
 		return files;

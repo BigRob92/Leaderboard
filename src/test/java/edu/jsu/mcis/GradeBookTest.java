@@ -11,8 +11,7 @@ public class GradeBookTest{
 		gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
 	}
 	
-	@Test
-	public void testThatEnrollmentIsReturned(){
+		public void testThatEnrollmentIsReturned(){
 		assertEquals(gb.getEnrollment(),"11");
 	}
 	

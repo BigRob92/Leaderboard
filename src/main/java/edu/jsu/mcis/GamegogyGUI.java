@@ -20,26 +20,32 @@ public class GamegogyGUI extends JFrame {
     
     private CSVParser p;
     private GradeBook gb;
-    private String filePath;
+    private Course c;
+    private File filePath;
+    private List<String> files;
+    //private String filePath;
+    private List<String> courseIds;
+    private List<String> courseInfo;
+    private List<String> studentInfo;
 
     public GamegogyGUI() {
+        filePath = new File("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses");
         initComponents();
     }
 
     public List<String> getCourseComboValues() {
+        
         // get the strings that are loaded in the course combo box
         // return them as a list
         return null;
     }
-    
-    public void populateColumnComboBox() {
-        columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
-    }
+
     private void initComponents() {
         p = new CSVParser();
-        List<String> courseIds = p.getCourseIdsAsList();
+        courseIds = p.getCourseIdsAsList();
         //filePath = "99000.csv\"";
         gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
+        c = new Course("","","","");
 
         setTitle("Gamegogy");
         setPreferredSize(new Dimension(500, 500));
@@ -72,15 +78,15 @@ public class GamegogyGUI extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
                 Object selected = courseComboBox.getSelectedItem();
-                filePath = selected.toString();
-                filePath = "/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv";
-                populateColumnComboBox();
+                //filePath = selected.toString()+".csv";
+                //filePath = "/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+filePath+".csv";
+                //populateColumnComboBox();
 
                 if(selected.toString().equals("99001")) {
                     nameLabel.setText(gb.getGrades().toString());
                 }
                 else if(selected.toString().equals("99003")) {
-                    nameLabel.setText("Ben Carson");
+                    nameLabel.setText(p.getCourseYear());
                 }
                 else if(selected.toString().equals("99005")) {
                     nameLabel.setText(gb.getIds().toString());
@@ -101,92 +107,48 @@ public class GamegogyGUI extends JFrame {
         add(topPanel, BorderLayout.NORTH);
         add(panel, BorderLayout.SOUTH);
 
-        
-        /*
-        courseLabel = new JLabel();
-        courseComboBox = new JComboBox(courseIds);
-
-        columnLabel = new JLabel();
-        columnComboBox = new JComboBox<>();
-
-        termLabel = new JLabel();
-        termField = new JTextField();
-        
-        enrollmentLabel = new JLabel();
-        enrollmentField = new JTextField();
-        
-        jSeparator = new JSeparator();
-        
-        idLabel = new JLabel();
-        idField = new JTextField();
-
-        nameLabel = new JLabel();
-        nameField = new JTextField();
-
-        emailLabel = new JLabel();
-        emailField = new JTextField();
-
-        scoreLabel = new JLabel();
-        scoreField = new JTextField();
-
-        courseLabel.setText("Course");
-        //courseComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Course 1", "Course 2", "Course 3" }));
-        //courseComboBox.setModel(new DefaultComboBoxModel<>(courseIds));
-
-        columnLabel.setText("Column");
-        columnComboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Assignment 1", "Assignment 2", "Assignment 3" }));
-
-        termLabel.setText("Term:");
-        termField.setText("Term goes here");
-        
-        /*
-        termField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionListener evt) {
-                termFieldActionPerformed(evt);
-            }
-        });
-        */
-
-//        enrollmentLabel.setText("Enrollment:");
-//        enrollmentField.setText("Enrollment goes here");
-        
-        /*
-        enrollmentField.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionListener evt) {
-                enrollmentFieldActionPerformed(evt);
-            }
-        });
-        */
-        
-
-        /*
-        idLabel.setText("ID:");
-        idField.setText("ID goes here");
-
-        nameLabel.setText("Name:");
-        nameField.setText("Name goes here");
-
-        emailLabel.setText("Email:");
-        emailField.setText("Email goes here");
-
-        scoreLabel.setText("Score:");
-        scoreField.setText("Score goes here");
-
-        courseComboBox.getAccessibleContext().setAccessibleName("");
-        columnComboBox.getAccessibleContext().setAccessibleDescription("");
-        */
-
-
-        //pack();
         pack();
         setVisible(true);
     }
+    /*
+    public void populateColumnComboBox() {
+        columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
+    }
 
-    //private void termFieldActionPerformed(ActionEvent evt) {}
+    public List<String> updateCourseInfo() {
+        return courseInfo;
+    }
 
-    //private void enrollmentFieldActionPerformed(ActionEvent evt) {}
+    public List<String> updateStudentInfo() {
+        return studentInfo;
+    }
 
+    public void updateTermLabel() {
+        termLabel.setText(p.getCourseTerm());
+    }
+
+    public void updateEnrollmentLabel() {
+        enrollmentLabel.setText(gb.getEnrollment());
+    }
+
+    public void updateIdLabel() {
+        idLabel.setText(c.getId());
+    }
+
+    public void updateNameLabel() {
+        nameLabel.setText(p.getName());
+    }
+
+    public void updateEmailLabel() {
+        emailLabel.setText(p.getEmail());
+    }
+
+    public void updateScoreLabel() {
+        scoreLabel.setText(p.getScore());
+    }
+*/
     public static void main(String args[]) {
         GamegogyGUI g = new GamegogyGUI();
     }
+
 }
