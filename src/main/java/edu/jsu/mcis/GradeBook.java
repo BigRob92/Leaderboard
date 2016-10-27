@@ -55,7 +55,7 @@ public class GradeBook{
 		return ids;
 	}
 	
-	public String numberOfEnrolledStudents() {
+	public String getEnrollment() {
 		int enrollment = getIds().size();
 		return Integer.toString(enrollment);
 	}

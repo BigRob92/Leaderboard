@@ -86,7 +86,7 @@ public class GamegogyGUI extends JFrame {
                     nameLabel.setText(gb.getIds().toString());
                 }
                 else if(selected.toString().equals("99007")) {
-                    nameLabel.setText(gb.numberOfEnrolledStudents());
+                    nameLabel.setText(gb.getEnrollment());
                 }
             }
         });

@@ -13,7 +13,7 @@ public class GradeBookTest{
 	
 	@Test
 	public void testThatEnrollmentIsReturned(){
-		assertEquals(gb.numberOfEnrolledStudents(),"11");
+		assertEquals(gb.getEnrollment(),"11");
 	}
 	
 	@Test
