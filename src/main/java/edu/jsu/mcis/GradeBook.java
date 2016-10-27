@@ -56,20 +56,10 @@ public class GradeBook{
 		return ids;
 	}
 	
-	public int numberOfEnrolledStudents(String filePath){
+	public String numberOfEnrolledStudents() {
 		List <String> studentsEnrolled = new ArrayList<>();
-		int enrollment;
-		try{
-			CSVReader reader = new CSVReader(new FileReader(filePath), ',', '\"', 1);
-			String [] nextLine;
-			while((nextLine = reader.readNext()) != null){
-				studentsEnrolled.add(nextLine[0]);
-			}
-			enrollment = studentsEnrolled.size();
-			return enrollment;
-		}
-		catch(IOException e){}
-		return 0;
+		int enrollment = getIds().size();
+		return Integer.toString(enrollment);
 	}
 	
 	

@@ -13,7 +13,7 @@ public class GradeBookTest{
 	
 	@Test
 	public void testThatEnrollmentIsReturned(){
-		assertEquals(gb.numberOfEnrolledStudents("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv"),11);
+		assertEquals(gb.numberOfEnrolledStudents(),"11");
 	}
 	
 	@Test
