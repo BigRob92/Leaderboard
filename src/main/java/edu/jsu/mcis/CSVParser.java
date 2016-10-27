@@ -10,6 +10,7 @@ public class CSVParser {
 	private List<Course> courses;
 	private List<String> studentIds;
 	private List<String> courseIds;
+	private List<String> courseTerms;
 	private File f;
 	public List<File> files;
 
@@ -18,6 +19,8 @@ public class CSVParser {
 		studentIds = new ArrayList<>();
 		courses = new ArrayList<>();
 		courseIds = new ArrayList<>();
+		courseTerms = new ArrayList<>();
+
 		f = new File("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses");
 		
 		try {
@@ -71,6 +74,10 @@ public class CSVParser {
 		}
 		return null;
     }
+
+	public String getCourseTerm(String courseId) {
+		return null;
+	}
 	//this returns each file directory in an array list as a string
 	/*public List <File> getCourses(){
 		return files;

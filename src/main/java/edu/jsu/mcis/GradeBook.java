@@ -28,10 +28,9 @@ public class GradeBook{
 				ids.add(nextLine[0]);
 				for (int i=1; i < nextLine.length; i++) {
 					rowGrades.add(Float.parseFloat(nextLine[i]));
-					//grades.add(rowGrades);
+					grades.add(rowGrades);
 				}
 			}
-			grades.add(rowGrades);
 		}
 		catch(IOException e){}
 		// load the CSV file for processing
@@ -57,28 +56,8 @@ public class GradeBook{
 	}
 	
 	public String numberOfEnrolledStudents() {
-		List <String> studentsEnrolled = new ArrayList<>();
 		int enrollment = getIds().size();
 		return Integer.toString(enrollment);
 	}
-	
-	
-	
-	//this already returns the student Ids and puts them in a list.
-	public List<String> getStudentsInCourse(String filepath){
-		List <String> studentsEnrolled = new ArrayList<>();
-		try{
-			CSVReader reader = new CSVReader(new FileReader(filepath), ',', '\"', 1);
-			String [] nextLine;
-			while((nextLine = reader.readNext()) != null){
-				studentsEnrolled.add(nextLine[0]);
-			}
-			return studentsEnrolled;
-		}
-		catch(IOException e){}
-		//catch(FileNotFoundException fnfe){}
-		return null;
-	}
-
 
 }

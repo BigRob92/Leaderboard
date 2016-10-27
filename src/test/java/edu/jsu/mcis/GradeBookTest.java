@@ -23,7 +23,7 @@ public class GradeBookTest{
 	
 	@Test
 	public void testThatGradesAreReturned(){
-		assertEquals(gb.getGrades(), gb.getStudentsInCourse("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv"));
+		assertEquals(gb.getGrades().size(), gb.getIds().size()*gb.getColumnHeaders().size());
 	}
 	
 	
