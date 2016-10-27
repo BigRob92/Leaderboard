@@ -1,5 +1,6 @@
 package edu.jsu.mcis;
 
+import java.awt.event.*;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Dimension;
@@ -18,6 +19,8 @@ public class GamegogyGUI extends JFrame {
     private JComboBox<String> columnComboBox;
     
     private CSVParser p;
+    private GradeBook gb;
+    private String filePath;
 
     public GamegogyGUI() {
         initComponents();
@@ -29,39 +32,66 @@ public class GamegogyGUI extends JFrame {
         return null;
     }
     
+    public void populateColumnComboBox() {
+        columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
+    }
     private void initComponents() {
         p = new CSVParser();
         List<String> courseIds = p.getCourseIdsAsList();
+        //filePath = "99000.csv\"";
+        gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
 
         setTitle("Gamegogy");
-        setPreferredSize(new Dimension(850, 750));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        setPreferredSize(new Dimension(500, 500));
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 2));
         termLabel = new JLabel();
         enrollmentLabel = new JLabel();
         idLabel = new JLabel();
-        nameLabel = new JLabel("Aaron Garrett");
+        nameLabel = new JLabel();
         emailLabel = new JLabel();
         scoreLabel = new JLabel();
-        panel.add(new JLabel("Term", JLabel.RIGHT));
+        panel.add(new JLabel("Term: ", JLabel.LEFT));
         panel.add(termLabel);
-        panel.add(new JLabel("Enrollment", JLabel.RIGHT));
+        panel.add(new JLabel("Enrollment: ", JLabel.LEFT));
         panel.add(enrollmentLabel);
-        panel.add(new JLabel("ID", JLabel.RIGHT));
+        panel.add(new JLabel("ID: ", JLabel.LEFT));
         panel.add(idLabel);
-        panel.add(new JLabel("Name", JLabel.RIGHT));
+        panel.add(new JLabel("Name: ", JLabel.LEFT));
         panel.add(nameLabel);
-        panel.add(new JLabel("Email", JLabel.RIGHT));
+        panel.add(new JLabel("Email: ", JLabel.LEFT));
         panel.add(emailLabel);
-        panel.add(new JLabel("Score", JLabel.RIGHT));
+        panel.add(new JLabel("Score: ", JLabel.LEFT));
         panel.add(scoreLabel);
 
         courseComboBox = new JComboBox<>(p.getCourseIdsAsList().toArray(new String[0]));
+        courseComboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                JComboBox courseComboBox = (JComboBox) event.getSource();
+                Object selected = courseComboBox.getSelectedItem();
+                filePath = selected.toString();
+                filePath = "/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv";
+                populateColumnComboBox();
 
-        columnComboBox = new JComboBox<>();
+                if(selected.toString().equals("99001")) {
+                    nameLabel.setText(gb.getGrades().toString());
+                }
+                else if(selected.toString().equals("99003")) {
+                    nameLabel.setText("Ben Carson");
+                }
+                else if(selected.toString().equals("99005")) {
+                    nameLabel.setText(gb.getIds().toString());
+                }
+                else if(selected.toString().equals("99007")) {
+                    nameLabel.setText(filePath);
+                }
+            }
+        });
+
+        columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
@@ -69,7 +99,7 @@ public class GamegogyGUI extends JFrame {
         topPanel.add(columnComboBox, BorderLayout.EAST);
 
         add(topPanel, BorderLayout.NORTH);
-        add(panel, BorderLayout.CENTER);
+        add(panel, BorderLayout.SOUTH);
 
         
         /*
@@ -158,6 +188,5 @@ public class GamegogyGUI extends JFrame {
 
     public static void main(String args[]) {
         GamegogyGUI g = new GamegogyGUI();
-        System.out.println("hi");
     }
 }

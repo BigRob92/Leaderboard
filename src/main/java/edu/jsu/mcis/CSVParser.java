@@ -10,7 +10,6 @@ public class CSVParser {
 	private List<Course> courses;
 	private List<String> studentIds;
 	private List<String> courseIds;
-	private Object[] courseIdsArray;
 	private File f;
 	public List<File> files;
 
@@ -20,7 +19,6 @@ public class CSVParser {
 		courses = new ArrayList<>();
 		courseIds = new ArrayList<>();
 		f = new File("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses");
-		files = new ArrayList<File>(Arrays.asList(f.listFiles()));
 		
 		try {
 			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);

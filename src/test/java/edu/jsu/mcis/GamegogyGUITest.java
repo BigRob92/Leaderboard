@@ -6,13 +6,11 @@ import static org.junit.Assert.*;
 public class GamegogyGUITest {
     
     private GamegogyGUI g;
-    //private CSVParser p;
     private String cDefault;
 
     @Before
     public void setup() {
         g = new GamegogyGUI();
-        //p = new CSVParser();
     }
 
     @Test
