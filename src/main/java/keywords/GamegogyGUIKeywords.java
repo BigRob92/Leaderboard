@@ -2,6 +2,7 @@ package keywords;
 import edu.jsu.mcis.*;
 
 public class GamegogyGUIKeywords {
+    private String courseId;
     private String courseTerm;
     private String courseEnrollment;
     private String studentId;
@@ -10,6 +11,6 @@ public class GamegogyGUIKeywords {
     private String studentScore;
 
     public void getSelectedItemFromComboBox() {
-        GamegogyGUI gui = new GamegogyGUI();
+        GamegogyGUI g = new GamegogyGUI();
     }
 }
