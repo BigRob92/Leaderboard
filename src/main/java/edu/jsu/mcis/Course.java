@@ -7,6 +7,7 @@ public class Course {
     private String term;
     private String year;
     private String size;
+    private String termPlusYear;
 	
     public Course(String id, String term, String year, String size) {
 		this.id = id;
@@ -29,6 +30,11 @@ public class Course {
 
     public String getSize() {
         return size;
+    }
+
+    public String getTermPlusYear() {
+        termPlusYear = term + " " + year;
+        return termPlusYear;
     }
 
 	@Override

@@ -7,11 +7,13 @@ public class GradeBook{
 	private List<String> ids;
 	private List<String> columnHeaders;
 	private List<List<Float>> grades;
+	private List<Float> rowGrades;
 	
 	public GradeBook(String filePath) {
 		ids = new ArrayList<>();
 		columnHeaders = new ArrayList<>();
 		grades = new ArrayList<>();
+		//rowGrades = new ArrayList<>();
 		try{
 			CSVReader reader = new CSVReader(new FileReader(filePath), ',','\"');
 			Float [] nextGrade;
@@ -49,6 +51,10 @@ public class GradeBook{
 		return grades;
 	}
 	
+	public List<Float> getRowGrades() {
+		return rowGrades;
+	}
+
 	public List <String> getIds(){
 		return ids;
 	}
@@ -58,4 +64,10 @@ public class GradeBook{
 		return Integer.toString(enrollment);
 	}
 
+	/*public List<Float> getSortedScores() {
+		Collections.sort(getRowGrades());
+		List<Float> sortedGrades = new ArrayList<>();
+		sortedGrades = Collections.reverse(getRowGrades());
+		return sortedGrades;
+	}*/
 }

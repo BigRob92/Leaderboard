@@ -21,15 +21,11 @@ public class GamegogyGUI extends JFrame {
     private CSVParser p;
     private GradeBook gb;
     private Course c;
-    private File filePath;
-    private List<String> files;
-    //private String filePath;
     private List<String> courseIds;
     private List<String> courseInfo;
     private List<String> studentInfo;
 
     public GamegogyGUI() {
-        filePath = new File("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses");
         initComponents();
     }
 
@@ -43,10 +39,7 @@ public class GamegogyGUI extends JFrame {
     private void initComponents() {
         p = new CSVParser();
         courseIds = p.getCourseIdsAsList();
-        //filePath = "99000.csv\"";
         gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
-        c = new Course("","","","");
-
         setTitle("Gamegogy");
         setPreferredSize(new Dimension(500, 500));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -54,8 +47,8 @@ public class GamegogyGUI extends JFrame {
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 2));
-        termLabel = new JLabel();
-        enrollmentLabel = new JLabel();
+        termLabel = new JLabel(p.getCourseTerm("99000"));
+        enrollmentLabel = new JLabel(p.getEnrollment("99000"));
         idLabel = new JLabel();
         nameLabel = new JLabel();
         emailLabel = new JLabel();
@@ -74,35 +67,52 @@ public class GamegogyGUI extends JFrame {
         panel.add(scoreLabel);
 
         courseComboBox = new JComboBox<>(p.getCourseIdsAsList().toArray(new String[0]));
+        columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
+
         courseComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
                 Object selected = courseComboBox.getSelectedItem();
-                //filePath = selected.toString()+".csv";
-                //filePath = "/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+filePath+".csv";
-                //populateColumnComboBox();
+                String SELECTED = selected.toString();
+                // get course term and enrollment
+                // read file to get column headers
+                // populate 2nd combobox with headers
+              //  try {
+                    //if(SELECTED != null && !SELECTED.isEmpty()) {
+                        gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+SELECTED+".csv");
+                        columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
+                        p = new CSVParser();
+                        c = new Course("","","","");
+                        nameLabel.setText(gb.getGrades().toString());
+                        //populateColumnComboBox();
+                        termLabel.setText(p.getCourseTerm(SELECTED));
+                        enrollmentLabel.setText(p.getEnrollment(SELECTED));
 
-                if(selected.toString().equals("99001")) {
-                    nameLabel.setText(gb.getGrades().toString());
-                }
-                else if(selected.toString().equals("99003")) {
-                    nameLabel.setText(p.getCourseYear());
-                }
-                else if(selected.toString().equals("99005")) {
-                    nameLabel.setText(gb.getIds().toString());
-                }
-                else if(selected.toString().equals("99007")) {
-                    nameLabel.setText(gb.getEnrollment());
-                }
+               // } catch (NullPointerException e) {}
+
+
+               
+        }});
+
+        columnComboBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                JComboBox columnComboBox = (JComboBox) event.getSource();
+                Object selected = courseComboBox.getSelectedItem();
+                // sort corresponding column in course file
+                // get info of highest scoring student
             }
         });
 
-        columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
-
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
+        
+        JLabel courseLabel = new JLabel("Course");
+        JLabel columnLabel = new JLabel("Column");
+        
         topPanel.add(courseComboBox, BorderLayout.WEST);
+        topPanel.add(courseLabel);
         topPanel.add(columnComboBox, BorderLayout.EAST);
+        //topPanel.add(columnLabel);
 
         add(topPanel, BorderLayout.NORTH);
         add(panel, BorderLayout.SOUTH);
@@ -110,11 +120,20 @@ public class GamegogyGUI extends JFrame {
         pack();
         setVisible(true);
     }
-    /*
+
+    public void changeCourse(String file) {
+        gb = new GradeBook(file);
+        populateCourseComboBox();
+    }
+    
+    public void populateCourseComboBox() {
+        courseComboBox = new JComboBox<>(p.getCourseIdsAsList().toArray(new String[0]));
+    }
+
     public void populateColumnComboBox() {
         columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
     }
-
+/*
     public List<String> updateCourseInfo() {
         return courseInfo;
     }
