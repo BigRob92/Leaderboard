@@ -20,6 +20,7 @@ public class GamegogyGUI extends JFrame {
     
     private CSVParser p;
     private GradeBook gb;
+    private Student s;
     private Course c;
     private List<String> coursesList;
 
@@ -91,9 +92,21 @@ public class GamegogyGUI extends JFrame {
                 JComboBox columnComboBox = (JComboBox) event.getSource();
                 Object headerSelected = columnComboBox.getSelectedItem();
                 List<String> headerList = getColumnComboValues();
+                Student s = new Student("","","","");
+                
                 try {
                     int headerIndex = headerList.indexOf(headerSelected);
-                    //Collections.sort(gb.getRowGrades(), Comparator.comparing(e -> Float.valueOf(e.get(headerIndex))));
+                    List<List<Float>> sortedList = gb.getGrades();//new ArrayList<>(gb.getGrades());
+                    Collections.sort(sortedList, new Comparator<List<Float>>() {
+                        @Override
+                        public int compare(List<Float> a, List<Float> b) {
+                            return a.get(headerIndex).compareTo(b.get(headerIndex));                            
+                        } 
+                    });
+                    scoreLabel.setText(sortedList.toString());
+
+                    
+    
                     //scoreLabel.setText(Integer.toString(headerIndex));
                 // sort corresponding column in course file
                 // get info of highest scoring student
