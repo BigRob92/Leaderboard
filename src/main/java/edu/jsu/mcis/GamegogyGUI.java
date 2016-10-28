@@ -78,7 +78,7 @@ public class GamegogyGUI extends JFrame {
                         columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
                         p = new CSVParser();
                         c = new Course("","","","");
-                        nameLabel.setText(gb.getGrades().toString());
+                        //nameLabel.setText(gb.getGrades().toString());
                         termLabel.setText(p.getCourseTerm(courseSELECTED));
                         enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
                     }
