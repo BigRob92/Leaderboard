@@ -20,20 +20,16 @@ public class GamegogyKeywords {
 	
 	public void startGamegogyCLIWithArguments(){
 		CSVParser p = new CSVParser();
-		p.getStudent("111128");
-		p.getCourse("99018");
 	}
 	
 	public String getCommandLineOutput(){
 		CSVParser p = new CSVParser();
-		Student s = new Student("","","","");
-		Course c = new Course("","","","");
 		if(type != null) {
 			if(type.equals("student")) {
-				return p.getStudent("111128").toString();
+				return p.getStudent(id).toString();
 			
 			} else if(type.equals("course")) { 
-				return p.getCourse("99018").toString();
+				return p.getCourse(id).toString();
 			
 			} else if(type.equals("studentids")) {
 				return String.join("\n", p.getStudentIds().toString());

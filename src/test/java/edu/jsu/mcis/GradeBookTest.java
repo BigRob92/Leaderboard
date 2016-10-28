@@ -28,3 +28,6 @@ public class GradeBookTest{
 	}
 	
 }
+
+//add test to get one particular grade
+//use that method in core class(es)

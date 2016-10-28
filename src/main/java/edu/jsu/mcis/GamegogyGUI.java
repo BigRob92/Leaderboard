@@ -104,7 +104,7 @@ public class GamegogyGUI extends JFrame {
                     //for(int i = 0; i < headerList.size(); i++) {
                         for(int j = 0; j < idsList.size(); j++) {
                             float maxInColumn = gradesList.get(headerIndex).get(j);
-                            if(maxInColumn < gradesList.get(headerIndex).get(j+1)) {
+                            if(maxInColumn < gradesList.get(headerIndex).get(j++)) {
                                 maxInColumn = gradesList.get(headerIndex).get(j++);
                             }  
                             scoreLabel.setText(""+maxInColumn);

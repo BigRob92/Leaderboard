@@ -15,6 +15,11 @@ public class CSVParserTest {
 	@Test
 	public void testThatCourseIdsAreLoaded() {		
 		assertNotNull(p.getStudentIds());
+		//in new test
+		//get first
+		//get last
+		//get length
+		//repeat for students
 	}
 	
 	@Test

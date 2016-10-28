@@ -7,7 +7,7 @@ public class GradeBook{
 	private List<String> ids;
 	private List<String> columnHeaders;
 	private List<List<Float>> grades;
-	private List<Float> rowGrades;
+	
 	
 	public GradeBook(String filePath) {
 		ids = new ArrayList<>();
@@ -24,6 +24,7 @@ public class GradeBook{
 
 			while((nextLine = reader.readNext()) != null){
 				ids.add(nextLine[0]);
+				List<Float> rowGrades = new ArrayList<>();
 				for (int i=1; i < nextLine.length; i++) {
 					rowGrades.add(Float.parseFloat(nextLine[i]));
 					grades.add(rowGrades);
