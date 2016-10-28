@@ -77,22 +77,21 @@ public class GamegogyGUI extends JFrame {
                 // get course term and enrollment
                 // read file to get column headers
                 // populate 2nd combobox with headers
-              //  try {
-                    //if(SELECTED != null && !SELECTED.isEmpty()) {
+                try {
+                    if(SELECTED != null && !SELECTED.isEmpty()) {
                         gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+SELECTED+".csv");
-                        columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
+                        columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
+                        //columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
                         p = new CSVParser();
                         c = new Course("","","","");
                         nameLabel.setText(gb.getGrades().toString());
                         //populateColumnComboBox();
                         termLabel.setText(p.getCourseTerm(SELECTED));
                         enrollmentLabel.setText(p.getEnrollment(SELECTED));
-
-               // } catch (NullPointerException e) {}
-
-
-               
-        }});
+                    }
+                } catch (NullPointerException e) {}
+            }
+        });
 
         columnComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {

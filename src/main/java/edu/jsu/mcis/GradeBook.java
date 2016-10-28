@@ -58,7 +58,10 @@ public class GradeBook{
 	public List <String> getIds(){
 		return ids;
 	}
-	
+	public String getIdsAsString() {
+		return String.join("\n", ids);
+	}
+
 	public String getEnrollment() {
 		int enrollment = getIds().size();
 		return Integer.toString(enrollment);
