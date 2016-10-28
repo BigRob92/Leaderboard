@@ -93,17 +93,22 @@ public class GamegogyGUI extends JFrame {
                 Object headerSelected = columnComboBox.getSelectedItem();
                 List<String> headerList = getColumnComboValues();
                 Student s = new Student("","","","");
-                
-                try {
-                    int headerIndex = headerList.indexOf(headerSelected);
-                    List<List<Float>> sortedList = gb.getGrades();//new ArrayList<>(gb.getGrades());
-                    Collections.sort(sortedList, new Comparator<List<Float>>() {
-                        @Override
-                        public int compare(List<Float> a, List<Float> b) {
-                            return a.get(headerIndex).compareTo(b.get(headerIndex));                            
-                        } 
-                    });
-                    scoreLabel.setText(sortedList.toString());
+                int headerIndex = headerList.indexOf(headerSelected);
+                List<List<Float>> gradesList = gb.getGrades();
+    
+                try {                   
+                    emailLabel.setText(Integer.toString(headerIndex));
+                    
+                    for(int i = 0; i < gradesList.size(); i++) {
+                        for(int j = 1; j < headerList.size(); j++) {
+                            float maxInColumn = gradesList.get(i).get(headerIndex);
+                            if(maxInColumn < gradesList.get(j).get(headerIndex)) {
+                                maxInColumn = gradesList.get(j).get(headerIndex);
+                            } scoreLabel.setText(""+maxInColumn);
+                        }
+                    }
+                    
+                    
 
                     
     
