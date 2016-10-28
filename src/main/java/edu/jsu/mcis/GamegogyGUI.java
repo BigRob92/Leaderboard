@@ -21,9 +21,7 @@ public class GamegogyGUI extends JFrame {
     private CSVParser p;
     private GradeBook gb;
     private Course c;
-    private List<String> courseIds;
-    private List<String> courseInfo;
-    private List<String> studentInfo;
+    private List<String> coursesList;
 
     public GamegogyGUI() {
         initComponents();
@@ -31,6 +29,10 @@ public class GamegogyGUI extends JFrame {
 
     public List<String> getCourseComboValues() {
         return p.getCourseIdsAsList();
+    }
+
+    public List<String> getColumnComboValues() {
+        return gb.getColumnHeaders();
     }
 
     private void initComponents() {
@@ -68,17 +70,17 @@ public class GamegogyGUI extends JFrame {
         courseComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
-                Object selected = courseComboBox.getSelectedItem();
-                String SELECTED = selected.toString();
+                Object courseSelected = courseComboBox.getSelectedItem();
+                String courseSELECTED = courseSelected.toString();
                 try {
-                    if(SELECTED != null && !SELECTED.isEmpty()) {
-                        gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+SELECTED+".csv");
+                    if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
+                        gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+courseSELECTED+".csv");
                         columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
                         p = new CSVParser();
                         c = new Course("","","","");
                         nameLabel.setText(gb.getGrades().toString());
-                        termLabel.setText(p.getCourseTerm(SELECTED));
-                        enrollmentLabel.setText(p.getEnrollment(SELECTED));
+                        termLabel.setText(p.getCourseTerm(courseSELECTED));
+                        enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
                     }
                 } catch (NullPointerException e) {}
             }
@@ -87,13 +89,18 @@ public class GamegogyGUI extends JFrame {
         columnComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JComboBox columnComboBox = (JComboBox) event.getSource();
-                Object selected = courseComboBox.getSelectedItem();
-                String SELECTED = selected.toString();
+                Object headerSelected = columnComboBox.getSelectedItem();
+                List<String> headerList = getColumnComboValues();
+                try {
+                    int headerIndex = headerList.indexOf(headerSelected);
+                    //Collections.sort(gb.getRowGrades(), Comparator.comparing(e -> Float.valueOf(e.get(headerIndex))));
+                    //scoreLabel.setText(Integer.toString(headerIndex));
                 // sort corresponding column in course file
                 // get info of highest scoring student
-            }
-        });
-
+            } catch (NullPointerException e) {}
+              catch (ClassCastException e) {}
+        }});
+        
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
         

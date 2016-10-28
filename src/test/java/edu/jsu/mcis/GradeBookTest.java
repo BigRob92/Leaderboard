@@ -6,12 +6,10 @@ import static org.junit.Assert.*;
 public class GradeBookTest{
 	
 	private GradeBook gb;
-	private CSVParser p;
 
 	@Before
 	public void setUp(){
 		gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
-		p = new CSVParser();
 	}
 	
 	public void testThatEnrollmentIsReturned(){
