@@ -30,15 +30,11 @@ public class GamegogyGUI extends JFrame {
     }
 
     public List<String> getCourseComboValues() {
-        
-        // get the strings that are loaded in the course combo box
-        // return them as a list
-        return null;
+        return p.getCourseIdsAsList();
     }
 
     private void initComponents() {
         p = new CSVParser();
-        courseIds = p.getCourseIdsAsList();
         gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
         setTitle("Gamegogy");
         setPreferredSize(new Dimension(500, 500));
@@ -74,18 +70,13 @@ public class GamegogyGUI extends JFrame {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
                 Object selected = courseComboBox.getSelectedItem();
                 String SELECTED = selected.toString();
-                // get course term and enrollment
-                // read file to get column headers
-                // populate 2nd combobox with headers
                 try {
                     if(SELECTED != null && !SELECTED.isEmpty()) {
                         gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+SELECTED+".csv");
                         columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
-                        //columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
                         p = new CSVParser();
                         c = new Course("","","","");
                         nameLabel.setText(gb.getGrades().toString());
-                        //populateColumnComboBox();
                         termLabel.setText(p.getCourseTerm(SELECTED));
                         enrollmentLabel.setText(p.getEnrollment(SELECTED));
                     }
@@ -97,6 +88,7 @@ public class GamegogyGUI extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 JComboBox columnComboBox = (JComboBox) event.getSource();
                 Object selected = courseComboBox.getSelectedItem();
+                String SELECTED = selected.toString();
                 // sort corresponding column in course file
                 // get info of highest scoring student
             }
@@ -132,39 +124,7 @@ public class GamegogyGUI extends JFrame {
     public void populateColumnComboBox() {
         columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
     }
-/*
-    public List<String> updateCourseInfo() {
-        return courseInfo;
-    }
 
-    public List<String> updateStudentInfo() {
-        return studentInfo;
-    }
-
-    public void updateTermLabel() {
-        termLabel.setText(p.getCourseTerm());
-    }
-
-    public void updateEnrollmentLabel() {
-        enrollmentLabel.setText(gb.getEnrollment());
-    }
-
-    public void updateIdLabel() {
-        idLabel.setText(c.getId());
-    }
-
-    public void updateNameLabel() {
-        nameLabel.setText(p.getName());
-    }
-
-    public void updateEmailLabel() {
-        emailLabel.setText(p.getEmail());
-    }
-
-    public void updateScoreLabel() {
-        scoreLabel.setText(p.getScore());
-    }
-*/
     public static void main(String args[]) {
         GamegogyGUI g = new GamegogyGUI();
     }

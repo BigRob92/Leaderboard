@@ -1,5 +1,6 @@
 package edu.jsu.mcis;
 import org.junit.*;
+import java.util.*;
 import static org.junit.Assert.*;
 
 public class GradeBookTest{
@@ -13,13 +14,14 @@ public class GradeBookTest{
 		p = new CSVParser();
 	}
 	
-		public void testThatEnrollmentIsReturned(){
-		assertEquals(gb.getEnrollment(),"11");
+	public void testThatEnrollmentIsReturned(){
+	assertEquals(gb.getEnrollment(),"11");
 	}
 	
 	@Test
 	public void testThatStudentsInCourseAreReturned(){
-		assertNotNull(gb.getIds());
+		List<String> studentList = Arrays.asList("111318", "111383", "111190", "111406", "111115", "111211", "111208", "111310", "111335", "111141", "111262");
+		assertEquals(gb.getIds(), studentList);
 	}
 	
 	@Test
@@ -27,6 +29,4 @@ public class GradeBookTest{
 		assertEquals(gb.getGrades().size(), gb.getIds().size()*gb.getColumnHeaders().size());
 	}
 	
-	
-
 }

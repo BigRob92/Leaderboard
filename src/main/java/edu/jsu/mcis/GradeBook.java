@@ -13,10 +13,8 @@ public class GradeBook{
 		ids = new ArrayList<>();
 		columnHeaders = new ArrayList<>();
 		grades = new ArrayList<>();
-		//rowGrades = new ArrayList<>();
 		try{
 			CSVReader reader = new CSVReader(new FileReader(filePath), ',','\"');
-			Float [] nextGrade;
 			String [] nextLine = reader.readNext();
 			List<Float> rowGrades = new ArrayList<>();
 			
@@ -55,7 +53,7 @@ public class GradeBook{
 		return rowGrades;
 	}
 
-	public List <String> getIds(){
+	public List<String> getIds(){
 		return ids;
 	}
 	public String getIdsAsString() {
