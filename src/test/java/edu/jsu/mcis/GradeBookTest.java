@@ -9,11 +9,24 @@ public class GradeBookTest{
 
 	@Before
 	public void setUp(){
-		gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
+		gb = new GradeBook("C:/Users/skate/Desktop/Leaderboard/src/main/resources/courses/99001.csv");
 	}
 	
 	public void testThatEnrollmentIsReturned(){
 	assertEquals(gb.getEnrollment(),"11");
+	}
+	
+	
+	//Should return 124 but it returns 98. I'll ask Dr. Garret tomorrow what is wrong with it. The max function is not working properly.
+	@Test
+	public void testThatHighestGradeIsReturned(){
+		assertEquals(gb.getHighestGrade("99001", 2), "124");
+	}
+	
+	@Test
+	public void seeWhatsInColumnGrades(){
+		gb.getHighestGrade("99001", 2);
+		assertEquals(gb.getColumnGrades(), gb.getColumnHeaders());
 	}
 	
 	@Test
