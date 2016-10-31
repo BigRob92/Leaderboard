@@ -9,22 +9,17 @@ public class GradeBookTest{
 
 	@Before
 	public void setUp(){
-		gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99001.csv");
+		gb = new GradeBook("C:/Users/skate/Desktop/Leaderboard-master/Leaderboard-master/src/main/resources/courses/99001.csv");
 	}
 	
+	@Test
 	public void testThatEnrollmentIsReturned(){
-	assertEquals(gb.getEnrollment(),"11");
+	assertEquals(gb.getEnrollment(),"9");
 	}
 	
 	@Test
 	public void testThatHighestGradeIsReturned(){
-		assertTrue(gb.getHighestGrade("99001", 2) == 124);
-	}
-	
-	@Test
-	public void seeWhatsInColumnGrades(){
-		gb.getHighestGrade("99001", 2);
-		assertEquals(gb.getColumnGrades(), gb.getColumnHeaders());
+		assertEquals(gb.getHighestGrade("99001", 2),132);
 	}
 	
 	@Test

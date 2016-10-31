@@ -14,7 +14,7 @@ public class GradeBook{
 	private List<String> columnHeaders;
 	private List<List<Float>> grades;
 	private List <Float> rowGrades;
-	private List <Float> columnGrades;
+	private List <Integer> columnGrades;
 	
 	
 	public GradeBook(String filePath) {
@@ -50,30 +50,25 @@ public class GradeBook{
 	}
 	
 	//returns the HighestGrade. Just pass in the file you wish to search and the column of that file you wish to search.
-	public Float getHighestGrade(String filePath, int column) {
+	public int getHighestGrade(String filePath, int column) {
 		columnGrades = new ArrayList<>();
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/" + filePath +".csv") , ',', '\"');
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/skate/Desktop/Leaderboard-master/Leaderboard-master/src/main/resources/courses/"+filePath+".csv") , ',', '\"');
 			String nextLine [] = reader.readNext();
 			while ((nextLine = reader.readNext()) !=null){
-				columnGrades.add(Float.parseFloat(nextLine[column]));
-				Float highestGrade = Collections.max(columnGrades);
-				return highestGrade;
+				columnGrades.add(Integer.parseInt(nextLine[column]));
 			}
+			int highestGrade = Collections.max(columnGrades);
+			return highestGrade;
 		}
 		catch(IOException ioe){}
-		return null;
+		return 0;
 		//while there is more to read
 		//	add the column you wish to search into the arrayList.
 		//	find the max value in that column and sets it equal to a variable;
 		// 	returns a single grade
 	}
 	
-	
-	//Just to check to see if it is returning the right grade for that column; returns all of the grades.
-	public List <Float> getColumnGrades(){
-		return columnGrades;
-	}
 	public List<String> getColumnHeaders() {
 		return columnHeaders;
 	}
