@@ -80,6 +80,10 @@ public class CSVParser {
 		return String.join("/n", studentIds);
 	}
 
+	public List<String> getStudentIdsAsList() {
+		return studentIds;
+	}
+	
 	public List<String> getCourseIdsAsList() {
 		return courseIds;
 	}

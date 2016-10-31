@@ -13,18 +13,33 @@ public class CSVParserTest {
     }
 	
 	@Test
-	public void testThatCourseIdsAreLoaded() {		
-		assertNotNull(p.getStudentIds());
-		//in new test
-		//get first
-		//get last
-		//get length
-		//repeat for students
+	public void testThatFirstCourseIdIsCorrect() {
+		assertTrue(p.getCourseIdsAsList().get(0).equals("99000"));
 	}
-	
+
 	@Test
-	public void testThatStudentIdsAreLoaded() {
-		assertNotNull(p.getCourseIds());
+	public void testThatLastCourseIdIsCorrect() {
+		assertTrue(p.getCourseIdsAsList().get(24).equals("99024"));
+	}
+
+	@Test
+	public void testThatCourseListLengthIsCorrect() {
+		assertEquals(p.getCourseIdsAsList().size(), 25);
+	}
+
+	@Test
+	public void testThatFirstStudentIdIsCorrect() {
+		assertTrue(p.getStudentIdsAsList().get(0).equals("111111"));
+	}
+
+	@Test
+	public void testThatLastStudentIdIsCorrect() {
+		assertTrue(p.getStudentIdsAsList().get(299).equals("111410"));
+	}
+
+	@Test
+	public void testThatStudentsListLengthIsCorrect() {
+		assertEquals(p.getStudentIdsAsList().size(), 300);
 	}
 
     @Test
@@ -51,12 +66,5 @@ public class CSVParserTest {
 		Course t = p.getCourse("99018");
 		assertEquals(c, t);
 	}
-	
-	/*@Test
-	public void testThatCoursesAreLoaded(){
-		assertNotNull(p.getCourses());
-	}*/
-	
 
-	
 }

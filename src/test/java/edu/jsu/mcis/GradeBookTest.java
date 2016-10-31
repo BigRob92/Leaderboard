@@ -3,13 +3,14 @@ import org.junit.*;
 import java.util.*;
 import static org.junit.Assert.*;
 
+
 public class GradeBookTest{
 	
 	private GradeBook gb;
 
 	@Before
 	public void setUp(){
-		gb = new GradeBook("C:/Users/skate/Desktop/Leaderboard-master/Leaderboard-master/src/main/resources/courses/99001.csv");
+		gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99001.csv");
 	}
 	
 	@Test

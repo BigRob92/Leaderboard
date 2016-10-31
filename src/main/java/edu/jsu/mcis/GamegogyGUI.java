@@ -8,7 +8,9 @@ import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
+
 public class GamegogyGUI extends JFrame {
+    
     private JLabel termLabel;
     private JLabel enrollmentLabel;
     private JLabel idLabel;

@@ -9,13 +9,14 @@ import java.io.*;
 import java.util.*;
 import au.com.bytecode.opencsv.*;
 
+
 public class GradeBook{
+
 	private List<String> ids;
 	private List<String> columnHeaders;
 	private List<List<Float>> grades;
 	private List <Float> rowGrades;
 	private List <Integer> columnGrades;
-	
 	
 	public GradeBook(String filePath) {
 		ids = new ArrayList<>();
@@ -53,7 +54,7 @@ public class GradeBook{
 	public int getHighestGrade(String filePath, int column) {
 		columnGrades = new ArrayList<>();
 		try {
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/skate/Desktop/Leaderboard-master/Leaderboard-master/src/main/resources/courses/"+filePath+".csv") , ',', '\"');
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+filePath+".csv") , ',', '\"');
 			String nextLine [] = reader.readNext();
 			while ((nextLine = reader.readNext()) !=null){
 				columnGrades.add(Integer.parseInt(nextLine[column]));
@@ -93,10 +94,4 @@ public class GradeBook{
 		return Integer.toString(enrollment);
 	}
 
-	/*public List<Float> getSortedScores() {
-		Collections.sort(getRowGrades());
-		List<Float> sortedGrades = new ArrayList<>();
-		sortedGrades = Collections.reverse(getRowGrades());
-		return sortedGrades;
-	}*/
 }
