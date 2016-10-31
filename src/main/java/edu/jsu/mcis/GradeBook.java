@@ -1,3 +1,9 @@
+// Fixed getHighestGrade() by making the function return
+// a float instead of a string. Sorting the values as
+// strings means 1xxxx < 2xxxx < ... < 9.
+// Also made corresponding changes to GradeBookTest.java and
+// now that test passes. ~Ben
+
 package edu.jsu.mcis;
 import java.io.*;
 import java.util.*;
@@ -8,7 +14,7 @@ public class GradeBook{
 	private List<String> columnHeaders;
 	private List<List<Float>> grades;
 	private List <Float> rowGrades;
-	private List <String> columnGrades;
+	private List <Float> columnGrades;
 	
 	
 	public GradeBook(String filePath) {
@@ -44,16 +50,14 @@ public class GradeBook{
 	}
 	
 	//returns the HighestGrade. Just pass in the file you wish to search and the column of that file you wish to search.
-	public String getHighestGrade(String filePath, int column){
-		
+	public Float getHighestGrade(String filePath, int column) {
 		columnGrades = new ArrayList<>();
-		
 		try {
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/skate/Desktop/Leaderboard/src/main/resources/courses/" + filePath +".csv") , ',', '\"');
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/" + filePath +".csv") , ',', '\"');
 			String nextLine [] = reader.readNext();
 			while ((nextLine = reader.readNext()) !=null){
-				columnGrades.add(nextLine[column]);
-				String highestGrade = Collections.max(columnGrades);
+				columnGrades.add(Float.parseFloat(nextLine[column]));
+				Float highestGrade = Collections.max(columnGrades);
 				return highestGrade;
 			}
 		}
@@ -67,7 +71,7 @@ public class GradeBook{
 	
 	
 	//Just to check to see if it is returning the right grade for that column; returns all of the grades.
-	public List <String> getColumnGrades(){
+	public List <Float> getColumnGrades(){
 		return columnGrades;
 	}
 	public List<String> getColumnHeaders() {

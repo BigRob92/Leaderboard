@@ -9,18 +9,16 @@ public class GradeBookTest{
 
 	@Before
 	public void setUp(){
-		gb = new GradeBook("C:/Users/skate/Desktop/Leaderboard/src/main/resources/courses/99001.csv");
+		gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99001.csv");
 	}
 	
 	public void testThatEnrollmentIsReturned(){
 	assertEquals(gb.getEnrollment(),"11");
 	}
 	
-	
-	//Should return 124 but it returns 98. I'll ask Dr. Garret tomorrow what is wrong with it. The max function is not working properly.
 	@Test
 	public void testThatHighestGradeIsReturned(){
-		assertEquals(gb.getHighestGrade("99001", 2), "124");
+		assertTrue(gb.getHighestGrade("99001", 2) == 124);
 	}
 	
 	@Test
@@ -31,7 +29,7 @@ public class GradeBookTest{
 	
 	@Test
 	public void testThatStudentsInCourseAreReturned(){
-		List<String> studentList = Arrays.asList("111318", "111383", "111190", "111406", "111115", "111211", "111208", "111310", "111335", "111141", "111262");
+		List<String> studentList = Arrays.asList("111291", "111208", "111148", "111236", "111326", "111293", "111143", "111157", "111254");
 		assertEquals(gb.getIds(), studentList);
 	}
 	
