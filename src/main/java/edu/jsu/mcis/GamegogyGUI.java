@@ -40,7 +40,7 @@ public class GamegogyGUI extends JFrame {
 
     private void initComponents() {
         p = new CSVParser();
-        gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
+        gb = new GradeBook("C:/Users/Lamontay/Documents/Software Engineering/Leaderboard/src/main/resources/courses/99000.csv");
         setTitle("Gamegogy");
         setPreferredSize(new Dimension(500, 500));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -77,7 +77,7 @@ public class GamegogyGUI extends JFrame {
                 String courseSELECTED = courseSelected.toString();
                 try {
                     if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
-                        gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+courseSELECTED+".csv");
+                        gb = new GradeBook("C:/Users/Lamontay/Documents/Software Engineering/Leaderboard/src/main/resources/courses/"+courseSELECTED+".csv");
                         columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
                         p = new CSVParser();
                         c = new Course("","","","");
