@@ -3,6 +3,7 @@ package edu.jsu.mcis;
 
 public class Course {
     
+    private String clementTest;
     private String id;
     private String term;
     private String year;
