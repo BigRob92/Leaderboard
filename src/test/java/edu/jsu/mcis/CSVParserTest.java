@@ -66,5 +66,25 @@ public class CSVParserTest {
 		Course t = p.getCourse("99018");
 		assertEquals(c, t);
 	}
+	
+	@Test
+	public void testThatCourseEnrollmentIsGot(){
+		assertEquals(p.getEnrollment("99018"), "16");
+	}
+	
+	@Test
+	public void testThatCourseTermIsReturned(){
+		assertEquals(p.getCourseTerm("99018"), "Spring 2014");
+	}
+	
+	@Test
+	public void testThatStudentNameIsReturned(){
+		assertEquals(p.getStudentName("111381"), "Rex Gilliam");
+	}
+	
+	/*@Test
+	public void testThatStudentEmailIsReturned(){
+		assertEquals(p.getStudentEmail("111381"), "rgilliam@jsu.edu");
+	}*/
 
 }

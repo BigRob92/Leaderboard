@@ -26,7 +26,7 @@ public class CSVParser {
 		//f = new File("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses");
 		
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/skate/Desktop/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -43,7 +43,7 @@ public class CSVParser {
 		catch(IOException e) {}
 
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/skate/Desktop/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Course c = new Course(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -77,7 +77,7 @@ public class CSVParser {
 	}
 
 	public String getStudentIds() {
-		return String.join("/n", studentIds);
+		return String.join("\n", studentIds);
 	}
 
 	public List<String> getStudentIdsAsList() {
@@ -88,7 +88,7 @@ public class CSVParser {
 		return courseIds;
 	}
 	public String getCourseIds() {
-		return String.join("/n", courseIds);
+		return String.join("\n", courseIds);
 	}
 
 	public Student getStudent(String studentId) {
@@ -99,22 +99,17 @@ public class CSVParser {
 		return null;
     }
 	
-	public String getStudentId(String studentId) {
-		for(int i = 0; i < students.size(); i++) {
-			Student s = students.get(i);
-			if(studentId.equals(s.getId())) return studentId;
-		}
-		return null;
-	}
-
+	//this needs to be fixed
 	public String getStudentName(String studentId) {
-		for(int i = 0; i < students.size(); i++) {
-			Student s = students.get(i);
-			if(studentId.equals(s.getId())) return studentName;
-		}
-		return null;
+			Student s = new Student(studentId,"","","");
+			String firstName = s.getFirstName();
+			String lastName = s.getLastName();
+			String name = firstName + " " + lastName;
+			if(studentId.equals(s.getId())) return name;
+			else return null;
 	}
 
+	//this needs to be fixed
 	public String getStudentEmail(String studentId) {
 		for(int i = 0; i < students.size(); i++) {
 			Student s = students.get(i);

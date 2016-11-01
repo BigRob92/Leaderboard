@@ -54,7 +54,7 @@ public class GradeBook{
 	public int getHighestGrade(String filePath, int column) {
 		columnGrades = new ArrayList<>();
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+filePath+".csv") , ',', '\"');
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/skate/Desktop/Leaderboard/src/main/resources/courses/"+filePath+".csv") , ',', '\"');
 			String nextLine [] = reader.readNext();
 			while ((nextLine = reader.readNext()) !=null){
 				columnGrades.add(Integer.parseInt(nextLine[column]));
