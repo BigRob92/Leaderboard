@@ -82,9 +82,9 @@ public class CSVParserTest {
 		assertEquals(p.getStudentName("111381"), "Rex Gilliam");
 	}
 	
-	/*@Test
+	@Test
 	public void testThatStudentEmailIsReturned(){
 		assertEquals(p.getStudentEmail("111381"), "rgilliam@jsu.edu");
-	}*/
+	}
 
 }

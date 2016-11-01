@@ -101,12 +101,23 @@ public class CSVParser {
 	
 	//this needs to be fixed
 	public String getStudentName(String studentId) {
-			Student s = new Student(studentId,"","","");
-			String firstName = s.getFirstName();
-			String lastName = s.getLastName();
-			String name = firstName + " " + lastName;
-			if(studentId.equals(s.getId())) return name;
-			else return null;
+		try{
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/skate/Desktop/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			String nextLine[];
+			while ((nextLine = reader.readNext()) != null){
+				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
+				if(nextLine[0].equals(studentId)){
+					String firstName = nextLine[1];
+					String lastName = nextLine[2];
+					String name = firstName + " "+ lastName;	
+					return name;
+				}
+			}
+			
+		}
+		catch(IOException e){}
+		return "";
+		
 	}
 
 	//this needs to be fixed
