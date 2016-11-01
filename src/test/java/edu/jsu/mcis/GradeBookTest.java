@@ -10,7 +10,7 @@ public class GradeBookTest{
 
 	@Before
 	public void setUp(){
-		gb = new GradeBook("C:/Users/skate/Desktop/Leaderboard/src/main/resources/courses/99001.csv");
+		gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99001.csv");
 	}
 	
 	@Test
