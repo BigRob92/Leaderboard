@@ -57,7 +57,7 @@ public class GradeBook{
 		columnGrades = new ArrayList<>();
 		try {
 			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream(filePath);
-			CSVReader reader = new CSVReader(new InputStreamReader(resource) , ',', '\"');
+			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',', '\"');
 			String nextLine [] = reader.readNext();
 			while ((nextLine = reader.readNext()) !=null){
 				columnGrades.add(Float.parseFloat(nextLine[column]));
