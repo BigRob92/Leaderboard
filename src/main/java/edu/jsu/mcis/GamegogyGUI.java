@@ -26,6 +26,9 @@ public class GamegogyGUI extends JFrame {
     private Course c;
     private List<String> coursesList;
 
+    private String courseSELECTED;
+    private String courseId;
+
     public GamegogyGUI() {
         initComponents();
     }
@@ -74,14 +77,15 @@ public class GamegogyGUI extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
                 Object courseSelected = courseComboBox.getSelectedItem();
-                String courseSELECTED = courseSelected.toString();
+                courseSELECTED = courseSelected.toString();
                 try {
                     if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
                         gb = new GradeBook("C:/Users/Lamontay/Documents/Software Engineering/Leaderboard/src/main/resources/courses/"+courseSELECTED+".csv");
                         columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
                         p = new CSVParser();
                         c = new Course("","","","");
-                        //nameLabel.setText(gb.getGrades().toString());
+                        setCourse(courseSELECTED);
+                        
                         termLabel.setText(p.getCourseTerm(courseSELECTED));
                         enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
                     }
@@ -93,6 +97,7 @@ public class GamegogyGUI extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 JComboBox columnComboBox = (JComboBox) event.getSource();
                 Object headerSelected = columnComboBox.getSelectedItem();
+                courseSELECTED = getCourse();
                 List<String> headerList = getColumnComboValues();
                 Student s = new Student("","","","");
                 List<List<Float>> gradesList = gb.getGrades();
@@ -101,25 +106,10 @@ public class GamegogyGUI extends JFrame {
     
                 try {
                     int headerIndex = headerList.indexOf(headerSelected);                   
+                    scoreLabel.setText(Integer.toString(gb.getHighestGrade(courseSELECTED, headerIndex+1)));
                     emailLabel.setText(Integer.toString(headerIndex));
                     
-                    //for(int i = 0; i < headerList.size(); i++) {
-                        for(int j = 0; j < idsList.size(); j++) {
-                            float maxInColumn = gradesList.get(headerIndex).get(j);
-                            if(maxInColumn < gradesList.get(headerIndex).get(j++)) {
-                                maxInColumn = gradesList.get(headerIndex).get(j++);
-                            }  
-                            scoreLabel.setText(""+maxInColumn);
-                        }
-                    //}
-                    
-                    
 
-                    
-    
-                    //scoreLabel.setText(Integer.toString(headerIndex));
-                // sort corresponding column in course file
-                // get info of highest scoring student
             } catch (NullPointerException e) {}
               catch (ClassCastException e) {}
         }});
@@ -140,6 +130,14 @@ public class GamegogyGUI extends JFrame {
 
         pack();
         setVisible(true);
+    }
+
+    public void setCourse(String courseSELECTED) {
+        courseId = courseSELECTED;
+    }
+
+    public String getCourse() {
+        return courseId;
     }
 
     public void changeCourse(String file) {

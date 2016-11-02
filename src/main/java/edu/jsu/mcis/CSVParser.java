@@ -23,8 +23,6 @@ public class CSVParser {
 		courses = new ArrayList<>();
 		courseIds = new ArrayList<>();
 
-		//f = new File("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses");
-		
 		try {
 			CSVReader reader = new CSVReader(new FileReader("C:/Users/Lamontay/Documents/Software Engineering/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
 			String[] nextLine;
@@ -78,7 +76,7 @@ public class CSVParser {
 	}
 
 	public String getStudentIds() {
-		return String.join("/n", studentIds);
+		return String.join("\n", studentIds);
 	}
 
 	public List<String> getStudentIdsAsList() {
@@ -89,7 +87,7 @@ public class CSVParser {
 		return courseIds;
 	}
 	public String getCourseIds() {
-		return String.join("/n", courseIds);
+		return String.join("\n", courseIds);
 	}
 
 	public Student getStudent(String studentId) {
@@ -100,29 +98,43 @@ public class CSVParser {
 		return null;
     }
 	
-	public String getStudentId(String studentId) {
-		for(int i = 0; i < students.size(); i++) {
-			Student s = students.get(i);
-			if(studentId.equals(s.getId())) return studentId;
-		}
-		return null;
-	}
-
+	//this needs to be fixed
 	public String getStudentName(String studentId) {
-		for(int i = 0; i < students.size(); i++) {
-			Student s = students.get(i);
-			if(studentId.equals(s.getId())) return studentName;
+		try{
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			String nextLine[];
+			while ((nextLine = reader.readNext()) != null){
+				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
+				if(nextLine[0].equals(studentId)){
+					String firstName = nextLine[1];
+					String lastName = nextLine[2];
+					String name = firstName + " "+ lastName;	
+					return name;
+				}
+			}
+			
 		}
-		return null;
+		catch(IOException e){}
+		return "";
 	}
 
 	public String getStudentEmail(String studentId) {
-		for(int i = 0; i < students.size(); i++) {
-			Student s = students.get(i);
-			if(studentId.equals(s.getId())) return studentEmail;
+		try {
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			String nextLine[];
+			while ((nextLine = reader.readNext()) != null) {
+				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
+				if(nextLine[0].equals(studentId)) {
+					String studentEmail = nextLine[3];
+					String email = studentEmail + "@jsu.edu";
+					return email;
+				}
+			}
 		}
-		return null;
+		catch (IOException e) {}
+		return "";
 	}
+
 
     public Course getCourse(String courseId) {
 		for(int i = 0; i < courses.size(); i++){
