@@ -24,7 +24,8 @@ public class CSVParser {
 		courseIds = new ArrayList<>();
 
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream("students.csv");
+			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -41,7 +42,8 @@ public class CSVParser {
 		catch(IOException e) {}
 
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses.csv"), ',', '\"', 1);
+			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream("courses.csv");
+			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',', '\"', 1);
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Course c = new Course(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -101,7 +103,8 @@ public class CSVParser {
 	//this needs to be fixed
 	public String getStudentName(String studentId) {
 		try{
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream("students.csv");
+			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',', '\"', 1);
 			String nextLine[];
 			while ((nextLine = reader.readNext()) != null){
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
@@ -120,7 +123,8 @@ public class CSVParser {
 
 	public String getStudentEmail(String studentId) {
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/students.csv"), ',', '\"', 1);
+			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream("students.csv");
+			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',', '\"', 1);
 			String nextLine[];
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);

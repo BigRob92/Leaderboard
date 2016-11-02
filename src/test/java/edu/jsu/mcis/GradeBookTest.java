@@ -20,7 +20,7 @@ public class GradeBookTest{
 	
 	@Test
 	public void testThatHighestGradeIsReturned(){
-		List<Float> columnGrades = new ArrayList<>(gb.getColumnGrades("99001", 2));
+		List<Float> columnGrades = new ArrayList<>(gb.getColumnGrades("courses/99001.csv", 2));
 		Float highGrade = Collections.max(columnGrades);
 		assertTrue(highGrade == 132);
 	}

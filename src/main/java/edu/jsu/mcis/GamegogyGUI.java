@@ -87,7 +87,7 @@ public class GamegogyGUI extends JFrame {
                 courseSELECTED = courseSelected.toString();
              //   try {
                     if(courseSELECTED == null && courseSELECTED.isEmpty()) {
-                        gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/99000.csv");
+                        gb = new GradeBook("courses/99000.csv");
                         columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
                         p = new CSVParser();
                         setCourse("99000");
@@ -105,7 +105,7 @@ public class GamegogyGUI extends JFrame {
                         scoreLabel.setText(Float.toString(highGrade));
                     }columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
                     if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
-                        gb = new GradeBook("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+courseSELECTED+".csv");
+                        gb = new GradeBook("courses/"+courseSELECTED+".csv");
                         columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
                         p = new CSVParser();
                         setCourse(courseSELECTED);
@@ -147,7 +147,7 @@ public class GamegogyGUI extends JFrame {
                 topStudentId = studentIds.get(gradeIndex);
                 scoreLabel.setText(Float.toString(highGrade));
                 nameLabel.setText(p.getStudentName(topStudentId));
-                emailLabel.setText(Integer.toString(headerIndex));
+                emailLabel.setText(Integer.toString(headerIndex+1));
                     
 
           //  } catch (NullPointerException e) {}

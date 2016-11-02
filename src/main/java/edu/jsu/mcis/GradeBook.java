@@ -56,7 +56,8 @@ public class GradeBook{
 	public List<Float> getColumnGrades(String filePath, int column) {
 		columnGrades = new ArrayList<>();
 		try {
-			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+filePath+".csv") , ',', '\"');
+			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream(filePath);
+			CSVReader reader = new CSVReader(new InputStreamReader(resource) , ',', '\"');
 			String nextLine [] = reader.readNext();
 			while ((nextLine = reader.readNext()) !=null){
 				columnGrades.add(Float.parseFloat(nextLine[column]));
