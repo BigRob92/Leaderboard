@@ -15,8 +15,8 @@ public class GradeBook{
 	private List<String> ids;
 	private List<String> columnHeaders;
 	private List<List<Float>> grades;
-	private List <Float> rowGrades;
-	private List <Integer> columnGrades;
+	private List<Float> rowGrades;
+	private List<Float> columnGrades;
 	
 	public GradeBook(String filePath) {
 		ids = new ArrayList<>();
@@ -24,7 +24,9 @@ public class GradeBook{
 		grades = new ArrayList<>();
 		rowGrades = new ArrayList<>();
 		try{
-			CSVReader reader = new CSVReader(new FileReader(filePath), ',','\"');
+			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream(filePath);
+			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',','\"');
+			//CSVReader reader = new CSVReader(new FileReader(filePath), ',','\"');
 			String [] nextLine = reader.readNext();
 			
 			for (int i=1; i < nextLine.length; i++) {
@@ -51,19 +53,20 @@ public class GradeBook{
 	}
 	
 	//returns the HighestGrade. Just pass in the file you wish to search and the column of that file you wish to search.
-	public int getHighestGrade(String filePath, int column) {
+	public List<Float> getColumnGrades(String filePath, int column) {
 		columnGrades = new ArrayList<>();
 		try {
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/Lamontay/Documents/Software Engineering/Leaderboard/src/main/resources/courses/"+filePath+".csv") , ',', '\"');
+			CSVReader reader = new CSVReader(new FileReader("/home/ben/Development/cs310/Leaderboard/src/main/resources/courses/"+filePath+".csv") , ',', '\"');
 			String nextLine [] = reader.readNext();
 			while ((nextLine = reader.readNext()) !=null){
-				columnGrades.add(Integer.parseInt(nextLine[column]));
+				columnGrades.add(Float.parseFloat(nextLine[column]));
 			}
-			int highestGrade = Collections.max(columnGrades);
-			return highestGrade;
+			//int highestGrade = Collections.max(columnGrades);
+			//return highestGrade;
+			return columnGrades;
 		}
 		catch(IOException ioe){}
-		return 0;
+		return null;
 		//while there is more to read
 		//	add the column you wish to search into the arrayList.
 		//	find the max value in that column and sets it equal to a variable;
