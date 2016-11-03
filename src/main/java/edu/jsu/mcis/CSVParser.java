@@ -100,7 +100,6 @@ public class CSVParser {
 		return null;
     }
 	
-	//this needs to be fixed
 	public String getStudentName(String studentId) {
 		try{
 			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream("students.csv");
@@ -138,7 +137,6 @@ public class CSVParser {
 		catch (IOException e) {}
 		return "";
 	}
-
 
     public Course getCourse(String courseId) {
 		for(int i = 0; i < courses.size(); i++){

@@ -1,5 +1,3 @@
-
-
 package edu.jsu.mcis;
 
 import java.awt.event.*;
@@ -85,7 +83,7 @@ public class GamegogyGUI extends JFrame {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
                 Object courseSelected = courseComboBox.getSelectedItem();
                 courseSELECTED = courseSelected.toString();
-               // try {
+
                     if(courseSELECTED == null && courseSELECTED.isEmpty()) {
                         try{
                         gb = new GradeBook("courses/99000.csv");
@@ -120,8 +118,9 @@ public class GamegogyGUI extends JFrame {
 
                         studentIds = gb.getIds();
                         topStudentId = studentIds.get(gradeIndex);
-
+                        idLabel.setText(topStudentId);
                         nameLabel.setText(p.getStudentName(topStudentId));
+                        emailLabel.setText(p.getStudentEmail(topStudentId));
                         scoreLabel.setText(Float.toString(highGrade));
                     
                 } catch (NullPointerException e) {}
@@ -137,27 +136,19 @@ public class GamegogyGUI extends JFrame {
                 courseSELECTED = getCourse();
                 List<String> headerList = getColumnComboValues();
                 List<List<Float>> gradesList = gb.getGrades();
-                
+                headerIndex = headerList.indexOf(headerSelected) + 1;
                 columnGrades = new ArrayList<>(gb.getColumnGrades("courses/"+courseSELECTED+".csv", headerIndex));
                 highGrade = Collections.max(columnGrades);
                 gradeIndex = columnGrades.indexOf(highGrade);
-
-                
-    
-                headerIndex = headerList.indexOf(headerSelected);
                 columnGrades = new ArrayList<>(gb.getColumnGrades("courses/"+courseSELECTED+".csv", headerIndex));
                 highGrade = Collections.max(columnGrades);
                 gradeIndex = columnGrades.indexOf(highGrade);
-                //try {
                 studentIds = gb.getIds();
                 topStudentId = studentIds.get(gradeIndex);
+                idLabel.setText(topStudentId);
                 scoreLabel.setText(Float.toString(highGrade));
                 nameLabel.setText(p.getStudentName(topStudentId));
-                emailLabel.setText(Integer.toString(headerIndex));
-                    
-
-          //  } catch (NullPointerException e) {}
-            //  catch (ClassCastException e) {}
+                emailLabel.setText(p.getStudentEmail(topStudentId));
         }});
         
         JPanel topPanel = new JPanel();
