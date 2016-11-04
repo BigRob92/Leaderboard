@@ -20,10 +20,13 @@ public class GradeBookTest{
 	
 	@Test
 	public void testThatHighestGradeIsReturned(){
-		List<Float> columnGrades = new ArrayList<>(gb.getColumnGrades("courses/99001.csv", 2));
+		List<Float> columnGrades = new ArrayList<>(gb.getColumnGrades(2));
 		Float highGrade = Collections.max(columnGrades);
-		assertTrue(highGrade == 132);
+		assertEquals(highGrade , 132, 0.0000001);
 	}
+	
+	@Test
+	public void testThatTheLengthOfTheRowGrades
 	
 	@Test
 	public void testThatStudentsInCourseAreReturned(){
@@ -35,7 +38,6 @@ public class GradeBookTest{
 	public void testThatGradesAreReturned(){
 		assertEquals(gb.getGrades().size(), gb.getIds().size()*gb.getColumnHeaders().size());
 	}
-	
 }
 
 //add test to get one particular grade
