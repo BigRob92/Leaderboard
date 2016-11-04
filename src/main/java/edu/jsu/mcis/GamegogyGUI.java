@@ -77,6 +77,7 @@ public class GamegogyGUI extends JFrame {
         panel.add(new JLabel("Score: ", JLabel.LEFT));
         panel.add(scoreLabel);
 
+
         courseComboBox = new JComboBox<>(p.getCourseIdsAsList().toArray(new String[0]));
         courseComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -110,6 +111,7 @@ public class GamegogyGUI extends JFrame {
                         columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
                         p = new CSVParser();
                         setCourse(courseSELECTED);
+                
                         termLabel.setText(p.getCourseTerm(courseSELECTED));
                         enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
                         columnGrades = new ArrayList<>(gb.getColumnGrades(courseSELECTED, 1));
@@ -177,9 +179,8 @@ public class GamegogyGUI extends JFrame {
         return courseId;
     }
 
-    public void changeCourse(String file) {
-        gb = new GradeBook(file);
-        populateCourseComboBox();
+    public void changeCourse(ActionEvent event) {
+        populateColumnComboBox();
     }
     
     public void populateCourseComboBox() {

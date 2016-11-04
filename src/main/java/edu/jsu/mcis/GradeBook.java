@@ -18,7 +18,7 @@ public class GradeBook{
 		grades = new ArrayList<>();
 		rowGrades = new ArrayList<>();
 		try{
-			InputStream resource = ClassLoader.getSystemClassLoader().getResourceAsStream(filePath);
+			InputStream resource = getClass().getClassLoader().getResourceAsStream(filePath);
 			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',','\"');
 			String [] nextLine = reader.readNext();
 			for (int i=1; i < nextLine.length; i++) {

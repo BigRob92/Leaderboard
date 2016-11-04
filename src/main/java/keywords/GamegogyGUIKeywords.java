@@ -1,6 +1,7 @@
 package keywords;
 import edu.jsu.mcis.*;
 
+
 public class GamegogyGUIKeywords {
     private String columnName;
     private String courseId;
