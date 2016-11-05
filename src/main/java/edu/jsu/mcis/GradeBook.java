@@ -9,12 +9,15 @@ public class GradeBook{
 	private List<String> ids;
 	private List<String> columnHeaders;
 	private List<List<Float>> grades;
+	private List<Float>rowGrades;
+	private List<Float>columnGrades;
 	
-	public GradeBook(String filePath) {
+	public GradeBook(String filePath, int column) {
 		ids = new ArrayList<>();
 		columnHeaders = new ArrayList<>();
 		grades = new ArrayList<>();
-		List <Float>rowGrades = new ArrayList<>();
+		rowGrades = new ArrayList<>();
+		columnGrades = new ArrayList<>();
 		try{
 			InputStream resource = getClass().getClassLoader().getResourceAsStream(filePath);
 			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',','\"');
@@ -24,6 +27,7 @@ public class GradeBook{
 			}
 			while((nextLine = reader.readNext()) != null){
 				ids.add(nextLine[0]);
+				columnGrades.add(Float.parseFloat(nextLine[column]));
 				for (int i=1; i < nextLine.length; i++) {
 					rowGrades.add(Float.parseFloat(nextLine[i]));
 					grades.add(rowGrades);
@@ -31,13 +35,10 @@ public class GradeBook{
 			}
 		}
 		catch(IOException e){}
+		catch(NullPointerException e){}
 	}
 	
-	public List<Float> getColumnGrades(int column) {
-		List <Float> columnGrades = new ArrayList<>();
-		for(List<Float> row : grades) {
-			columnGrades.add(row.get(column));
-		}
+	public List<Float> getColumnGrades() {
 		return columnGrades;
 	}
 	
@@ -49,8 +50,8 @@ public class GradeBook{
 		return grades;
 	}
 	
-	public List<Float> getRowGrades(int row) {
-		return grades.get(row);
+	public List<Float> getRowGrades() {
+		return rowGrades;
 	}
 
 	public List<String> getIds(){

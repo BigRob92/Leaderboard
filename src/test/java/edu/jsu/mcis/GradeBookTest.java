@@ -10,7 +10,7 @@ public class GradeBookTest{
 
 	@Before
 	public void setUp(){
-		gb = new GradeBook("courses/99001.csv");
+		gb = new GradeBook("courses/99001.csv", 2);
 	}
 	
 	@Test
@@ -20,13 +20,10 @@ public class GradeBookTest{
 	
 	@Test
 	public void testThatHighestGradeIsReturned(){
-		List<Float> columnGrades = new ArrayList<>(gb.getColumnGrades(2));
+		List<Float> columnGrades = new ArrayList<>(gb.getColumnGrades());
 		Float highGrade = Collections.max(columnGrades);
-		assertEquals(highGrade , 132, 0.0000001);
+		assertEquals(highGrade , 132, 0.000000000001);
 	}
-	
-	@Test
-	public void testThatTheLengthOfTheRowGrades
 	
 	@Test
 	public void testThatStudentsInCourseAreReturned(){
