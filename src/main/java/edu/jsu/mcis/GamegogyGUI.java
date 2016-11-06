@@ -49,7 +49,7 @@ public class GamegogyGUI extends JFrame {
     }
 
     private void initComponents() {
-        p = new CSVParser();
+        p = new CSVParser("111111");
         gb = new GradeBook("courses/99000.csv", 1);
         setTitle("Gamegogy");
         setPreferredSize(new Dimension(500, 500));
@@ -83,70 +83,59 @@ public class GamegogyGUI extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
                 Object courseSelected = courseComboBox.getSelectedItem();
-                courseSELECTED = courseSelected.toString();
-                    if(courseSELECTED == null && courseSELECTED.isEmpty()) {
-                        try{
-                        gb = new GradeBook("courses/99000.csv", 1);
-                        columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
-                        p = new CSVParser();
-                        setCourse("courses/99000.csv");
-                        termLabel.setText(p.getCourseTerm("99000"));
-                        enrollmentLabel.setText(p.getEnrollment("99000"));
-                        
-                        columnGrades = new ArrayList<>(gb.getColumnGrades());
-                        highGrade = Collections.max(columnGrades);
-                        gradeIndex = columnGrades.indexOf(highGrade);
-                        
-                        studentIds = gb.getIds();
-                        topStudentId = studentIds.get(gradeIndex);
+				courseSELECTED = courseSelected.toString();
+          
+                    if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
+						try{
+								gb = new GradeBook("courses/"+courseSELECTED+".csv", 1);
+								columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
+								setCourse(courseSELECTED);
+					
+								termLabel.setText(p.getCourseTerm(courseSELECTED));
+								enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
+								columnGrades = new ArrayList<>(gb.getColumnGrades());
+								highGrade = Collections.max(columnGrades);
+								gradeIndex = columnGrades.indexOf(highGrade);
 
-                        nameLabel.setText(p.getStudentName(topStudentId));
-                        scoreLabel.setText(Float.toString(highGrade));
-                        } catch (NullPointerException e) {}
-                    }
-                    else if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
-                        gb = new GradeBook("courses/"+courseSELECTED+".csv", 1);
-                        columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
-                        p = new CSVParser();
-                        setCourse(courseSELECTED);
-                
-                        termLabel.setText(p.getCourseTerm(courseSELECTED));
-                        enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
-                        columnGrades = new ArrayList<>(gb.getColumnGrades());
-                        highGrade = Collections.max(columnGrades);
-                        gradeIndex = columnGrades.indexOf(highGrade);
-
-                        studentIds = gb.getIds();
-                        topStudentId = studentIds.get(gradeIndex);
-                        idLabel.setText(topStudentId);
-                        nameLabel.setText(p.getStudentName(topStudentId));
-                        emailLabel.setText(p.getStudentEmail(topStudentId));
-                        scoreLabel.setText(Float.toString(highGrade));
-                    
-                } 
-            }
+								studentIds = gb.getIds();
+								topStudentId = studentIds.get(gradeIndex);
+								p = new CSVParser(topStudentId);
+								idLabel.setText(topStudentId);
+								nameLabel.setText(p.getStudentName());
+								emailLabel.setText(p.getStudentEmail());
+								scoreLabel.setText(Float.toString(highGrade));
+							
+						}
+						catch(NullPointerException e){}
+					} 
+				}
             });
         
         columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
         columnComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                JComboBox columnComboBox = (JComboBox) event.getSource();
-                Object headerSelected = columnComboBox.getSelectedItem();
-                List<String> headerList = getColumnComboValues();
-                headerIndex = headerList.indexOf(headerSelected) + 1;
-                courseSELECTED = getCourse();
-                gb = new GradeBook("courses/"+courseSELECTED+".csv", headerIndex);
-                List<List<Float>> gradesList = gb.getGrades();
-                columnGrades = new ArrayList<>(gb.getColumnGrades());
-                highGrade = Collections.max(columnGrades);
-                gradeIndex = columnGrades.indexOf(highGrade);
-                studentIds = gb.getIds();
-                topStudentId = studentIds.get(gradeIndex);
-                idLabel.setText(topStudentId);
-                scoreLabel.setText(Float.toString(highGrade));
-                nameLabel.setText(p.getStudentName(topStudentId));
-                emailLabel.setText(p.getStudentEmail(topStudentId));
-        }});
+				try{
+					JComboBox columnComboBox = (JComboBox) event.getSource();
+					Object headerSelected = columnComboBox.getSelectedItem();
+					List<String> headerList = getColumnComboValues();
+					headerIndex = headerList.indexOf(headerSelected) + 1;
+					courseSELECTED = getCourse();
+					gb = new GradeBook("courses/"+courseSELECTED+".csv", headerIndex);
+					List<List<Float>> gradesList = gb.getGrades();
+					columnGrades = new ArrayList<>(gb.getColumnGrades());
+					highGrade = Collections.max(columnGrades);
+					gradeIndex = columnGrades.indexOf(highGrade);
+					studentIds = gb.getIds();
+					topStudentId = studentIds.get(gradeIndex);
+					p = new CSVParser(topStudentId);
+					idLabel.setText(topStudentId);
+					scoreLabel.setText(Float.toString(highGrade));
+					nameLabel.setText(p.getStudentName());
+					emailLabel.setText(p.getStudentEmail());
+				}
+				catch(NullPointerException e){}
+			}
+		});
         
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());

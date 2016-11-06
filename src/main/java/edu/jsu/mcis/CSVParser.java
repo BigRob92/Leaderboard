@@ -17,7 +17,7 @@ public class CSVParser {
 	private File f;
 	public List<File> files;
 
-	public CSVParser() {
+	public CSVParser(String studentId) {
 		students = new ArrayList<>();
 		studentIds = new ArrayList<>();
 		courses = new ArrayList<>();
@@ -29,13 +29,17 @@ public class CSVParser {
 			String[] nextLine;
 			while ((nextLine = reader.readNext()) != null) {
 				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
-				String firstName = nextLine[1].toString();
-				String lastName = nextLine[2].toString();
-				String email = nextLine[3].toString();
-				studentName = firstName + " " + lastName;
-				studentEmail = email + "@jsu.edu"; 
 				students.add(s);
 				studentIds.add(nextLine[0]);
+				if (nextLine[0].equals(studentId)){
+					String firstName = nextLine[1].toString();
+					String lastName = nextLine[2].toString();
+					studentName = firstName + " " + lastName;
+					String email = nextLine[3].toString();
+					studentEmail = email + "@jsu.edu"; 
+				}
+				
+
 			}
 		}
 		catch(FileNotFoundException e) {}
@@ -59,7 +63,6 @@ public class CSVParser {
 		catch(FileNotFoundException e) {}
 		catch(IOException e) {}
 	}
-
 	
 	public String getEnrollment(String courseId) {
 		for(int i = 0; i < courses.size(); i++) {
@@ -100,42 +103,12 @@ public class CSVParser {
 		return null;
     }
 	
-	public String getStudentName(String studentId) {
-		try{
-			InputStream resource = getClass().getClassLoader().getResourceAsStream("students.csv");
-			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',', '\"', 1);
-			String nextLine[];
-			while ((nextLine = reader.readNext()) != null){
-				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
-				if(nextLine[0].equals(studentId)){
-					String firstName = nextLine[1];
-					String lastName = nextLine[2];
-					String name = firstName + " "+ lastName;	
-					return name;
-				}
-			}
-			
-		}
-		catch(IOException e){}
-		return "";
+	public String getStudentName() {
+		return studentName;
 	}
 
-	public String getStudentEmail(String studentId) {
-		try {
-			InputStream resource = getClass().getClassLoader().getResourceAsStream("students.csv");
-			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',', '\"', 1);
-			String nextLine[];
-			while ((nextLine = reader.readNext()) != null) {
-				Student s = new Student(nextLine[0], nextLine[1], nextLine[2], nextLine[3]);
-				if(nextLine[0].equals(studentId)) {
-					String studentEmail = nextLine[3];
-					String email = studentEmail + "@jsu.edu";
-					return email;
-				}
-			}
-		}
-		catch (IOException e) {}
-		return "";
+	public String getStudentEmail() {
+		return studentEmail;
 	}
 
     public Course getCourse(String courseId) {

@@ -38,7 +38,16 @@ public class GradeBook{
 		catch(NullPointerException e){}
 	}
 	
-	public List<Float> getColumnGrades() {
+	public List<Float> getColumnGrades(){
+		/*try{
+			InputStream resource = getClass().getClassLoader().getResourceAsStream(filePath);
+			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',','\"');
+			String [] nextLine = reader.readNext();
+			while((nextLine = reader.readNext()) != null){
+				columnGrades.add(Float.parseFloat(nextLine[column]));
+			}
+		}
+		catch(IOException e){}*/
 		return columnGrades;
 	}
 	

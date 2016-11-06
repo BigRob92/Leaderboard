@@ -8,22 +8,22 @@ public class GamegogyKeywords {
 	private String id;
 	
 	public void startGamegogyCLIWithArguments(String type) {
-		CSVParser p = new CSVParser();
+		CSVParser p = new CSVParser("111111");
 		this.type = type;
 	}
 
     public void startGamegogyCLIWithArguments(String type, String id) {
-		CSVParser p = new CSVParser();
+		CSVParser p = new CSVParser("111111");
 		this.type = type;
 		this.id = id;
     }
 	
 	public void startGamegogyCLIWithArguments(){
-		CSVParser p = new CSVParser();
+		CSVParser p = new CSVParser("111111");
 	}
 	
 	public String getCommandLineOutput(){
-		CSVParser p = new CSVParser();
+		CSVParser p = new CSVParser("111111");
 		if(type != null) {
 			if(type.equals("student")) {
 				return p.getStudent(id).toString();

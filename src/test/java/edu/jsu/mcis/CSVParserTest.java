@@ -9,7 +9,7 @@ public class CSVParserTest {
     
 	@Before
     public void setup() {
-        p = new CSVParser();
+        p = new CSVParser("111381");
     }
 	
 	@Test
@@ -79,12 +79,12 @@ public class CSVParserTest {
 	
 	@Test
 	public void testThatStudentNameIsReturned(){
-		assertEquals(p.getStudentName("111381"), "Rex Gilliam");
+		assertEquals(p.getStudentName(), "Rex Gilliam");
 	}
 	
 	@Test
 	public void testThatStudentEmailIsReturned(){
-		assertEquals(p.getStudentEmail("111381"), "rgilliam@jsu.edu");
+		assertEquals(p.getStudentEmail(), "rgilliam@jsu.edu");
 	}
 
 }

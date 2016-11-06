@@ -5,7 +5,7 @@ import java.io.*;
 public class Gamegogy {
 
     public static void main(String[] args) throws Exception {
-        CSVParser parser = new CSVParser();
+        CSVParser parser = new CSVParser("111111");
         String studentId = "";
         String courseId = "";
 
