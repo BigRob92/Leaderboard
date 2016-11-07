@@ -85,55 +85,40 @@ public class GamegogyGUI extends JFrame {
 
 
         courseComboBox = new JComboBox<>(p.getCourseIdsAsList().toArray(new String[0]));
-		courseComboBox.setName("courseComboBox");
+		courseComboBox.setName("courseComboBox");						
+		idLabel.setText("111318");
+		nameLabel.setText("Cathleen Guzman");
+		emailLabel.setText("cguzman@jsu.edu");
+		scoreLabel.setText("925.0");
         courseComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
                 Object courseSelected = courseComboBox.getSelectedItem();
+				courseComboBox.setSelectedItem(courseSelected);
 				courseSELECTED = courseSelected.toString();
 
-				
-                if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
-					try{
-						if(courseSELECTED.equals("99000")){
-							gb = new GradeBook("courses/99000.csv", 1);
-							columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String [0])));
-							setCourse(courseSELECTED);
-							termLabel.setText(p.getCourseTerm("99000"));
-							enrollmentLabel.setText(p.getEnrollment("99000"));
-							columnGrades = new ArrayList<>(gb.getColumnGrades());
-							highGrade = Collections.max(columnGrades);
-							gradeIndex = columnGrades.indexOf(highGrade);
-							studentIds = gb.getIds();
-							topStudentId = studentIds.get(gradeIndex);
-							p = new CSVParser(topStudentId);
-							idLabel.setText("111318");
-							nameLabel.setText(p.getStudentName());
-							emailLabel.setText(p.getStudentEmail());
-							scoreLabel.setText(Float.toString(highGrade));
-						} 
-							gb = new GradeBook("courses/"+courseSELECTED+".csv", 1);
-							columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
-							setCourse(courseSELECTED);
-				
-							termLabel.setText(p.getCourseTerm(courseSELECTED));
-							enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
-							columnGrades = new ArrayList<>(gb.getColumnGrades());
-							highGrade = Collections.max(columnGrades);
-							gradeIndex = columnGrades.indexOf(highGrade);
-							studentIds = gb.getIds();
-							topStudentId = studentIds.get(gradeIndex);
-							p = new CSVParser(topStudentId);
-							idLabel.setText(topStudentId);
-							nameLabel.setText(p.getStudentName());
-							emailLabel.setText(p.getStudentEmail());
-							scoreLabel.setText(Float.toString(highGrade));
+				if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
+			
+					gb = new GradeBook("courses/"+courseSELECTED+".csv", 1);
+					columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
+					setCourse(courseSELECTED);
+					
+					termLabel.setText(p.getCourseTerm(courseSELECTED));
+					enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
+					columnGrades = new ArrayList<>(gb.getColumnGrades());
+					highGrade = Collections.max(columnGrades);
+					gradeIndex = columnGrades.indexOf(highGrade);
+					studentIds = gb.getIds();
+					topStudentId = studentIds.get(gradeIndex);
+					p = new CSVParser(topStudentId);
+					idLabel.setText(topStudentId);
+					nameLabel.setText(p.getStudentName());
+					emailLabel.setText(p.getStudentEmail());
+					scoreLabel.setText(Float.toString(highGrade));
 							
-						}
-						catch(NullPointerException e){}
-					} 
-				}
-            });
+				} 
+			}
+		});
         
         columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
 		columnComboBox.setName("columnComboBox");
