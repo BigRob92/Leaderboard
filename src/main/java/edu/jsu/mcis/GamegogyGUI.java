@@ -38,47 +38,62 @@ public class GamegogyGUI extends JFrame {
     }
 	
     private void initComponents() {
-        p = new CSVParser("111111");
-        gb = new GradeBook("courses/99000.csv", 1);
-        setTitle("Gamegogy");
         setPreferredSize(new Dimension(500, 500));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+        setTitle("Gamegogy");
+
+        gb = new GradeBook("courses/99000.csv", 1);
+        columnGrades = new ArrayList<>(gb.getColumnGrades());
+        highGrade = Collections.max(columnGrades);
+        gradeIndex = columnGrades.indexOf(highGrade);
+        studentIds = gb.getIds();
+        topStudentId = studentIds.get(gradeIndex);
+        p = new CSVParser(topStudentId);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 2));
+        
         termLabel = new JLabel(p.getCourseTerm("99000"));
 		termLabel.setName("courseTerm");
+        
         enrollmentLabel = new JLabel(p.getEnrollment("99000"));
 		enrollmentLabel.setName("courseEnrollment");
+        
         idLabel = new JLabel();
 		idLabel.setName("studentId");
-        nameLabel = new JLabel();
+        idLabel.setText(topStudentId);
+        
+        nameLabel = new JLabel(p.getStudentName());
 		nameLabel.setName("studentName");
-        emailLabel = new JLabel();
+
+        emailLabel = new JLabel(p.getStudentEmail());
 		emailLabel.setName("studentEmail");
-        scoreLabel = new JLabel();
+        
+        scoreLabel = new JLabel(Float.toString(highGrade));
 		scoreLabel.setName("studentScore");
+        
         panel.add(new JLabel("Term: ", JLabel.LEFT));
         panel.add(termLabel);
+        
         panel.add(new JLabel("Enrollment: ", JLabel.LEFT));
         panel.add(enrollmentLabel);
+        
         panel.add(new JLabel("ID: ", JLabel.LEFT));
         panel.add(idLabel);
+        
         panel.add(new JLabel("Name: ", JLabel.LEFT));
         panel.add(nameLabel);
+        
         panel.add(new JLabel("Email: ", JLabel.LEFT));
         panel.add(emailLabel);
+        
         panel.add(new JLabel("Score: ", JLabel.LEFT));
         panel.add(scoreLabel);
 
 
         courseComboBox = new JComboBox<>(p.getCourseIdsAsList().toArray(new String[0]));
 		courseComboBox.setName("courseComboBox");						
-		idLabel.setText("111318");
-		nameLabel.setText("Cathleen Guzman");
-		emailLabel.setText("cguzman@jsu.edu");
-		scoreLabel.setText("925.0");
         courseComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
