@@ -77,16 +77,15 @@ public class CSVParser {
 		}
 		return null;
 	}
+	
+	public List<String> getStudentIdsAsList(){
+		return studentIds;
+	}
 
 	public String getStudentIds() {
 		return String.join("\n", studentIds);
 	}
 
-	//acceptance test still passes without these functions. They are never used in the code.
-	/*public List<String> getStudentIdsAsList() {
-		return studentIds;
-	}
-	*/
 	public List<String> getCourseIdsAsList() {
 		return courseIds;
 	}

@@ -26,13 +26,7 @@ public class Student {
     public String getLastName() {
         return lastName;
     }
-	
-	/*public String getName(){
-		String name = firstName + " " + lastName;
-		return name;
-	}*/
-    
-	
+
     public String getEmail() {
         return email;
     }

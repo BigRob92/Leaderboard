@@ -26,21 +26,21 @@ public class CSVParserTest {
 	public void testThatCourseListLengthIsCorrect() {
 		assertEquals(p.getCourseIdsAsList().size(), 25);
 	}
-
-	/*@Test
-	public void testThatFirstStudentIdIsCorrect() {
-		assertTrue(p.getStudentIdsAsList().get(0).equals("111111"));
-	}
-
+	
 	@Test
-	public void testThatLastStudentIdIsCorrect() {
-		assertTrue(p.getStudentIdsAsList().get(299).equals("111410"));
+	public void testThatFirstStudentIdIsCorrect(){
+		assertEquals(p.getStudentIdsAsList().get(0), "111111");
 	}
-
+	
 	@Test
-	public void testThatStudentsListLengthIsCorrect() {
+	public void testThatLastStudentIdIsCorrect(){
+		assertEquals(p.getStudentIdsAsList().get(299), "111410");
+	}
+	
+	@Test
+	public void testThatStudentListLengthIsCorrect(){
 		assertEquals(p.getStudentIdsAsList().size(), 300);
-	}*/
+	}
 
     @Test
     public void testParserReadsStudentInfo(){
@@ -86,5 +86,5 @@ public class CSVParserTest {
 	public void testThatStudentEmailIsReturned(){
 		assertEquals(p.getStudentEmail(), "rgilliam@jsu.edu");
 	}
-
+	
 }

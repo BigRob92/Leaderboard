@@ -31,8 +31,4 @@ public class GradeBookTest{
 		assertEquals(gb.getIds(), studentList);
 	}
 	
-	/*@Test
-	public void testThatGradesAreReturned(){
-		assertEquals(gb.getGrades().size(), gb.getIds().size()*gb.getColumnHeaders().size());
-	}*/
 }
