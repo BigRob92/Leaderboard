@@ -31,11 +31,8 @@ public class GradeBookTest{
 		assertEquals(gb.getIds(), studentList);
 	}
 	
-	@Test
+	/*@Test
 	public void testThatGradesAreReturned(){
 		assertEquals(gb.getGrades().size(), gb.getIds().size()*gb.getColumnHeaders().size());
-	}
+	}*/
 }
-
-//add test to get one particular grade
-//use that method in core class(es)

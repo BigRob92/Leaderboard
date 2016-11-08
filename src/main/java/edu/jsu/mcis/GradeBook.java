@@ -35,40 +35,31 @@ public class GradeBook{
 			}
 		}
 		catch(IOException e){}
-		catch(NullPointerException e){}
+		//catch(NullPointerException e){}
 	}
 	
 	public List<Float> getColumnGrades(){
-		/*try{
-			InputStream resource = getClass().getClassLoader().getResourceAsStream(filePath);
-			CSVReader reader = new CSVReader(new InputStreamReader(resource), ',','\"');
-			String [] nextLine = reader.readNext();
-			while((nextLine = reader.readNext()) != null){
-				columnGrades.add(Float.parseFloat(nextLine[column]));
-			}
-		}
-		catch(IOException e){}*/
 		return columnGrades;
 	}
 	
 	public List<String> getColumnHeaders() {
 		return columnHeaders;
 	}
-
-	public List<List<Float>> getGrades(){
+	//not needed
+	/*public List<List<Float>> getGrades(){
 		return grades;
 	}
 	
 	public List<Float> getRowGrades() {
 		return rowGrades;
-	}
+	}*/
 
 	public List<String> getIds(){
 		return ids;
 	}
-	public String getIdsAsString() {
+	/*public String getIdsAsString() {
 		return String.join("/n", ids);
-	}
+	}*/
 
 	public String getEnrollment() {
 		int enrollment = getIds().size();

@@ -27,10 +27,10 @@ public class Student {
         return lastName;
     }
 	
-	public String getName(){
+	/*public String getName(){
 		String name = firstName + " " + lastName;
 		return name;
-	}
+	}*/
     
 	
     public String getEmail() {

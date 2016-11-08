@@ -22,9 +22,9 @@ public class GamegogyGUI extends JFrame {
     
     private CSVParser p;
     private GradeBook gb;
-    private Student s;
-    private Course c;
-    private List<String> coursesList;
+    //private Student s;
+    //private Course c;
+    //private List<String> coursesList;
     private List<Float> columnGrades;
     private List<String> studentIds;
 
@@ -94,14 +94,13 @@ public class GamegogyGUI extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 JComboBox courseComboBox = (JComboBox) event.getSource();
                 Object courseSelected = courseComboBox.getSelectedItem();
-				courseComboBox.setSelectedItem(courseSelected);
 				courseSELECTED = courseSelected.toString();
 
-				if(courseSELECTED != null && !courseSELECTED.isEmpty()) {
+				if(courseSELECTED != null) {
 			
 					gb = new GradeBook("courses/"+courseSELECTED+".csv", 1);
 					columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
-					setCourse(courseSELECTED);
+					//setCourse(courseSELECTED);
 					
 					termLabel.setText(p.getCourseTerm(courseSELECTED));
 					enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
@@ -124,26 +123,23 @@ public class GamegogyGUI extends JFrame {
 		columnComboBox.setName("columnComboBox");
         columnComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-				try{
-					JComboBox columnComboBox = (JComboBox) event.getSource();
-					Object headerSelected = columnComboBox.getSelectedItem();
-					List<String> headerList = getColumnComboValues();
-					headerIndex = headerList.indexOf(headerSelected) + 1;
-					courseSELECTED = getCourse();
-					gb = new GradeBook("courses/"+courseSELECTED+".csv", headerIndex);
-					List<List<Float>> gradesList = gb.getGrades();
-					columnGrades = new ArrayList<>(gb.getColumnGrades());
-					highGrade = Collections.max(columnGrades);
-					gradeIndex = columnGrades.indexOf(highGrade);
-					studentIds = gb.getIds();
-					topStudentId = studentIds.get(gradeIndex);
-					p = new CSVParser(topStudentId);
-					idLabel.setText(topStudentId);
-					scoreLabel.setText(Float.toString(highGrade));
-					nameLabel.setText(p.getStudentName());
-					emailLabel.setText(p.getStudentEmail());
-				}
-				catch(NullPointerException e){}
+				JComboBox columnComboBox = (JComboBox) event.getSource();
+				Object headerSelected = columnComboBox.getSelectedItem();
+				List<String> headerList = getColumnComboValues();
+				headerIndex = headerList.indexOf(headerSelected) + 1;
+				//courseSELECTED = getCourse();
+				gb = new GradeBook("courses/"+courseSELECTED+".csv", headerIndex);
+				//List<List<Float>> gradesList = gb.getGrades();
+				columnGrades = new ArrayList<>(gb.getColumnGrades());
+				highGrade = Collections.max(columnGrades);
+				gradeIndex = columnGrades.indexOf(highGrade);
+				studentIds = gb.getIds();
+				topStudentId = studentIds.get(gradeIndex);
+				p = new CSVParser(topStudentId);
+				idLabel.setText(topStudentId);
+				scoreLabel.setText(Float.toString(highGrade));
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
 			}
 		});
         
@@ -156,7 +152,6 @@ public class GamegogyGUI extends JFrame {
         topPanel.add(courseComboBox, BorderLayout.WEST);
         topPanel.add(courseLabel);
         topPanel.add(columnComboBox, BorderLayout.EAST);
-        //topPanel.add(columnLabel);
 
         add(topPanel, BorderLayout.NORTH);
         add(panel, BorderLayout.SOUTH);
@@ -165,7 +160,7 @@ public class GamegogyGUI extends JFrame {
         setVisible(true);
     }
 
-    public void setCourse(String courseSELECTED) {
+    /*public void setCourse(String courseSELECTED) {
         courseId = courseSELECTED;
     }
 
@@ -183,7 +178,7 @@ public class GamegogyGUI extends JFrame {
 
     public void populateColumnComboBox() {
         columnComboBox = new JComboBox<>(gb.getColumnHeaders().toArray(new String[0]));
-    }
+    }*/
 
     public static void main(String args[]) {
         GamegogyGUI g = new GamegogyGUI();

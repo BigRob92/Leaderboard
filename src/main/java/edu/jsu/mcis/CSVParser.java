@@ -14,8 +14,6 @@ public class CSVParser {
 	private List<String> courseIds;
 	private String courseTerm;
 	private String enrollment;
-	private File f;
-	public List<File> files;
 
 	public CSVParser(String studentId) {
 		students = new ArrayList<>();
@@ -84,10 +82,11 @@ public class CSVParser {
 		return String.join("\n", studentIds);
 	}
 
-	public List<String> getStudentIdsAsList() {
+	//acceptance test still passes without these functions. They are never used in the code.
+	/*public List<String> getStudentIdsAsList() {
 		return studentIds;
 	}
-	
+	*/
 	public List<String> getCourseIdsAsList() {
 		return courseIds;
 	}

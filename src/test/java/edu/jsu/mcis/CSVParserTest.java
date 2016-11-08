@@ -14,12 +14,12 @@ public class CSVParserTest {
 	
 	@Test
 	public void testThatFirstCourseIdIsCorrect() {
-		assertTrue(p.getCourseIdsAsList().get(0).equals("99000"));
+		assertEquals(p.getCourseIdsAsList().get(0),"99000");
 	}
 
 	@Test
 	public void testThatLastCourseIdIsCorrect() {
-		assertTrue(p.getCourseIdsAsList().get(24).equals("99024"));
+		assertEquals(p.getCourseIdsAsList().get(24), "99024");
 	}
 
 	@Test
@@ -27,7 +27,7 @@ public class CSVParserTest {
 		assertEquals(p.getCourseIdsAsList().size(), 25);
 	}
 
-	@Test
+	/*@Test
 	public void testThatFirstStudentIdIsCorrect() {
 		assertTrue(p.getStudentIdsAsList().get(0).equals("111111"));
 	}
@@ -40,7 +40,7 @@ public class CSVParserTest {
 	@Test
 	public void testThatStudentsListLengthIsCorrect() {
 		assertEquals(p.getStudentIdsAsList().size(), 300);
-	}
+	}*/
 
     @Test
     public void testParserReadsStudentInfo(){
