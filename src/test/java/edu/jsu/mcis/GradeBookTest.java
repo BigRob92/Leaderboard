@@ -31,4 +31,11 @@ public class GradeBookTest{
 		assertEquals(gb.getIds(), studentList);
 	}
 	
+	@Test
+	public void testThatColumnGradesAreSorted(){
+		gb.sortColumnGrades();
+		List <Float> columnGrades = new ArrayList<>(gb.getColumnGrades());
+		assertEquals(gb.getColumnGrades(), columnGrades);
+	}
+	
 }

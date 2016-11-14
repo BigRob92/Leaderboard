@@ -152,6 +152,8 @@ public class GamegogyGUI extends JFrame {
         
         JLabel courseLabel = new JLabel("Course");
         JLabel columnLabel = new JLabel("Column");
+		JPanel centerPanel = new JPanel();
+		centerPanel.setLayout(new BorderLayout());
         
         topPanel.add(courseComboBox, BorderLayout.WEST);
         topPanel.add(courseLabel);
@@ -159,6 +161,7 @@ public class GamegogyGUI extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
         add(panel, BorderLayout.SOUTH);
+		add(centerPanel,BorderLayout.CENTER);
 
         pack();
         setVisible(true);
