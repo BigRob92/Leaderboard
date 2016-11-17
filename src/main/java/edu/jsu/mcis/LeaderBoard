@@ -1,0 +1,66 @@
+package edu.jsu.mcis;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.*;
+import java.lang.Math;
+
+public class LeaderBoard{
+	private java.util.List<ShapeObserver> observers;
+	private final Color RECTANGLE_SELECTED_COLOR = Color.green;
+	private final Color RECTANGLE_DESELECTED_COLOR = Color.blue;
+	private Point [] rectangleVertex;
+	public float width;
+	public float height = 20;
+	private boolean rectangleSelected = true;
+	
+	public LeaderBoard(){
+		observers = new ArrayList<>();
+		rectangleVertex = new Point[4];
+		for(int i = 0; i < rectangleVertex.length;i++){
+			rectangleVertex[i] = new Point();
+		}
+		Dimension dim = getPreferredSize();
+		calculateShape();
+		setBorder(BorderFactory.createLineBorder(Color.black));
+	}	
+	public void calculateShape(float totalPoints, float pointsPossible){
+		width = (totalPoints/pointsPossibles);
+	}
+	
+	@Override
+	public Dimension getPreferredSize(){
+		return new Dimension(200,200);
+	}
+	
+	@Override
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D)g;
+		Dimension dim = getPreferredSize();
+		calculateShape(500/1000);
+		Shape [] shape = getShapes();
+		g2d.setColor(Color.black);
+		for(int i = 0; i < shape.length;i++){
+			g2d.draw(shape[i]);
+		}
+		g2d.setColor(RECTANGLE_SELECTED_COLOR);
+		g2d.fill(shape[0]);
+		g2d.setColor(RECTANGLE_DESELECTED_COLOR);
+		g2d.fill(shape[1]);
+	}
+	
+	public Shape [] getShapes(){
+		Shape[] shape = new Shape[2];
+		int[] x = new int [rectangleVertex];
+		int [] y = new int [rectangleVertex];
+		for(int i = 0; i < rectangleVertex.length;i++){
+			x[i] = rectangleVertex[i].x;
+			y[i] = rectangleVertex[i].y;
+		}
+		shape[0] = new Polygon(x,y, rectangleVertex.length);
+		shape[1] = new Polygon(x,y, rectangleVertex.length);
+		return shape;
+	}
+}

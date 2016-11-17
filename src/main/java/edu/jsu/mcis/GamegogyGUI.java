@@ -154,6 +154,7 @@ public class GamegogyGUI extends JFrame {
         JLabel columnLabel = new JLabel("Column");
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new BorderLayout());
+		JLabel label = new JLabel("djsfkljksl");
         
         topPanel.add(courseComboBox, BorderLayout.WEST);
         topPanel.add(courseLabel);
@@ -162,6 +163,8 @@ public class GamegogyGUI extends JFrame {
         add(topPanel, BorderLayout.NORTH);
         add(panel, BorderLayout.SOUTH);
 		add(centerPanel,BorderLayout.CENTER);
+		Leaderboard lb = new Leaderboard();
+		centerPanel.add(lb);
 
         pack();
         setVisible(true);

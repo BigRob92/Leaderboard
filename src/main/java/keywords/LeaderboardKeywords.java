@@ -1,4 +1,4 @@
-package keywords;
+/*package keywords;
 
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
@@ -39,4 +39,4 @@ public class LeaderboardKeywords {
             return "Any Leaderboard";
         }
     }    
-}
+}*/
