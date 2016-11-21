@@ -1,41 +1,12 @@
 package edu.jsu.mcis;
 
-
-
 public class ShapeEvent {
-
-    private boolean rectangleOneSelected;
-
-	private boolean rectangleTwoSelected;
-
-	
-
+    private boolean selected;
     public ShapeEvent() {
-
-        this(false, false);
-
+        this(false);
     }
-
-    public ShapeEvent(boolean rectangleOneSelectedSelected, boolean rectangleTwoSelected) {
-
-		this.rectangleOneSelected = rectangleOneSelected;
-
-		this.rectangleTwoSelected = rectangleTwoSelected;
-
+    public ShapeEvent(boolean selected) {
+        this.selected = selected;
     }
-
-    public boolean rectOneIsSelected(){
-
-		return rectangleOneSelected;
-
-	}
-
-	
-
-	public boolean rectTwoIsSelected(){
-
-		return rectangleTwoSelected;
-
-	}
-
+    public boolean isSelected() { return selected; }
 }

@@ -1,46 +1,102 @@
 package edu.jsu.mcis;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
+import java.util.*;
 
-public class Leaderboard extends JPanel {
-   private static final int RECT_X = 20;
-   private static final int RECT_Y = RECT_X;
-   private static final int RECT_W = 20;
-   private static final int RECT_E = 80;
-   private static final int RECT_WIDTH = 50;
-   private static final int RECT_HEIGHT = 25;
+public class Leaderboard extends JPanel implements MouseListener {
+    private java.util.List<ShapeObserver> observers;
+    
+    
+    private final Color SELECTED_COLOR = Color.GREEN;
+    private final Color DEFAULT_COLOR = Color.BLUE;
+    private boolean selected;
+    private Point[] vertex;
 
-   @Override
-   protected void paintComponent(Graphics g) {
-      super.paintComponent(g);
-      g.drawRect(RECT_X, RECT_Y, RECT_WIDTH, RECT_HEIGHT);
-	  //g2d.setColor(Color.GREEN);
-	  g.drawRect(RECT_W, RECT_E, RECT_WIDTH, RECT_HEIGHT);
-   }
+    
+    public Leaderboard() {
+        observers = new ArrayList<>();
+        
+        selected = false;
+        vertex = new Point[4];
+        for(int i = 0; i < vertex.length; i++) { vertex[i] = new Point(); }
+        Dimension dim = getPreferredSize();
+        calculateVertices(dim.width, dim.height);
+        setBorder(BorderFactory.createLineBorder(Color.black));
+        addMouseListener(this);
+    }
 
-   @Override
-   public Dimension getPreferredSize() {
-      return new Dimension(500, 500);
-   }
+    
+    public void addShapeObserver(ShapeObserver observer) {
+        if(!observers.contains(observer)) observers.add(observer);
+    }
+    public void removeShapeObserver(ShapeObserver observer) {
+        observers.remove(observer);
+    }
+    private void notifyObservers() {
+        ShapeEvent event = new ShapeEvent(selected);
+        for(ShapeObserver obs : observers) {
+            obs.shapeChanged(event);
+        }
+    }
+    
+    
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(200, 200);
+    }
 
-   private static void createAndShowGui() {
-      Leaderboard mainPanel = new Leaderboard();
+    private void calculateVertices(int width, int height) {
+        // Square size should be half of the smallest dimension (width or height).
+        int side = Math.min(width, height) / 2;
+        Point[] sign = {new Point(-1, -1), new Point(1, -1), new Point(1, 1), new Point(-1, 1)};
+        for(int i = 0; i < vertex.length; i++) {
+            vertex[i].setLocation(width/2 + sign[i].x * side/2, 
+                                  height/2 + sign[i].y * side/2);
+        }
+    }
+    
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D)g;
+        calculateVertices(getWidth(), getHeight());
+        Shape shape = getShape();
+        g2d.setColor(Color.black);
+        g2d.draw(shape);
+        if(selected) {
+            g2d.setColor(SELECTED_COLOR);
+            g2d.fill(shape);
+        }
+        else {
+            g2d.setColor(DEFAULT_COLOR);
+            g2d.fill(shape);            
+        }
+    }
 
-      JFrame frame = new JFrame("DrawRect");
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.getContentPane().add(mainPanel);
-      frame.pack();
-      frame.setLocationByPlatform(true);
-      frame.setVisible(true);
-   }
-
-   public static void main(String[] args) {
-      SwingUtilities.invokeLater(new Runnable() {
-         public void run() {
-            createAndShowGui();
-         }
-      });
-   }
+    public void mouseClicked(MouseEvent event) {
+        Shape shape = getShape();
+        if(shape.contains(event.getX(), event.getY())) {
+            selected = !selected;
+            notifyObservers();
+        }
+        repaint(shape.getBounds());
+    }
+    public void mousePressed(MouseEvent event) {}
+    public void mouseReleased(MouseEvent event) {}
+    public void mouseEntered(MouseEvent event) {}
+    public void mouseExited(MouseEvent event) {}
+    
+    public Shape getShape() {
+        int[] x = new int[vertex.length];
+        int[] y = new int[vertex.length];
+        for(int i = 0; i < vertex.length; i++) {
+            x[i] = vertex[i].x;
+            y[i] = vertex[i].y;
+        }
+        Shape shape = new Polygon(x, y, vertex.length);
+        return shape;
+    }
+    public boolean isSelected() { return selected; }
 }
