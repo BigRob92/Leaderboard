@@ -13,18 +13,25 @@ public class Leaderboard extends JPanel implements MouseListener {
     private final Color DEFAULT_COLOR = Color.BLUE;
     private boolean selected;
     private Point[] vertex;
+	private GradeBook gb;
 
     
-    public Leaderboard() {
+    public Leaderboard(String courseSelected) {
         observers = new ArrayList<>();
         
         selected = false;
         vertex = new Point[4];
         for(int i = 0; i < vertex.length; i++) { vertex[i] = new Point(); }
         Dimension dim = getPreferredSize();
-        calculateVertices(dim.width, dim.height);
         setBorder(BorderFactory.createLineBorder(Color.black));
         addMouseListener(this);
+		if(courseSelected.equals("99000")){
+			gb = new GradeBook("courses/99000.csv", 1);
+			int length = Integer.parseInt(gb.getEnrollment());
+			for(int i = 0; i < length; i++){
+				calculateVertices(dim.width,dim.height);
+			}
+		}
     }
 
     

@@ -25,7 +25,7 @@ public class GamegogyGUI extends JFrame {
     private List<Float> columnGrades;
     private List<String> studentIds;
 
-    private String courseSELECTED;
+    public String courseSELECTED;
     private String courseId;
     private String topStudentId;
 
@@ -117,8 +117,16 @@ public class GamegogyGUI extends JFrame {
 					nameLabel.setText(p.getStudentName());
 					emailLabel.setText(p.getStudentEmail());
 					scoreLabel.setText(Float.toString(highGrade));
+					
+				JPanel centerPanel = new JPanel();
+				centerPanel.setLayout(new BorderLayout());
+				add(centerPanel,BorderLayout.CENTER);
+				Leaderboard lb = new Leaderboard(courseSELECTED);
+				centerPanel.add(lb);
 							
-				} 
+				}
+
+				
 			}
 		});
         
@@ -152,8 +160,7 @@ public class GamegogyGUI extends JFrame {
         
         JLabel courseLabel = new JLabel("Course");
         JLabel columnLabel = new JLabel("Column");
-		JPanel centerPanel = new JPanel();
-		centerPanel.setLayout(new BorderLayout());
+		
 		JLabel label = new JLabel("djsfkljksl");
         
         topPanel.add(courseComboBox, BorderLayout.WEST);
@@ -162,10 +169,11 @@ public class GamegogyGUI extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
         add(panel, BorderLayout.SOUTH);
-		add(centerPanel,BorderLayout.CENTER);
-		Leaderboard lb = new Leaderboard();
-		centerPanel.add(lb);
-
+	
+		try{
+	
+		}
+		catch(NullPointerException e){}
         pack();
         setVisible(true);
     }
