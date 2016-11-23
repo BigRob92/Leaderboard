@@ -105,7 +105,7 @@ public class Leaderboard extends JPanel implements MouseListener {
             y[i] = vertex[i].y;
         }
 		for(int i = 0; i < length;i++){
-			shapes[i] = new Rectangle(0, 40 * i, 25,25);
+			shapes[i] = new Rectangle(0, 40 * i, 700/(2+i),25);
 		}
         return shapes;
     }

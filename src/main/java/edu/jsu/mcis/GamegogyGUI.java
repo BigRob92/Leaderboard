@@ -38,7 +38,7 @@ public class GamegogyGUI extends JFrame {
     }
 	
     private void initComponents() {
-        setPreferredSize(new Dimension(500, 500));
+        setPreferredSize(new Dimension(800, 800));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setTitle("Gamegogy");
