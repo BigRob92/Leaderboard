@@ -82,13 +82,63 @@ public class Leaderboard extends JPanel implements MouseListener {
 
     public void mouseClicked(MouseEvent event) {
         Shape [] shape = getShapes();
-		for(int i = 0; i < shape.length;i++){
-			if(shape[i].contains(event.getX(), event.getY())) {
+			if(shape[0].contains(event.getX(), event.getY())) {
 				selected = !selected;
 				notifyObservers();
+				repaint(shape[0].getBounds());
 			}
-			repaint(shape[i].getBounds());
-		}
+			else if(shape[1].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[1].getBounds());
+			}
+			else if(shape[2].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[2].getBounds());
+			}
+			else if(shape[3].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[3].getBounds());
+			}
+			else if(shape[4].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[4].getBounds());
+			}
+			else if(shape[5].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[5].getBounds());
+			}
+			else if(shape[6].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[6].getBounds());
+			}
+			else if(shape[7].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[7].getBounds());
+			}
+			else if(shape[8].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[8].getBounds());
+			}
+			else if(shape[9].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[9].getBounds());
+			}
+			else if(shape[10].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[10].getBounds());
+			}
+			
+		
     }
     public void mousePressed(MouseEvent event) {}
     public void mouseReleased(MouseEvent event) {}
