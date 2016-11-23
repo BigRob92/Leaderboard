@@ -29,6 +29,17 @@ public class GradeBook{
 		catch(IOException e){}
 	}
 	
+	// We might use this for something
+	public String getSingleId(int index) {
+		return ids.get(index);
+	}
+	// This function returns a single grade.
+	// The integer "row" correlates to the index
+	// of the student id we are looking at.
+	public Float getSingleGrade(int row) {
+		return columnGrades.get(row);
+	}
+
 	public List<Float> getColumnGrades(){
 		return columnGrades;
 	}
