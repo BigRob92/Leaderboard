@@ -25,12 +25,9 @@ public class Leaderboard extends JPanel implements MouseListener {
         Dimension dim = getPreferredSize();
         setBorder(BorderFactory.createLineBorder(Color.black));
         addMouseListener(this);
-		if(courseSelected.equals("99000")){
+		calculateVertices(dim.width,dim.height);
+		if(courseSelected != null){
 			gb = new GradeBook("courses/99000.csv", 1);
-			int length = Integer.parseInt(gb.getEnrollment());
-			for(int i = 0; i < length; i++){
-				calculateVertices(dim.width,dim.height);
-			}
 		}
     }
 
@@ -51,7 +48,7 @@ public class Leaderboard extends JPanel implements MouseListener {
     
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(200, 200);
+        return new Dimension(50, 50);
     }
 
     private void calculateVertices(int width, int height) {
@@ -68,42 +65,51 @@ public class Leaderboard extends JPanel implements MouseListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
-        calculateVertices(getWidth(), getHeight());
-        Shape shape = getShape();
+        calculateVertices(50, 50);
+        Shape [] shape = getShape();
         g2d.setColor(Color.black);
-        g2d.draw(shape);
-        if(selected) {
-            g2d.setColor(SELECTED_COLOR);
-            g2d.fill(shape);
-        }
-        else {
-            g2d.setColor(DEFAULT_COLOR);
-            g2d.fill(shape);            
-        }
+        
+		for(int i = 0; i < shape.length;i++){
+			g2d.draw(shape[i]);
+			if(selected) {
+				g2d.setColor(SELECTED_COLOR);
+				g2d.fill(shape[i]);
+			}
+			else {
+				g2d.setColor(DEFAULT_COLOR);
+				g2d.fill(shape[i]);            
+			}
+		}
     }
 
     public void mouseClicked(MouseEvent event) {
-        Shape shape = getShape();
-        if(shape.contains(event.getX(), event.getY())) {
-            selected = !selected;
-            notifyObservers();
-        }
-        repaint(shape.getBounds());
+        Shape [] shape = getShape();
+		for(int i = 0; i < shape.length;i++){
+			if(shape[i].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+			}
+			repaint(shape[i].getBounds());
+		}
     }
     public void mousePressed(MouseEvent event) {}
     public void mouseReleased(MouseEvent event) {}
     public void mouseEntered(MouseEvent event) {}
     public void mouseExited(MouseEvent event) {}
     
-    public Shape getShape() {
+    public Shape [] getShape() {
         int[] x = new int[vertex.length];
         int[] y = new int[vertex.length];
+		int length = Integer.parseInt(gb.getEnrollment());
+		Shape [] shapes = new Shape [length];
         for(int i = 0; i < vertex.length; i++) {
             x[i] = vertex[i].x;
             y[i] = vertex[i].y;
         }
-        Shape shape = new Polygon(x, y, vertex.length);
-        return shape;
+		for(int i = 0; i < length;i++){
+			shapes[i] = new Rectangle(0, 40 * i, 25,25);
+		}
+        return shapes;
     }
     public boolean isSelected() { return selected; }
 }

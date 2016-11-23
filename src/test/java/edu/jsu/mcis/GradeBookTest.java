@@ -38,4 +38,13 @@ public class GradeBookTest{
 		assertEquals(gb.getColumnGrades(), columnGrades);
 	}
 	
+	@Test
+	public void testThatASingleGradeIsReturned(){
+		assertEquals(gb.getSingleGrade(0), 124.0, .000000000001);
+	}
+	
+	@Test
+	public void testThatSingleIdIsReturned(){
+		assertEquals(gb.getSingleId(0), "111291");
+	}
 }
