@@ -16,7 +16,7 @@ public class Leaderboard extends JPanel implements MouseListener {
 	private GradeBook gb;
 
     
-    public Leaderboard(String courseSelected) {
+    public Leaderboard() {
         observers = new ArrayList<>();
         
         selected = false;
@@ -26,9 +26,7 @@ public class Leaderboard extends JPanel implements MouseListener {
         setBorder(BorderFactory.createLineBorder(Color.black));
         addMouseListener(this);
 		calculateVertices(dim.width,dim.height);
-		if(courseSelected != null){
-			gb = new GradeBook("courses/99000.csv", 1);
-		}
+		gb = new GradeBook("courses/99000.csv", 1);
     }
 
     
@@ -66,7 +64,7 @@ public class Leaderboard extends JPanel implements MouseListener {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
         calculateVertices(50, 50);
-        Shape [] shape = getShape();
+        Shape [] shape = getShapes();
         g2d.setColor(Color.black);
         
 		for(int i = 0; i < shape.length;i++){
@@ -83,7 +81,7 @@ public class Leaderboard extends JPanel implements MouseListener {
     }
 
     public void mouseClicked(MouseEvent event) {
-        Shape [] shape = getShape();
+        Shape [] shape = getShapes();
 		for(int i = 0; i < shape.length;i++){
 			if(shape[i].contains(event.getX(), event.getY())) {
 				selected = !selected;
@@ -97,7 +95,7 @@ public class Leaderboard extends JPanel implements MouseListener {
     public void mouseEntered(MouseEvent event) {}
     public void mouseExited(MouseEvent event) {}
     
-    public Shape [] getShape() {
+    public Shape [] getShapes() {
         int[] x = new int[vertex.length];
         int[] y = new int[vertex.length];
 		int length = Integer.parseInt(gb.getEnrollment());

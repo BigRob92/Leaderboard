@@ -53,6 +53,10 @@ public class GamegogyGUI extends JFrame {
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 2));
+		
+		JPanel centerPanel = new JPanel();
+		centerPanel.setLayout(new BorderLayout());
+		add(centerPanel,BorderLayout.CENTER);
         
         termLabel = new JLabel(p.getCourseTerm("99000"));
 		termLabel.setName("courseTerm");
@@ -118,11 +122,8 @@ public class GamegogyGUI extends JFrame {
 					emailLabel.setText(p.getStudentEmail());
 					scoreLabel.setText(Float.toString(highGrade));
 					
-				JPanel centerPanel = new JPanel();
-				centerPanel.setLayout(new BorderLayout());
-				add(centerPanel,BorderLayout.CENTER);
-				Leaderboard lb = new Leaderboard(courseSELECTED);
-				centerPanel.add(lb);
+				
+
 							
 				}
 
@@ -169,6 +170,8 @@ public class GamegogyGUI extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
         add(panel, BorderLayout.SOUTH);
+		Leaderboard lb = new Leaderboard();
+		centerPanel.add(lb);
 	
 		try{
 	

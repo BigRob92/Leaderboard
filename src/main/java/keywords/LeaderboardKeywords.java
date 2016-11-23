@@ -1,4 +1,4 @@
-/*package keywords;
+package keywords;
 
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
@@ -12,7 +12,7 @@ import java.awt.Component;
 import java.awt.Shape;
 import java.awt.Rectangle;
 
-import edu.jsu.mcis.gamegogy.*;
+import edu.jsu.mcis.*;
 
 public class LeaderboardKeywords {
 
@@ -39,4 +39,4 @@ public class LeaderboardKeywords {
             return "Any Leaderboard";
         }
     }    
-}*/
+}
