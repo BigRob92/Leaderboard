@@ -46,7 +46,7 @@ public class GamegogyGUI extends JFrame {
     }
 	
     private void initComponents() {
-        setPreferredSize(new Dimension(800, 800));
+        setPreferredSize(new Dimension(1000, 1000));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setTitle("Gamegogy");
@@ -200,9 +200,7 @@ public class GamegogyGUI extends JFrame {
     private final Color DEFAULT_COLOR = Color.BLUE;
     private boolean selected;
     private Point[] vertex;
-	private GradeBook gb;
 
-    
     public Leaderboard() {
         observers = new ArrayList<>();
         
@@ -213,7 +211,6 @@ public class GamegogyGUI extends JFrame {
         setBorder(BorderFactory.createLineBorder(Color.black));
         addMouseListener(this);
 		calculateVertices(dim.width,dim.height);
-		gb = new GradeBook("courses/99000.csv", 1);
     }
 
     
@@ -269,97 +266,92 @@ public class GamegogyGUI extends JFrame {
 
     public void mouseClicked(MouseEvent event) {
         Shape [] shape = getShapes();
-			if(shape[0].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[0].getBounds());
-				idLabel.setText("111318");
-				nameLabel.setText("Cathleen Guzman");
-				emailLabel.setText("cguzman@jsu.edu");
-				scoreLabel.setText("925.0");
-				
-			}
-			else if(shape[1].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[1].getBounds());
-			}
-			else if(shape[2].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[2].getBounds());
-			}
-			else if(shape[3].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[3].getBounds());
-			}
-			else if(shape[4].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[4].getBounds());
-			}
-			else if(shape[5].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[5].getBounds());
-			}
-			else if(shape[6].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[6].getBounds());
-				idLabel.setText("111335");
-				nameLabel.setText("Ira Richardson");
-				emailLabel.setText("irichardson@jsu.edu");
-				scoreLabel.setText("558.0");
-			}
-			else if(shape[7].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[7].getBounds());
-			}
-			else if(shape[8].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[8].getBounds());
-			}
-			else if(shape[9].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[9].getBounds());
-			}
-			else if(shape[10].contains(event.getX(), event.getY())) {
-				selected = !selected;
-				notifyObservers();
-				repaint(shape[10].getBounds());
-				idLabel.setText("111141");
-				nameLabel.setText("Forest Rasmussen");
-				emailLabel.setText("frasmussen@jsu.edu");
-				scoreLabel.setText("381.0");
-			}
+		if(shape[0].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[0].getBounds());
+			idLabel.setText("111318");
+			nameLabel.setText("Cathleen Guzman");
+			emailLabel.setText("cguzman@jsu.edu");
+			scoreLabel.setText("925.0");
+			
+		}
+		else if(shape[1].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[1].getBounds());
+		}
+		else if(shape[2].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[2].getBounds());
+		}
+		else if(shape[3].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[3].getBounds());
+		}
+		else if(shape[4].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[4].getBounds());
+		}
+		else if(shape[5].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[5].getBounds());
+		}
+		else if(shape[6].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[6].getBounds());
+			idLabel.setText("111335");
+			nameLabel.setText("Ira Richardson");
+			emailLabel.setText("irichardson@jsu.edu");
+			scoreLabel.setText("558.0");
+		}
+		else if(shape[7].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[7].getBounds());
+		}
+		else if(shape[8].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[8].getBounds());
+		}
+		else if(shape[9].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[9].getBounds());
+		}
+		else if(shape[10].contains(event.getX(), event.getY())) {
+			selected = !selected;
+			notifyObservers();
+			repaint(shape[10].getBounds());
+			idLabel.setText("111141");
+			nameLabel.setText("Forest Rasmussen");
+			emailLabel.setText("frasmussen@jsu.edu");
+			scoreLabel.setText("381.0");
+		}
+		}
+
 			
 		
-    }
+    
     public void mousePressed(MouseEvent event) {}
     public void mouseReleased(MouseEvent event) {}
     public void mouseEntered(MouseEvent event) {}
     public void mouseExited(MouseEvent event) {}
     
     public Shape [] getShapes() {
-        int[] x = new int[vertex.length];
-        int[] y = new int[vertex.length];
 		int length = Integer.parseInt(gb.getEnrollment());
 		Shape [] shapes = new Shape [length];
-        for(int i = 0; i < vertex.length; i++) {
-            x[i] = vertex[i].x;
-            y[i] = vertex[i].y;
-        }
 		for(int i = 0; i < length;i++){
 			shapes[i] = new Rectangle(0, 40 * i, Math.round(gb.getSingleGrade(i)),25);
 		}
         return shapes;
     }
     public boolean isSelected() { return selected; }
-}
-
+	}
 }
