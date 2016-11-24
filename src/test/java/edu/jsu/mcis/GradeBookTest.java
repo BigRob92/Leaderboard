@@ -40,7 +40,7 @@ public class GradeBookTest{
 	
 	@Test
 	public void testThatASingleGradeIsReturned(){
-		assertEquals(gb.getSingleGrade(0), 124.0, .000000000001);
+		assertEquals(gb.getSingleGrade(0), 132.0, .000000000001);
 	}
 	
 	@Test

@@ -37,6 +37,7 @@ public class GradeBook{
 	// The integer "row" correlates to the index
 	// of the student id we are looking at.
 	public Float getSingleGrade(int row) {
+		sortColumnGrades();
 		return columnGrades.get(row);
 	}
 

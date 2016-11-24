@@ -27,4 +27,3 @@
 |                                  | Label Text Should Be              | studentEmail                     | irichardson@jsu.edu |
 |                                  | Label Text Should Be              | studentScore                     | 558.0               |
 |                                  | Close Window                      | Gamegogy                         |                     |
-Add Comment

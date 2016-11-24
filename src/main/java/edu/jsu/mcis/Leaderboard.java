@@ -1,4 +1,4 @@
-package edu.jsu.mcis;
+/*package edu.jsu.mcis;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -14,6 +14,7 @@ public class Leaderboard extends JPanel implements MouseListener {
     private boolean selected;
     private Point[] vertex;
 	private GradeBook gb;
+	private GamegogyGUI gg = new GamegogyGUI();
 
     
     public Leaderboard() {
@@ -86,6 +87,7 @@ public class Leaderboard extends JPanel implements MouseListener {
 				selected = !selected;
 				notifyObservers();
 				repaint(shape[0].getBounds());
+				gg.termLabel.setText("1111");
 			}
 			else if(shape[1].contains(event.getX(), event.getY())) {
 				selected = !selected;
@@ -160,4 +162,4 @@ public class Leaderboard extends JPanel implements MouseListener {
         return shapes;
     }
     public boolean isSelected() { return selected; }
-}
+}*/
