@@ -203,14 +203,9 @@ public class GamegogyGUI extends JFrame {
 
     public Leaderboard() {
         observers = new ArrayList<>();
-        
         selected = false;
-        vertex = new Point[4];
-        for(int i = 0; i < vertex.length; i++) { vertex[i] = new Point(); }
-        Dimension dim = getPreferredSize();
         setBorder(BorderFactory.createLineBorder(Color.black));
         addMouseListener(this);
-		calculateVertices(dim.width,dim.height);
     }
 
     
@@ -227,27 +222,10 @@ public class GamegogyGUI extends JFrame {
         }
     }
     
-    
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(50, 50);
-    }
-
-    private void calculateVertices(int width, int height) {
-        // Square size should be half of the smallest dimension (width or height).
-        int side = Math.min(width, height) / 2;
-        Point[] sign = {new Point(-1, -1), new Point(1, -1), new Point(1, 1), new Point(-1, 1)};
-        for(int i = 0; i < vertex.length; i++) {
-            vertex[i].setLocation(width/2 + sign[i].x * side/2, 
-                                  height/2 + sign[i].y * side/2);
-        }
-    }
-    
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
-        calculateVertices(50, 50);
         Shape [] shape = getShapes();
         g2d.setColor(Color.black);
         
