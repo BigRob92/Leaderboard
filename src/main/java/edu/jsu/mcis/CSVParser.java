@@ -14,6 +14,7 @@ public class CSVParser {
 	private List<String> courseIds;
 	private String courseTerm;
 	private String enrollment;
+	private String studentId;
 
 	public CSVParser(String studentId) {
 		students = new ArrayList<>();
@@ -36,8 +37,6 @@ public class CSVParser {
 					String email = nextLine[3].toString();
 					studentEmail = email + "@jsu.edu"; 
 				}
-				
-
 			}
 		}
 		catch(FileNotFoundException e) {}

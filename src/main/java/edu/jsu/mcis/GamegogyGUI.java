@@ -248,9 +248,10 @@ public class GamegogyGUI extends JFrame {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[0].getBounds());
+			p = new CSVParser("111318");
 			idLabel.setText("111318");
-			nameLabel.setText("Cathleen Guzman");
-			emailLabel.setText("cguzman@jsu.edu");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
 			scoreLabel.setText("925.0");
 			
 		}
@@ -258,26 +259,51 @@ public class GamegogyGUI extends JFrame {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[1].getBounds());
+			p = new CSVParser("111310");
+			idLabel.setText("111310");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
+			scoreLabel.setText("852");
 		}
 		else if(shape[2].contains(event.getX(), event.getY())) {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[2].getBounds());
+			p = new CSVParser("111383");
+			idLabel.setText("111383");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
+			scoreLabel.setText("741");
 		}
 		else if(shape[3].contains(event.getX(), event.getY())) {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[3].getBounds());
+			p = new CSVParser("111262");
+			idLabel.setText("111262");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
+			scoreLabel.setText("675");
 		}
 		else if(shape[4].contains(event.getX(), event.getY())) {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[4].getBounds());
+			p = new CSVParser("111208");
+			idLabel.setText("111208");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
+			scoreLabel.setText("614");
 		}
 		else if(shape[5].contains(event.getX(), event.getY())) {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[5].getBounds());
+			p = new CSVParser("111115");
+			idLabel.setText("111115");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
+			scoreLabel.setText("561");
 		}
 		else if(shape[6].contains(event.getX(), event.getY())) {
 			selected = !selected;
@@ -292,16 +318,31 @@ public class GamegogyGUI extends JFrame {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[7].getBounds());
+			p = new CSVParser("111406");
+			idLabel.setText("111406");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
+			scoreLabel.setText("524");
 		}
 		else if(shape[8].contains(event.getX(), event.getY())) {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[8].getBounds());
+			p = new CSVParser("111190");
+			idLabel.setText("111190");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
+			scoreLabel.setText("511");
 		}
 		else if(shape[9].contains(event.getX(), event.getY())) {
 			selected = !selected;
 			notifyObservers();
 			repaint(shape[9].getBounds());
+			p = new CSVParser("111211");
+			idLabel.setText("111211");
+			nameLabel.setText(p.getStudentName());
+			emailLabel.setText(p.getStudentEmail());
+			scoreLabel.setText("488");
 		}
 		else if(shape[10].contains(event.getX(), event.getY())) {
 			selected = !selected;
