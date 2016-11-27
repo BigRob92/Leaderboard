@@ -589,6 +589,771 @@ public class GamegogyGUI extends JFrame {
 			}
 			
 		}
+		else if (courseSELECTED.equals("99003")){
+			if(shape[0].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[0].getBounds());
+				p = new CSVParser("111167");
+				idLabel.setText("111167");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("963.0");
+				
+			}
+			else if(shape[1].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[1].getBounds());
+				p = new CSVParser("111304");
+				idLabel.setText("111304");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("892");
+			}
+			else if(shape[2].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[2].getBounds());
+				p = new CSVParser("111409");
+				idLabel.setText("111409");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("859");
+			}
+			else if(shape[3].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[3].getBounds());
+				p = new CSVParser("111115");
+				idLabel.setText("111115");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("856");
+			}
+			else if(shape[4].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[4].getBounds());
+				p = new CSVParser("111316");
+				idLabel.setText("111316");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("838");
+			}
+			else if(shape[5].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[5].getBounds());
+				p = new CSVParser("111307");
+				idLabel.setText("111307");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("837");
+			}
+			else if(shape[6].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[6].getBounds());
+				p = new CSVParser("111228");
+				idLabel.setText("111228");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("827.0");
+			}
+			else if(shape[7].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[7].getBounds());
+				p = new CSVParser("111213");
+				idLabel.setText("111213");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("825");
+			}
+			else if(shape[8].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[8].getBounds());
+				p = new CSVParser("111192");
+				idLabel.setText("111192");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("806");
+			}
+			else if(shape[9].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[9].getBounds());
+				p = new CSVParser("111353");
+				idLabel.setText("111353");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("771");
+			}
+			else if(shape[10].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[10].getBounds());
+				p = new CSVParser("111185");
+				idLabel.setText("111185");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("768");
+			}
+			else if(shape[11].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[11].getBounds());
+				p = new CSVParser("111359");
+				idLabel.setText("111359");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("763");
+			}
+			else if(shape[12].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[12].getBounds());
+				p = new CSVParser("111198");
+				idLabel.setText("111198");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("674");
+			}
+			else if(shape[13].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[13].getBounds());
+				p = new CSVParser("111254");
+				idLabel.setText("111254");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("620");
+			}
+			else if(shape[14].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[14].getBounds());
+				p = new CSVParser("111364");
+				idLabel.setText("111364");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("566");
+			}
+			else if(shape[15].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[15].getBounds());
+				p = new CSVParser("111140");
+				idLabel.setText("111140");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("532");
+			}
+			else if(shape[16].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[16].getBounds());
+				p = new CSVParser("111133");
+				idLabel.setText("111133");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("467");
+			}
+			
+		}
+		else if (courseSELECTED.equals("99004")){
+			if(shape[0].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[0].getBounds());
+				p = new CSVParser("111315");
+				idLabel.setText("111315");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("928.0");
+				
+			}
+			else if(shape[1].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[1].getBounds());
+				p = new CSVParser("111241");
+				idLabel.setText("111241");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("881");
+			}
+			else if(shape[2].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[2].getBounds());
+				p = new CSVParser("111200");
+				idLabel.setText("111200");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("878");
+			}
+			else if(shape[3].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[3].getBounds());
+				p = new CSVParser("111257");
+				idLabel.setText("111257");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("868");
+			}
+			else if(shape[4].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[4].getBounds());
+				p = new CSVParser("111153");
+				idLabel.setText("111153");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("826");
+			}
+			else if(shape[5].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[5].getBounds());
+				p = new CSVParser("111246");
+				idLabel.setText("111246");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("807");
+			}
+			else if(shape[6].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[6].getBounds());
+				p = new CSVParser("111289");
+				idLabel.setText("111289");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("794.0");
+			}
+			else if(shape[7].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[7].getBounds());
+				p = new CSVParser("111242");
+				idLabel.setText("111242");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("749");
+			}
+			else if(shape[8].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[8].getBounds());
+				p = new CSVParser("111284");
+				idLabel.setText("111284");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("727");
+			}
+			else if(shape[9].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[9].getBounds());
+				p = new CSVParser("111359");
+				idLabel.setText("111359");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("698");
+			}
+			else if(shape[10].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[10].getBounds());
+				p = new CSVParser("111154");
+				idLabel.setText("111154");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("673");
+			}
+			else if(shape[11].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[11].getBounds());
+				p = new CSVParser("111364");
+				idLabel.setText("111364");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("662");
+			}
+			else if(shape[12].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[12].getBounds());
+				p = new CSVParser("111363");
+				idLabel.setText("111363");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("651");
+			}
+			else if(shape[13].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[13].getBounds());
+				p = new CSVParser("111326");
+				idLabel.setText("111326");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("642");
+			}
+			else if(shape[14].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[14].getBounds());
+				p = new CSVParser("111116");
+				idLabel.setText("111116");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("609");
+			}
+			else if(shape[15].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[15].getBounds());
+				p = new CSVParser("111381");
+				idLabel.setText("111381");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("570");
+			}
+			else if(shape[16].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[16].getBounds());
+				p = new CSVParser("111328");
+				idLabel.setText("111328");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("514");
+			}
+			else if(shape[17].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[17].getBounds());
+				p = new CSVParser("111179");
+				idLabel.setText("111179");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("504");
+			}
+			else if(shape[18].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[18].getBounds());
+				p = new CSVParser("111389");
+				idLabel.setText("111389");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("470");
+			}
+			else if(shape[19].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[19].getBounds());
+				p = new CSVParser("111402");
+				idLabel.setText("111402");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("434");
+			}
+			
+		}
+		else if (courseSELECTED.equals("99005")){
+			if(shape[0].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[0].getBounds());
+				p = new CSVParser("111240");
+				idLabel.setText("111240");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("947.0");
+				
+			}
+			else if(shape[1].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[1].getBounds());
+				p = new CSVParser("111327");
+				idLabel.setText("111327");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("851");
+			}
+			else if(shape[2].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[2].getBounds());
+				p = new CSVParser("111297");
+				idLabel.setText("111297");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("800");
+			}
+			else if(shape[3].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[3].getBounds());
+				p = new CSVParser("111274");
+				idLabel.setText("111274");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("797");
+			}
+			else if(shape[4].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[4].getBounds());
+				p = new CSVParser("111395");
+				idLabel.setText("111395");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("777");
+			}
+			else if(shape[5].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[5].getBounds());
+				p = new CSVParser("111299");
+				idLabel.setText("111299");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("773");
+			}
+			else if(shape[6].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[6].getBounds());
+				p = new CSVParser("111318");
+				idLabel.setText("111318");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("764.0");
+			}
+			else if(shape[7].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[7].getBounds());
+				p = new CSVParser("111125");
+				idLabel.setText("111125");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("725");
+			}
+			else if(shape[8].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[8].getBounds());
+				p = new CSVParser("111221");
+				idLabel.setText("111221");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("649");
+			}
+			else if(shape[9].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[9].getBounds());
+				p = new CSVParser("111287");
+				idLabel.setText("111287");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("602");
+			}
+			else if(shape[10].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[10].getBounds());
+				p = new CSVParser("111319");
+				idLabel.setText("111319");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("546");
+			}
+			else if(shape[11].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[11].getBounds());
+				p = new CSVParser("111409");
+				idLabel.setText("111409");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("530");
+			}
+			else if(shape[12].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[12].getBounds());
+				p = new CSVParser("111244");
+				idLabel.setText("111244");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("508");
+			}
+			else if(shape[13].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[13].getBounds());
+				p = new CSVParser("111250");
+				idLabel.setText("111250");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("483");
+			}
+			else if(shape[14].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[14].getBounds());
+				p = new CSVParser("111353");
+				idLabel.setText("111353");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("457");
+			}
+		}
+		else if (courseSELECTED.equals("99006")){
+			if(shape[0].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[0].getBounds());
+				p = new CSVParser("111212");
+				idLabel.setText("111212");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("909.0");
+				
+			}
+			else if(shape[1].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[1].getBounds());
+				p = new CSVParser("111169");
+				idLabel.setText("111169");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("898");
+			}
+			else if(shape[2].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[2].getBounds());
+				p = new CSVParser("111133");
+				idLabel.setText("111133");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("889");
+			}
+			else if(shape[3].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[3].getBounds());
+				p = new CSVParser("111341");
+				idLabel.setText("111341");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("883");
+			}
+			else if(shape[4].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[4].getBounds());
+				p = new CSVParser("111285");
+				idLabel.setText("111285");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("877");
+			}
+			else if(shape[5].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[5].getBounds());
+				p = new CSVParser("111246");
+				idLabel.setText("111246");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("807");
+			}
+			else if(shape[6].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[6].getBounds());
+				p = new CSVParser("111289");
+				idLabel.setText("111289");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("794.0");
+			}
+			else if(shape[7].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[7].getBounds());
+				p = new CSVParser("111384");
+				idLabel.setText("111384");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("850");
+			}
+			else if(shape[8].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[8].getBounds());
+				p = new CSVParser("111169");
+				idLabel.setText("111169");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("838");
+			}
+			else if(shape[9].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[9].getBounds());
+				p = new CSVParser("111388");
+				idLabel.setText("111388");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("800");
+			}
+			else if(shape[10].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[10].getBounds());
+				p = new CSVParser("111115");
+				idLabel.setText("111115");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("714");
+			}
+			else if(shape[11].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[11].getBounds());
+				p = new CSVParser("111195");
+				idLabel.setText("111195");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("698");
+			}
+			else if(shape[12].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[12].getBounds());
+				p = new CSVParser("111214");
+				idLabel.setText("111214");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("692");
+			}
+			else if(shape[13].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[13].getBounds());
+				p = new CSVParser("111252");
+				idLabel.setText("111252");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("677");
+			}
+			else if(shape[14].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[14].getBounds());
+				p = new CSVParser("111226");
+				idLabel.setText("111226");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("648");
+			}
+			else if(shape[15].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[15].getBounds());
+				p = new CSVParser("111234");
+				idLabel.setText("111234");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("610");
+			}
+			else if(shape[16].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[16].getBounds());
+				p = new CSVParser("111247");
+				idLabel.setText("111247");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("583");
+			}
+			else if(shape[17].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[17].getBounds());
+				p = new CSVParser("111248");
+				idLabel.setText("111248");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("556");
+			}
+			else if(shape[18].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[18].getBounds());
+				p = new CSVParser("111213");
+				idLabel.setText("111213");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("556");
+			}
+			else if(shape[19].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[19].getBounds());
+				p = new CSVParser("111160");
+				idLabel.setText("111160");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("471");
+			}
+			else if(shape[20].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[20].getBounds());
+				p = new CSVParser("111349");
+				idLabel.setText("111349");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("432");
+			}
+			else if(shape[21].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[21].getBounds());
+				p = new CSVParser("111310");
+				idLabel.setText("111310");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("429");
+			}
+			else if(shape[22].contains(event.getX(), event.getY())) {
+				selected = !selected;
+				notifyObservers();
+				repaint(shape[22].getBounds());
+				p = new CSVParser("111140");
+				idLabel.setText("111140");
+				nameLabel.setText(p.getStudentName());
+				emailLabel.setText(p.getStudentEmail());
+				scoreLabel.setText("393");
+			}
+			
+		}
 		
 	}
 
