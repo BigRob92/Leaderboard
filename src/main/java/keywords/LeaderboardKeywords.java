@@ -22,7 +22,7 @@ public class LeaderboardKeywords {
         ContainerOperator context = (ContainerOperator) Context.getContext();
         ComponentChooser chooser = new LeaderboardChooser();
         JComponentOperator operator = new JComponentOperator(context, chooser);
-        GamegogyGUI.Leaderboard lb = (GamegogyGUI.Leaderboard)operator.getSource();
+        Leaderboard lb = (Leaderboard)operator.getSource();
         Shape[] shapes = lb.getShapes();
         if(index >= 0 && index < shapes.length) {
             Rectangle bounds = shapes[index].getBounds();
@@ -33,7 +33,7 @@ public class LeaderboardKeywords {
     class LeaderboardChooser implements ComponentChooser {
         public LeaderboardChooser() {}
         public boolean checkComponent(Component comp) {
-            return (comp instanceof GamegogyGUI.Leaderboard);
+            return (comp instanceof Leaderboard);
         }
         public String getDescription() {
             return "Any Leaderboard";
