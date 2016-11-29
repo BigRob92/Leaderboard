@@ -46,7 +46,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
     }
 	
     private void initComponents() {
-        setPreferredSize(new Dimension(1000, 1000));
+        setPreferredSize(new Dimension(1000, 700));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         setTitle("Gamegogy");
@@ -198,6 +198,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 	
 	public void leaderboardChanged(LeaderboardEvent event) {
 		System.out.println(event.getSelected());
+		idLabel.setText(event.getSelected());
 	}
 	
     public static void main(String args[]) {

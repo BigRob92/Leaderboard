@@ -14,6 +14,7 @@ public class Leaderboard extends JPanel implements MouseListener {
 		public DataPoint(String id, float grade) { this.id = id; this.grade = grade; }
 		
 		// If I make this comparable, then I can sort a collection of these things automatically.
+		
 	}
     
     private final Color SELECTED_COLOR = Color.GREEN;
