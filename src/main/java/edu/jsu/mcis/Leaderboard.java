@@ -20,6 +20,7 @@ public class Leaderboard extends JPanel implements MouseListener {
     private final Color SELECTED_COLOR = Color.GREEN;
     private final Color DEFAULT_COLOR = Color.BLUE;
     private String selected;
+	private float selected2;
     private Point[] vertex;
 	private java.util.List<DataPoint> data;
 
@@ -45,7 +46,7 @@ public class Leaderboard extends JPanel implements MouseListener {
         observers.remove(observer);
     }
     private void notifyObservers() {
-        LeaderboardEvent event = new LeaderboardEvent(selected);
+        LeaderboardEvent event = new LeaderboardEvent(selected, selected2);
         for(LeaderboardObserver obs : observers) {
             obs.leaderboardChanged(event);
         }
@@ -76,6 +77,7 @@ public class Leaderboard extends JPanel implements MouseListener {
 		for(int i = 0; i < shape.length; i++) {
 			if(shape[i].contains(event.getX(), event.getY())) {
 				selected = data.get(i).id;
+				selected2 = data.get(i).grade;
 				notifyObservers();
 				repaint();
 			}
@@ -100,4 +102,6 @@ public class Leaderboard extends JPanel implements MouseListener {
         return shapes;
     }
     public String getSelected() { return data.get(0).id; }
+	
+	public float getSelected2() { return data.get(0).grade; }
 }

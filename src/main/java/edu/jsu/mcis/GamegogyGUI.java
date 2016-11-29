@@ -198,7 +198,9 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 	
 	public void leaderboardChanged(LeaderboardEvent event) {
 		System.out.println(event.getSelected());
+		System.out.println(event.getSelectedGrade());
 		idLabel.setText(event.getSelected());
+		scoreLabel.setText(Float.toString(event.getSelectedGrade()));
 	}
 	
     public static void main(String args[]) {
