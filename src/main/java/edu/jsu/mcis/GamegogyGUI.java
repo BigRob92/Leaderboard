@@ -41,6 +41,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 	
 	private Leaderboard lb;
 	private List<String> studentNames;
+	private List <String> studentEmails;
     public GamegogyGUI() {
         initComponents();
     }
@@ -131,7 +132,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					scoreLabel.setText(Float.toString(highGrade));
 					
 					setLeaderboardData();
-					setNameData();
+					//setNameData();
 				}
 
 				
@@ -160,7 +161,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					emailLabel.setText(p.getStudentEmail());
 					
 					setLeaderboardData();
-					setNameData();
+					//setNameData();
 				}
 				catch(NullPointerException e){}
 			}
@@ -204,44 +205,26 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 		}
 	}
 	
-	private String setNameLabel(){
-		LeaderboardEvent le = new LeaderboardEvent("", highGrade, "", "");
-		setStudentNames();
-		for(int i = 0; i < studentNames.size(); i++){
-			if(studentIds.get(i) == le.getSelected()){
-				nameLabel.setText(studentNames.get(i));
-				return studentIds.get(i);
-			}
-		}
-		return "";
-	}
-		
-	private void setNameData() {
-		Map<String, String> map = new HashMap<>();
-		List <String> studentNames = new ArrayList<>();
+	private void setStudentEmails() {
+		studentEmails = new ArrayList<>();
 		for(int i = 0; i < columnGrades.size();i++){
 			CSVParser p = new CSVParser(studentIds.get(i));
-			studentNames.add(p.getStudentName());
+			studentEmails.add(p.getStudentEmail());
 		}
-		for(int i = 0; i < columnGrades.size();i++){
-			map.put(studentIds.get(i), studentNames.get(i));
-			//System.out.println(map);//currently stores the correct names correctly, but...
-		}
-		lb.setStudentName(map);
-		System.out.println(map);
 	}
+	
 	
 	public void leaderboardChanged(LeaderboardEvent event) {
 		Leaderboard lb = new Leaderboard();
-		setNameLabel();
+		setStudentNames();
+		setStudentEmails();
 		System.out.println(event.getSelected());
 		System.out.println(event.getSelectedGrade()); 
-		System.out.println(event.getSelectedName());
-		System.out.println(setNameLabel());
 		
 		for(int i = 0; i < studentNames.size();i++){
 			if(studentIds.get(i) == event.getSelected()){
 				nameLabel.setText(studentNames.get(i));
+				emailLabel.setText(studentEmails.get(i));
 			}
 			
 		}

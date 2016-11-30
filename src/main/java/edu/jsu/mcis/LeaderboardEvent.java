@@ -6,7 +6,7 @@ public class LeaderboardEvent {
 	private String nameSelected;
 	private String nameId;
 	private String emailSelected;
-    public LeaderboardEvent(String id, float grade,String nameId, String nameSelected) {
+    public LeaderboardEvent(String id, float grade) {
         selected = id;
 		selected2 = grade;
 		nameId = nameId;
@@ -16,6 +16,4 @@ public class LeaderboardEvent {
 	
 	public float getSelectedGrade() {return selected2; }
 	
-	public String getSelectedNameId() { return nameId; }
-	public String getSelectedName() { return nameSelected; }
 }
