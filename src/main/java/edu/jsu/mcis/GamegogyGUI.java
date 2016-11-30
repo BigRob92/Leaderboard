@@ -17,7 +17,7 @@ import java.util.*;
 
 public class GamegogyGUI extends JFrame implements LeaderboardObserver{
     
-    public JLabel termLabel;
+    private JLabel termLabel;
     private JLabel enrollmentLabel;
     private JLabel idLabel;
     private JLabel nameLabel;
@@ -31,7 +31,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
     private List<Float> columnGrades;
     private List<String> studentIds;
 
-    public String courseSELECTED;
+    private String courseSELECTED;
     private String courseId;
     private String topStudentId;
 
@@ -131,6 +131,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					scoreLabel.setText(Float.toString(highGrade));
 					
 					setLeaderboardData();
+					setNameData();
 
 							
 				}
@@ -161,6 +162,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					emailLabel.setText(p.getStudentEmail());
 					
 					setLeaderboardData();
+					setNameData();
 				}
 				catch(NullPointerException e){}
 			}
@@ -196,14 +198,29 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 		lb.setData(map);
 	}
 	
+	private void setNameData() {
+		Map<String, String> map = new HashMap<>();
+		List <String> studentNames = new ArrayList<>();
+		for(int i = 0; i < columnGrades.size();i++){
+			CSVParser p = new CSVParser(studentIds.get(i));
+			studentNames.add(p.getStudentName());
+			map.put(studentIds.get(i), studentNames.get(i));
+			System.out.println(studentNames);
+		}
+		lb.setStudentName(map);
+	}
+	
 	public void leaderboardChanged(LeaderboardEvent event) {
 		System.out.println(event.getSelected());
 		System.out.println(event.getSelectedGrade());
+		System.out.println(event.getSelectedName());
+		System.out.println(event.getNameId());
 		idLabel.setText(event.getSelected());
 		scoreLabel.setText(Float.toString(event.getSelectedGrade()));
+		//nameLabel.setText(event.getSelectedName());
 	}
 	
-    public static void main(String args[]) {
+    private static void main(String args[]) {
         GamegogyGUI g = new GamegogyGUI();
     }
 }

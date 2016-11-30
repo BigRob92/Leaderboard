@@ -16,13 +16,22 @@ public class Leaderboard extends JPanel implements MouseListener {
 		// If I make this comparable, then I can sort a collection of these things automatically.
 		
 	}
+	
+	public class studentData {
+		public String id;
+		public String name;
+		public studentData(String id, String name){ this.id = id; this.name = name; }
+	}
     
     private final Color SELECTED_COLOR = Color.GREEN;
     private final Color DEFAULT_COLOR = Color.BLUE;
     private String selected;
 	private float selected2;
-    private Point[] vertex;
+	private String nameId;
+	public String nameSelected;
+	private String emailSelected;
 	private java.util.List<DataPoint> data;
+	public java.util.List<studentData> nameData;
 
     public Leaderboard() {
         observers = new ArrayList<>();
@@ -38,6 +47,14 @@ public class Leaderboard extends JPanel implements MouseListener {
 			this.data.add(p);
 		}		
 	}
+	
+	public void setStudentName(Map<String,String> nameData){
+		this.nameData = new ArrayList<>();
+		for(String id : nameData.keySet()) {
+			studentData s = new studentData (id, nameData.get(id));
+			this.nameData.add(s);
+		}
+	}
     
     public void addLeaderboardObserver(LeaderboardObserver observer) {
         if(!observers.contains(observer)) observers.add(observer);
@@ -46,7 +63,7 @@ public class Leaderboard extends JPanel implements MouseListener {
         observers.remove(observer);
     }
     private void notifyObservers() {
-        LeaderboardEvent event = new LeaderboardEvent(selected, selected2);
+        LeaderboardEvent event = new LeaderboardEvent(selected, selected2, nameId, nameSelected);
         for(LeaderboardObserver obs : observers) {
             obs.leaderboardChanged(event);
         }
@@ -78,6 +95,8 @@ public class Leaderboard extends JPanel implements MouseListener {
 			if(shape[i].contains(event.getX(), event.getY())) {
 				selected = data.get(i).id;
 				selected2 = data.get(i).grade;
+				//nameId = nameData.get(i).id;
+				//nameSelected = nameData.get(i).name;
 				notifyObservers();
 				repaint();
 			}
@@ -104,4 +123,6 @@ public class Leaderboard extends JPanel implements MouseListener {
     public String getSelected() { return data.get(0).id; }
 	
 	public float getSelected2() { return data.get(0).grade; }
+	
+	public String getNameSelected() {return nameData.get(0).name; }
 }
