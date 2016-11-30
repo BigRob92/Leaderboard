@@ -31,7 +31,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
     private List<Float> columnGrades;
     private List<String> studentIds;
 
-    private String courseSELECTED;
+    public String courseSELECTED;
     private String courseId;
     private String topStudentId;
 
@@ -40,7 +40,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
     private int headerIndex;
 	
 	private Leaderboard lb;
-
+	private List<String> studentNames;
     public GamegogyGUI() {
         initComponents();
     }
@@ -132,8 +132,6 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					
 					setLeaderboardData();
 					setNameData();
-
-							
 				}
 
 				
@@ -198,50 +196,61 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 		lb.setData(map);
 	}
 	
+	private void setStudentNames() {
+		studentNames = new ArrayList<>();
+		for(int i = 0; i < columnGrades.size();i++){
+			CSVParser p = new CSVParser(studentIds.get(i));
+			studentNames.add(p.getStudentName());
+		}
+	}
+	
+	private String setNameLabel(){
+		LeaderboardEvent le = new LeaderboardEvent("", highGrade, "", "");
+		setStudentNames();
+		for(int i = 0; i < studentNames.size(); i++){
+			if(studentIds.get(i) == le.getSelected()){
+				nameLabel.setText(studentNames.get(i));
+				return studentIds.get(i);
+			}
+		}
+		return "";
+	}
+		
 	private void setNameData() {
 		Map<String, String> map = new HashMap<>();
 		List <String> studentNames = new ArrayList<>();
 		for(int i = 0; i < columnGrades.size();i++){
 			CSVParser p = new CSVParser(studentIds.get(i));
 			studentNames.add(p.getStudentName());
+		}
+		for(int i = 0; i < columnGrades.size();i++){
 			map.put(studentIds.get(i), studentNames.get(i));
-			System.out.println(studentNames);
+			//System.out.println(map);//currently stores the correct names correctly, but...
 		}
 		lb.setStudentName(map);
+		System.out.println(map);
 	}
 	
 	public void leaderboardChanged(LeaderboardEvent event) {
+		Leaderboard lb = new Leaderboard();
+		setNameLabel();
 		System.out.println(event.getSelected());
-		System.out.println(event.getSelectedGrade());
+		System.out.println(event.getSelectedGrade()); 
 		System.out.println(event.getSelectedName());
-		System.out.println(event.getNameId());
+		System.out.println(setNameLabel());
+		
+		for(int i = 0; i < studentNames.size();i++){
+			if(studentIds.get(i) == event.getSelected()){
+				nameLabel.setText(studentNames.get(i));
+			}
+			
+		}
 		idLabel.setText(event.getSelected());
 		scoreLabel.setText(Float.toString(event.getSelectedGrade()));
-		//nameLabel.setText(event.getSelectedName());
+		
 	}
-	
+		
     private static void main(String args[]) {
         GamegogyGUI g = new GamegogyGUI();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
