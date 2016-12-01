@@ -44,7 +44,12 @@ public class GradeBook{
 	public List<Float> getColumnGrades(){
 		return columnGrades;
 	}
-
+	
+	public void sortColumnGrades(){
+		Comparator<Float> comparator = Collections.reverseOrder();
+		Collections.sort(columnGrades,comparator);
+	}
+	
 	public List<String> getColumnHeaders() {
 		return columnHeaders;
 	}
