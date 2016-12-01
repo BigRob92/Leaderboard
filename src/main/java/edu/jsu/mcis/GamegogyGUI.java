@@ -131,7 +131,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					scoreLabel.setText(Float.toString(highGrade));
 					
 					setLeaderboardData();
-					//setNameData();
+					repaint();
 				}
 
 				
@@ -143,7 +143,6 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
         columnComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
 				try {
-					//setLeaderboardData();
 					JComboBox columnComboBox = (JComboBox) event.getSource();
 					Object headerSelected = columnComboBox.getSelectedItem();
 					List<String> headerList = gb.getColumnHeaders();
@@ -161,7 +160,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					emailLabel.setText(p.getStudentEmail());
 					
 					setLeaderboardData();
-					//setNameData();
+					repaint();
 				}
 				catch(NullPointerException e){}
 			}
@@ -192,7 +191,6 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 	private void setLeaderboardData()  {
 		Map<String, Float> map = new HashMap<>();
 		for(int i = 0; i < columnGrades.size(); i++) {
-			System.out.println(studentIds.get(i) + "  " + columnGrades.get(i));
 			map.put(studentIds.get(i), columnGrades.get(i));
 		}
 		lb.setData(map);
@@ -218,18 +216,16 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 	public void leaderboardChanged(LeaderboardEvent event) {
 		Leaderboard lb = new Leaderboard();
 		setStudentNames();
-		setStudentEmails();
-		System.out.println(event.getSelected());
-		System.out.println(event.getSelectedGrade()); 
+		setStudentEmails(); 
 		
 		for(int i = 0; i < studentNames.size();i++){
-			if(studentIds.get(i) == event.getSelected()){
+			if(studentIds.get(i) == event.getSelectedId()){
 				nameLabel.setText(studentNames.get(i));
 				emailLabel.setText(studentEmails.get(i));
 			}
 			
 		}
-		idLabel.setText(event.getSelected());
+		idLabel.setText(event.getSelectedId());
 		scoreLabel.setText(Float.toString(event.getSelectedGrade()));
 		
 	}

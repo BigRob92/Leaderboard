@@ -25,16 +25,15 @@ public class Leaderboard extends JPanel implements MouseListener {
 		
 	}
 	
-    
     private final Color SELECTED_COLOR = Color.GREEN;
     private final Color DEFAULT_COLOR = Color.BLUE;
-    private String selected;
-	private float selected2;
+    private String selectedId;
+	private float selectedGrade;
 	private java.util.List<DataPoint> data;
 
     public Leaderboard() {
         observers = new ArrayList<>();
-        selected = "";
+        selectedId = "";
         setBorder(BorderFactory.createLineBorder(Color.black));
         addMouseListener(this);
     }
@@ -55,8 +54,8 @@ public class Leaderboard extends JPanel implements MouseListener {
     public void removeLeaderboardObserver(LeaderboardObserver observer) {
         observers.remove(observer);
     }
-    private void notifyObservers() {
-        LeaderboardEvent event = new LeaderboardEvent(selected, selected2);
+    public void notifyObservers() {
+        LeaderboardEvent event = new LeaderboardEvent(selectedId, selectedGrade);
         for(LeaderboardObserver obs : observers) {
             obs.leaderboardChanged(event);
         }
@@ -71,7 +70,7 @@ public class Leaderboard extends JPanel implements MouseListener {
         
 		for(int i = 0; i < shape.length;i++){
 			g2d.draw(shape[i]);
-			if(data.get(i).id.equals(selected)) {
+			if(data.get(i).id.equals(selectedId)) {
 				g2d.setColor(SELECTED_COLOR);
 				g2d.fill(shape[i]);
 			}
@@ -83,28 +82,23 @@ public class Leaderboard extends JPanel implements MouseListener {
     }
 
     public void mouseClicked(MouseEvent event) {
-        Shape [] shape = getShapes();
+        Shape[] shape = getShapes();
 		for(int i = 0; i < shape.length; i++) {
 			if(shape[i].contains(event.getX(), event.getY())) {
-				selected = data.get(i).id;
-				selected2 = data.get(i).grade;
+				selectedId = data.get(i).id;
+				selectedGrade = data.get(i).grade;
 				notifyObservers();
 				repaint();
 			}
 		}		
 	}
 
-			
-		
-    
-    public void mousePressed(MouseEvent event) {
-	}
+    public void mousePressed(MouseEvent event) {}
     public void mouseReleased(MouseEvent event) {}
     public void mouseEntered(MouseEvent event) {}
     public void mouseExited(MouseEvent event) {}
     
     public Shape[] getShapes() {
-		// Sort the grades in data in order to make this accurate.
 		int length = data.size();
 		Shape[] shapes = new Shape[length];
 		for(int i = 0; i < length;i++){
@@ -112,6 +106,5 @@ public class Leaderboard extends JPanel implements MouseListener {
 		}
         return shapes;
     }
-	
-	
+
 }
