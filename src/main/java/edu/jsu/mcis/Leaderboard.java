@@ -8,13 +8,19 @@ import java.util.*;
 public class Leaderboard extends JPanel implements MouseListener {
     private java.util.List<LeaderboardObserver> observers;
     
-	private class DataPoint {
+	private class DataPoint implements Comparable<DataPoint> {
 		public String id;
 		public float grade;
 		public String name;
 		
-		public DataPoint(String id, float grade) { this.id = id; this.grade = grade; }
+		public DataPoint(String id, float grade) { this.grade = grade; this.id = id; }
 		
+		public int compareTo(DataPoint other) {
+			if(grade < other.grade) return 1;
+			else if(grade > other.grade) return -1;
+			else return 0;
+		}
+
 		// If I make this comparable, then I can sort a collection of these things automatically.
 		
 	}
@@ -38,7 +44,8 @@ public class Leaderboard extends JPanel implements MouseListener {
 		for(String id : data.keySet()) {
 			DataPoint p = new DataPoint(id, data.get(id));
 			this.data.add(p);
-		}		
+		}
+		Collections.sort(this.data);
 	}
 	
     
@@ -105,9 +112,6 @@ public class Leaderboard extends JPanel implements MouseListener {
 		}
         return shapes;
     }
-    public String getSelected() { return data.get(0).id; }
-	
-	public float getSelected2() { return data.get(0).grade; }
 	
 	
 }

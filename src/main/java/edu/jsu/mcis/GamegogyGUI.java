@@ -114,7 +114,6 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 				courseSELECTED = courseSelected.toString();
 
 				if(courseSELECTED != null) {
-			
 					gb = new GradeBook("courses/"+courseSELECTED+".csv", 1);
 					columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
 					
@@ -144,6 +143,7 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
         columnComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
 				try {
+					//setLeaderboardData();
 					JComboBox columnComboBox = (JComboBox) event.getSource();
 					Object headerSelected = columnComboBox.getSelectedItem();
 					List<String> headerList = gb.getColumnHeaders();
@@ -189,9 +189,10 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
         setVisible(true);
     }
 
-	private void setLeaderboardData() {
+	private void setLeaderboardData()  {
 		Map<String, Float> map = new HashMap<>();
 		for(int i = 0; i < columnGrades.size(); i++) {
+			System.out.println(studentIds.get(i) + "  " + columnGrades.get(i));
 			map.put(studentIds.get(i), columnGrades.get(i));
 		}
 		lb.setData(map);

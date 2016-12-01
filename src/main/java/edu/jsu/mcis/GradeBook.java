@@ -42,7 +42,7 @@ public class GradeBook{
 	}
 
 	public List<Float> getColumnGrades(){
-		sortColumnGrades();
+		//sortColumnGrades();
 		return columnGrades;
 	}
 	
