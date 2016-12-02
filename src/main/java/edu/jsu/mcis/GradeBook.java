@@ -29,26 +29,10 @@ public class GradeBook{
 		catch(IOException e){}
 	}
 
-	public String getSingleId(int index) {
-		return ids.get(index);
-	}
-
-	// This function returns a single grade.
-	// The integer "row" correlates to the index
-	// of the student id we are looking at.
-	public Float getSingleGrade(int row) {
-		sortColumnGrades();
-		return columnGrades.get(row);
-	}
-
 	public List<Float> getColumnGrades(){
 		return columnGrades;
 	}
 	
-	public void sortColumnGrades(){
-		Comparator<Float> comparator = Collections.reverseOrder();
-		Collections.sort(columnGrades,comparator);
-	}
 	
 	public List<String> getColumnHeaders() {
 		return columnHeaders;

@@ -31,20 +31,4 @@ public class GradeBookTest{
 		assertEquals(gb.getIds(), studentList);
 	}
 	
-	@Test
-	public void testThatColumnGradesAreSorted(){
-		gb.sortColumnGrades();
-		List <Float> columnGrades = new ArrayList<>(gb.getColumnGrades());
-		assertEquals(gb.getColumnGrades(), columnGrades);
-	}
-	
-	@Test
-	public void testThatASingleGradeIsReturned(){
-		assertEquals(gb.getSingleGrade(0), 132.0, .000000000001);
-	}
-	
-	@Test
-	public void testThatSingleIdIsReturned(){
-		assertEquals(gb.getSingleId(0), "111291");
-	}
 }

@@ -14,7 +14,6 @@ public class CSVParser {
 	private List<String> courseIds;
 	private String courseTerm;
 	private String enrollment;
-	private String studentId;
 
 	public CSVParser(String studentId) {
 		students = new ArrayList<>();

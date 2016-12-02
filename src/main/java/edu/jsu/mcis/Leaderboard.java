@@ -11,7 +11,6 @@ public class Leaderboard extends JPanel implements MouseListener {
 	private class DataPoint implements Comparable<DataPoint> {
 		public String id;
 		public float grade;
-		public String name;
 		
 		public DataPoint(String id, float grade) { this.grade = grade; this.id = id; }
 		
