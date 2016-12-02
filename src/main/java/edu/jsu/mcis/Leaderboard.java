@@ -20,9 +20,6 @@ public class Leaderboard extends JPanel implements MouseListener {
 			else if(grade > other.grade) return -1;
 			else return 0;
 		}
-
-		// If I make this comparable, then I can sort a collection of these things automatically.
-		
 	}
 	
     private final Color SELECTED_COLOR = Color.GREEN;

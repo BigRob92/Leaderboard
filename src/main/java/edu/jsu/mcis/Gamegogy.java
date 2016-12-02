@@ -24,11 +24,11 @@ public class Gamegogy {
                     studentId = args[1];
                     System.out.println(parser.getStudent(studentId));
                 }
-            else if (arg.equals("course")) {
+                else if (arg.equals("course")) {
                     courseId = args[1];
                     System.out.println(parser.getCourse(courseId));
                 }
-                else {System.exit(0);}
+                else { System.exit(0); }
             }
         }
     }
