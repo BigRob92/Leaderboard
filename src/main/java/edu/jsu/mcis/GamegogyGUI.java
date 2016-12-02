@@ -15,7 +15,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class GamegogyGUI extends JFrame implements LeaderboardObserver{
+public class GamegogyGUI extends JFrame implements LeaderboardObserver {
     
     private JLabel termLabel;
     private JLabel enrollmentLabel;
@@ -42,9 +42,10 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 	private Leaderboard lb;
 	private List<String> studentNames;
 	private List <String> studentEmails;
-    public GamegogyGUI() {
-        initComponents();
-    }
+    
+	public GamegogyGUI() {
+		initComponents();
+	}
 	
     private void initComponents() {
         setPreferredSize(new Dimension(1000, 700));
@@ -117,14 +118,18 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					gb = new GradeBook("courses/"+courseSELECTED+".csv", 1);
 					columnComboBox.setModel(new DefaultComboBoxModel<>(gb.getColumnHeaders().toArray(new String[0])));
 					
-					termLabel.setText(p.getCourseTerm(courseSELECTED));
-					enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
+					
 					columnGrades = new ArrayList<>(gb.getColumnGrades());
 					highGrade = Collections.max(columnGrades);
 					gradeIndex = columnGrades.indexOf(highGrade);
+					
 					studentIds = gb.getIds();
 					topStudentId = studentIds.get(gradeIndex);
 					p = new CSVParser(topStudentId);
+					
+					termLabel.setText(p.getCourseTerm(courseSELECTED));
+					enrollmentLabel.setText(p.getEnrollment(courseSELECTED));
+
 					idLabel.setText(topStudentId);
 					nameLabel.setText(p.getStudentName());
 					emailLabel.setText(p.getStudentEmail());
@@ -146,18 +151,22 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver{
 					JComboBox columnComboBox = (JComboBox) event.getSource();
 					Object headerSelected = columnComboBox.getSelectedItem();
 					List<String> headerList = gb.getColumnHeaders();
+					
 					headerIndex = headerList.indexOf(headerSelected) + 1;
 					gb = new GradeBook("courses/"+courseSELECTED+".csv", headerIndex);
+					
 					columnGrades = new ArrayList<>(gb.getColumnGrades());
 					highGrade = Collections.max(columnGrades);
 					gradeIndex = columnGrades.indexOf(highGrade);
+					
 					studentIds = gb.getIds();
 					topStudentId = studentIds.get(gradeIndex);
 					p = new CSVParser(topStudentId);
+					
 					idLabel.setText(topStudentId);
-					scoreLabel.setText(Float.toString(highGrade));
 					nameLabel.setText(p.getStudentName());
 					emailLabel.setText(p.getStudentEmail());
+					scoreLabel.setText(Float.toString(highGrade));
 					
 					setLeaderboardData();
 					repaint();
