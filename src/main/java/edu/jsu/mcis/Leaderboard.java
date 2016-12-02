@@ -66,7 +66,13 @@ public class Leaderboard extends JPanel implements MouseListener {
         
 		for(int i = 0; i < shape.length;i++){
 			g2d.draw(shape[i]);
-			if(data.get(i).id.equals(selectedId)) {
+			if (selectedId.equals("")) {
+				g2d.setColor(SELECTED_COLOR);
+				g2d.fill(shape[0]);
+				g2d.setColor(DEFAULT_COLOR);
+				g2d.fill(shape[i]);
+			}
+			else if (data.get(i).id.equals(selectedId)) {
 				g2d.setColor(SELECTED_COLOR);
 				g2d.fill(shape[i]);
 			}

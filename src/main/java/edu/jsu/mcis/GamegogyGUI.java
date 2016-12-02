@@ -221,7 +221,6 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver {
 		}
 	}
 	
-	
 	public void leaderboardChanged(LeaderboardEvent event) {
 		Leaderboard lb = new Leaderboard();
 		setStudentNames();
