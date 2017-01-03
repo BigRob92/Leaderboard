@@ -1,38 +1,26 @@
-/*
 package edu.jsu.mcis;
-import java.util.*;
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.List;
 
-public class GamegogyGUITest {
-    
-    private GamegogyGUI g;
-    private String cDefault;
-
-    @Before
-    public void setup() {
-        g = new GamegogyGUI();
-    }
-
-    @Test
-    public void testCourseComboBoxHasCorrectValues() {
-        assertTrue();
-    }
-
-    @Test
-    public void testGradeDataisLoaded() {
-        assertTrue(false);
-    }
-
-    @Test
-    public void testCourseDataIsLoaded() {
-        assertTrue(false);
-    }
-    
-    @Test
-    public void testTopStudentIsLoaded() {
-        assertTrue(false);
-    }
-    
+public class GamegogyGUITest{
+	
+	private GamegogyGUI g;
+	
+	@Before
+	public void setUp(){
+		g = new GamegogyGUI();
+	}
+	
+	@Test
+	public void testThatStudentNamesAreReturned(){
+		List <String> tempList = g.getStudentNames();
+		assertEquals(g.getStudentNames(), tempList);
+	}
+	
+	@Test
+	public void testThatStudentEmailsAreReturned(){
+		List<String> tempList = g.getStudentEmails();
+		assertEquals(g.getStudentEmails(), tempList);
+	}
 }
-*/

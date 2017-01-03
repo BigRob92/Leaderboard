@@ -21,6 +21,18 @@ public class CSVParserTest {
 	public void testThatLastCourseIdIsCorrect() {
 		assertEquals(p.getCourseIdsAsList().get(24), "99024");
 	}
+	
+	@Test
+	public void testThatStudentIdsAreReturned(){
+		String tempIds = p.getStudentIds();
+		assertEquals(tempIds, p.getStudentIds());
+	}
+	
+	@Test
+	public void testThatCourseIdsAreReturned(){
+		String courseIds = p.getCourseIds();
+		assertEquals(courseIds, p.getCourseIds());
+	}
 
 	@Test
 	public void testThatCourseListLengthIsCorrect() {

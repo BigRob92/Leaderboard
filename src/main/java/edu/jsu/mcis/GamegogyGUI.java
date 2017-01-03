@@ -213,12 +213,22 @@ public class GamegogyGUI extends JFrame implements LeaderboardObserver {
 		}
 	}
 	
+	public List <String> getStudentNames() {
+		setStudentNames();
+		return studentNames;
+	}
+	
 	private void setStudentEmails() {
 		studentEmails = new ArrayList<>();
 		for(int i = 0; i < columnGrades.size();i++){
 			CSVParser p = new CSVParser(studentIds.get(i));
 			studentEmails.add(p.getStudentEmail());
 		}
+	}
+	
+	public List <String> getStudentEmails() {
+		setStudentEmails();
+		return studentEmails;
 	}
 	
 	public void leaderboardChanged(LeaderboardEvent event) {
